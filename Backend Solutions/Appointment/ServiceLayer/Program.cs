@@ -16,10 +16,10 @@ var config = builder.Configuration.GetConnectionString("AppointmentDB");
 builder.Services.AddDbContext<AppointmentDbContext>(options => options.UseSqlServer(config));
 
 builder.Services.AddScoped<IAppointment, AppointmentLogic>();
-builder.Services.AddScoped<IAppointmentRepo<DataEntities.Entities.Appointment>, AppointmentRepo>();
+builder.Services.AddScoped<IAppointmentRepo, AppointmentRepo>();
 
 builder.Services.AddScoped<IPatientCheckUP,PatientCheckUpLogic>();
-builder.Services.AddScoped<IPatientCheckUpRepo<DataEntities.Entities.PatientIntialCheckup>, PatientCheckUpRepo>();
+builder.Services.AddScoped<IPatientCheckUpRepo, PatientCheckUpRepo>();
 
 
 var app = builder.Build();

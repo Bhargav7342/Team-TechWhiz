@@ -7,7 +7,7 @@ using DataEntities.Entities;
 
 namespace DataEntities
 {
-    public  interface IAppointmentRepo<Appointment>
+    public  interface IAppointmentRepo
     {
         public  List<DataEntities.Entities.Appointment> GetAppointmentsByPatient(Guid patient_id);
 

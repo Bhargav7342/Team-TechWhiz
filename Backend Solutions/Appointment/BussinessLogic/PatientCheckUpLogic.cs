@@ -13,8 +13,8 @@ namespace BussinessLogic
     public class PatientCheckUpLogic : IPatientCheckUP
     {
         AppointmentDbContext context;
-        IPatientCheckUpRepo<DataEntities.Entities.PatientIntialCheckup> repo;
-        public PatientCheckUpLogic(IPatientCheckUpRepo<DataEntities.Entities.PatientIntialCheckup> _repo, AppointmentDbContext _context)
+        IPatientCheckUpRepo repo;
+        public PatientCheckUpLogic(IPatientCheckUpRepo _repo, AppointmentDbContext _context)
         {
             repo = _repo;
             context = _context;
@@ -26,11 +26,7 @@ namespace BussinessLogic
             return Mapper.Map(repo.AddCheckUpDetails(Mapper.Map(initialCheckUp)));
         }
 
-     
-
-  
-
-        IEnumerable<PatientIntialCheckUp> IPatientCheckUP.GetCheckUpDetails(Guid appointment_id)
+        public IEnumerable<PatientIntialCheckUp> GetCheckUpDetails(Guid appointment_id)
         {
             return Mapper.Map(repo.GetCheckUpDetails(appointment_id));
         }
