@@ -21,7 +21,7 @@ namespace Services.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("Get Prescription")]
+        [HttpGet("Get_Prescription")]
         public IActionResult Get([FromHeader] Guid prId)
         {
             var x = presciption.GetPrescriptions(prId);
