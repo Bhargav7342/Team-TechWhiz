@@ -18,14 +18,18 @@ namespace BusinessLogic
         //    this.context = context;
         //}
         private readonly IDoctorRepo doctorRepo;
-        public Logic(IDoctorRepo _doctorRepo)
+        private readonly IPhysicianRepo physicianRepo;
+        public Logic(IDoctorRepo _doctorRepo, IPhysicianRepo _physicianRepo)
         {
             doctorRepo= _doctorRepo;
+            physicianRepo = _physicianRepo;
         }
+        
+       
 
-        public DataEntities.Entities.PhysicianAvailabilityStatus AddAvailability(Models.PhysicianAvailabilityStatus phy_status)
+        public Models.PhysicianAvailabilityStatus AddAvailability(Models.PhysicianAvailabilityStatus phy_status)
         {
-            throw new NotImplementedException();
+            return Mapper.MapPhysicianAvailabilityStatus(physicianRepo.AddAvailability(Mapper.mapPhysicianAvailabilityStatus(phy_status)));
         }
 
         public DataEntities.Entities.Doctor AddDoctor(string? Email, Models.Doctor Doctor)
@@ -54,7 +58,7 @@ namespace BusinessLogic
             return Mapper.MapDoctor(doctorRepo.GetDoctorByEmail(Email));
         }
 
-        public void UpdateAvailability(Models.PhysicianAvailabilityStatus phy_status)
+        public Models.PhysicianAvailabilityStatus UpdateAvailability(Models.PhysicianAvailabilityStatus phy_status)
         {
             throw new NotImplementedException();
         }

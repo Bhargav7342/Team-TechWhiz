@@ -37,7 +37,7 @@ namespace Services.Controllers
             }
         }
         [HttpGet("GetDoctorsByEmail")]
-        public IActionResult GetDoctorsByEmail([FromQuery] string? Email)
+        public IActionResult GetDoctorsByEmail([FromHeader] string? Email)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Services.Controllers
             }
         }
         [HttpGet("GetDoctorsByDepartment")]
-        public IActionResult GetDoctorByDepartment([FromQuery] string? Department)
+        public IActionResult GetDoctorByDepartment([FromHeader] string? Department)
         {
             try
             {

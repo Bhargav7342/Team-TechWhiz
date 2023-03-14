@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var trainer_config = builder.Configuration.GetConnectionString("ConnectionString");
+var trainer_config = builder.Configuration.GetConnectionString("connectionString");
 builder.Services.AddDbContext<DoctorDbContext>(options => options.UseSqlServer(trainer_config));
 builder.Services.AddScoped<IDoctorLogic, Logic>();
 builder.Services.AddScoped<IPhysicianAvailabilityStatus, Logic>();
