@@ -2,7 +2,7 @@
 
 namespace DataEntities
 {
-    public class AppointmentRepo : IAppointmentRepo<Appointment>
+    public class AppointmentRepo : IAppointmentRepo
     {
         AppointmentDbContext context;
         public AppointmentRepo(AppointmentDbContext _context)
@@ -18,7 +18,7 @@ namespace DataEntities
 
         public List<Appointment> GetAppointmentsByDate(DateTime date)
         {
-            var find=context.Appointments.Where(a=>a.Date==date.Date).ToList();
+            var find = context.Appointments.Where(a => a.Date == date.Date).ToList();
             return find;
         }
 
@@ -32,15 +32,13 @@ namespace DataEntities
             return context.Appointments.Where(a => a.PatientId == patient_id).ToList();
         }
 
-
-
-    
-
-        Appointment IAppointmentRepo<Appointment>.UpdateStatus(Appointment appointment)
+        public Appointment UpdateStatus(Appointment appointment)
         {
             context.Appointments.Update(appointment);
             context.SaveChanges();
             return appointment;
         }
-    }
+
+         }
+       
 }

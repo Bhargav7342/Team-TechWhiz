@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataEntities.Entities;
 
 namespace DataEntities
 {
-    public interface IPatientCheckUpRepo<PatientIntialCheckUp>
+    public interface IPatientCheckUpRepo
     {
-        public IEnumerable<PatientIntialCheckUp> GetCheckUpDetails(Guid appiontment_id);
-        public DataEntities.Entities.PatientIntialCheckup AddCheckUpDetails(PatientIntialCheckUp intialCheckUp);
+        public List<DataEntities.Entities.PatientIntialCheckup> GetCheckUpDetails(Guid appointment_id);
+        public DataEntities.Entities.PatientIntialCheckup AddCheckUpDetails(PatientIntialCheckup intialCheckUp);
     }
 }

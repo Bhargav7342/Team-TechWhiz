@@ -21,7 +21,7 @@ namespace ServiceLayer.Controllers
         {
             var checkUpDetails=_logic.GetCheckUpDetails(appointment_id);
             if(checkUpDetails != null) {
-                return Ok();
+                return Ok(checkUpDetails);
             }
             else
             {

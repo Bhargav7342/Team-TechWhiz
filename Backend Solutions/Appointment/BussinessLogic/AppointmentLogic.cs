@@ -15,8 +15,8 @@ namespace BussinessLogic
     {
      
         AppointmentDbContext context;
-        IAppointmentRepo<DataEntities.Entities.Appointment> repo;
-        public AppointmentLogic(IAppointmentRepo<DataEntities.Entities.Appointment> _repo, AppointmentDbContext _context)
+        IAppointmentRepo repo;
+        public AppointmentLogic(IAppointmentRepo _repo, AppointmentDbContext _context)
         {
             repo = _repo;
             context = _context;

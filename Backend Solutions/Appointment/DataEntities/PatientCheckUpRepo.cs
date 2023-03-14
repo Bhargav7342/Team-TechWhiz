@@ -7,7 +7,7 @@ using DataEntities.Entities;
 
 namespace DataEntities
 {
-    public class PatientCheckUpRepo : IPatientCheckUpRepo<PatientIntialCheckup>
+    public class PatientCheckUpRepo : IPatientCheckUpRepo
     {
         AppointmentDbContext context;
         public PatientCheckUpRepo(AppointmentDbContext _context)
@@ -22,9 +22,9 @@ namespace DataEntities
             return intialCheckUp;
         }
 
-        public IEnumerable<PatientIntialCheckup> GetCheckUpDetails(Guid appiontment_id)
+        public List<PatientIntialCheckup> GetCheckUpDetails(Guid appointment_id)
         {
-            return context.PatientIntialCheckups.Where(a=>a.AppointmentId==appiontment_id).ToList();
+            return context.PatientIntialCheckups.Where(a => a.AppointmentId == appointment_id).ToList();
         }
     }
 }
