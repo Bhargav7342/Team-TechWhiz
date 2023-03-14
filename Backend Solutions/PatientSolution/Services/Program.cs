@@ -30,7 +30,10 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IPatient, PatientRepo>();
 builder.Services.AddScoped<IPatientLogic, PatientLogic>();
-
+builder.Services.AddScoped<IHealthHistory, HealthHistoryRepo>();
+builder.Services.AddScoped<IHealthHistoryLogic, HealthHistoryLogic>();
+builder.Services.AddScoped<IPrescriptions, Presciptions>();
+builder.Services.AddScoped<IPresciptionLogic, PrescriptionsLogic>();
 
 var app = builder.Build();
 

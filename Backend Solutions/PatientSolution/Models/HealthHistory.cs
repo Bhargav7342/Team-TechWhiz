@@ -12,7 +12,7 @@
 
         public string? Diagnosis { get; set; }
 
-        public virtual Patient? Patient { get; set; }
+        //public virtual Patient? Patient { get; set; }
 
     }
 }
