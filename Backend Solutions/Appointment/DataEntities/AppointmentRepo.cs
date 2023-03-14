@@ -18,7 +18,8 @@ namespace DataEntities
 
         public List<Appointment> GetAppointmentsByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            var find=context.Appointments.Where(a=>a.Date==date.Date).ToList();
+            return find;
         }
 
         public List<Appointment> GetAppointmentsByDoctor(Guid doctor_id)
@@ -33,9 +34,13 @@ namespace DataEntities
 
 
 
-        public PatientIntialCheckup UpdateStatus(Guid appointment_id)
+    
+
+        Appointment IAppointmentRepo<Appointment>.UpdateStatus(Appointment appointment)
         {
-            throw new NotImplementedException();
+            context.Appointments.Update(appointment);
+            context.SaveChanges();
+            return appointment;
         }
     }
 }

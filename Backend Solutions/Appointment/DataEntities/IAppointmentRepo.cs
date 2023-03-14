@@ -17,7 +17,7 @@ namespace DataEntities
         public List<DataEntities.Entities.Appointment> GetAppointmentsByDoctor(Guid doctor_id);
 
 
-        public DataEntities.Entities.PatientIntialCheckup UpdateStatus(Guid appointment_id);
+        public DataEntities.Entities.Appointment UpdateStatus(DataEntities.Entities.Appointment appointment);
 
         public DataEntities.Entities.Appointment AddAppointment(DataEntities.Entities.Appointment appointment);
 

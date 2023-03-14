@@ -29,9 +29,9 @@ namespace BussinessLogic
             return Mapper.Map( repo.AddAppointment(Mapper.Map(appointment)));
         }
 
-        public List<Models.Appointment> GetAppointmentsByDate(DateTime date)
+        public IEnumerable<Models.Appointment> GetAppointmentsByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            return Mapper.Map(repo.GetAppointmentsByDate(date));
         }
 
         public IEnumerable<Models.Appointment> GetAppointmentsByDoctor(Guid doctor_id)
@@ -41,14 +41,21 @@ namespace BussinessLogic
 
       
 
-        public PatientIntialCheckUp UpdateStatus(Guid appointment_id)
-        {
-            throw new NotImplementedException();
-        }
+    
+     
 
         IEnumerable<Models.Appointment> IAppointment.GetAppointmentsByPatient(Guid patient_id)
         {
             return Mapper.Map(repo.GetAppointmentsByPatient(patient_id));
+        }
+
+        Models.Appointment IAppointment.UpdateStatus(Guid appointment_id, string status)
+        {
+            var search = context.Appointments.Where(item => item.AppointmentId == appointment_id).First();
+
+            search.Status = status;
+
+            return Mapper.Map(repo.UpdateStatus(search));
         }
     }
 }
