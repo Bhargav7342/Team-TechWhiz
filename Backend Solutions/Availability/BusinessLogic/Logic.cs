@@ -11,12 +11,6 @@ namespace BusinessLogic
 {
     public class Logic : IDoctorLogic, IPhysicianAvailabilityStatus
     {
-        //DoctorDbContext context = new DoctorDbContext();    
-        //DoctorDbContext context;
-        //public Logic(DoctorDbContext context)
-        //{
-        //    this.context = context;
-        //}
         private readonly IDoctorRepo doctorRepo;
         private readonly IPhysicianRepo physicianRepo;
         public Logic(IDoctorRepo _doctorRepo, IPhysicianRepo _physicianRepo)
@@ -24,17 +18,14 @@ namespace BusinessLogic
             doctorRepo= _doctorRepo;
             physicianRepo = _physicianRepo;
         }
-        
-       
-
         public Models.PhysicianAvailabilityStatus AddAvailability(Models.PhysicianAvailabilityStatus phy_status)
         {
             return Mapper.MapPhysicianAvailabilityStatus(physicianRepo.AddAvailability(Mapper.mapPhysicianAvailabilityStatus(phy_status)));
         }
 
-        public DataEntities.Entities.Doctor AddDoctor(string? Email, Models.Doctor Doctor)
+        public Models.Doctor AddDoctor(Models.Doctor Doctor)
         {
-            throw new NotImplementedException();
+            return Mapper.MapDoctor(doctorRepo.AddDoctor(Mapper.mapDoctor(Doctor)));
         }
 
         public List<Models.Doctor> GetAllDoctors()
@@ -44,7 +35,7 @@ namespace BusinessLogic
 
         public List<Models.Doctor> GetAllDoctorsByAvailability(string Day)
         {
-            throw new NotImplementedException();
+            return Mapper.MapDoctor(doctorRepo.GetAllDoctorsByAvailability(Day));
         }
 
         public List<Models.Doctor> GetDoctorByDepartment(string? Department)
@@ -60,7 +51,7 @@ namespace BusinessLogic
 
         public Models.PhysicianAvailabilityStatus UpdateAvailability(Models.PhysicianAvailabilityStatus phy_status)
         {
-            throw new NotImplementedException();
+            return Mapper.MapPhysicianAvailabilityStatus(physicianRepo.UpdateAvailability(Mapper.mapPhysicianAvailabilityStatus(phy_status)));
         }
     }
 }

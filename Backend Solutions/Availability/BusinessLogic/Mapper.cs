@@ -35,7 +35,7 @@ namespace BusinessLogic
         }
 
         // models to entities
-        public TE.Doctor mapDoctor(Doctor doctor)
+        public static TE.Doctor mapDoctor(Doctor doctor)
         {
             return new TE.Doctor()
             {

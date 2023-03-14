@@ -14,9 +14,11 @@ namespace DataEntities
         {
             context = _context;
         }
-        public Doctor AddDoctor(string Email, Doctor Doctor)
+        public Doctor AddDoctor(Doctor Doctor)
         {
-            throw new NotImplementedException();
+            context.Doctors.Add(Doctor);
+            context.SaveChanges();
+            return Doctor;
         }
 
         public List<Doctor> GetAllDoctors()
@@ -26,7 +28,59 @@ namespace DataEntities
 
         public List<Doctor> GetAllDoctorsByAvailability(string Day)
         {
-            throw new NotImplementedException();
+            switch(Day)
+            {
+                case "Monday":
+                    var Doc = from Doctor in context.Doctors
+                              join physician in context.PhysicianAvailabilityStatuses
+                              on Doctor.DoctorId equals physician.DoctorId
+                              where physician.Monday == true
+                              select Doctor;
+                    return Doc.ToList();
+                case "Tuesday":
+                     Doc = from Doctor in context.Doctors
+                              join physician in context.PhysicianAvailabilityStatuses
+                              on Doctor.DoctorId equals physician.DoctorId
+                              where physician.Tuesday == true
+                              select Doctor;
+                    return Doc.ToList();
+                case "Wednesday":
+                    Doc = from Doctor in context.Doctors
+                              join physician in context.PhysicianAvailabilityStatuses
+                              on Doctor.DoctorId equals physician.DoctorId
+                              where physician.Wednesday == true
+                              select Doctor;
+                    return Doc.ToList();
+                case "Thursday":
+                     Doc = from Doctor in context.Doctors
+                              join physician in context.PhysicianAvailabilityStatuses
+                              on Doctor.DoctorId equals physician.DoctorId
+                              where physician.Thursday == true
+                              select Doctor;
+                    return Doc.ToList();
+                case "Friday":
+                     Doc = from Doctor in context.Doctors
+                              join physician in context.PhysicianAvailabilityStatuses
+                              on Doctor.DoctorId equals physician.DoctorId
+                              where physician.Friday == true
+                              select Doctor;
+                    return Doc.ToList();
+                case "Saturday":
+                    Doc = from Doctor in context.Doctors
+                              join physician in context.PhysicianAvailabilityStatuses
+                              on Doctor.DoctorId equals physician.DoctorId
+                              where physician.Saturday == true
+                              select Doctor;
+                    return Doc.ToList();
+                case "Sunday":
+                     Doc = from Doctor in context.Doctors
+                              join physician in context.PhysicianAvailabilityStatuses
+                              on Doctor.DoctorId equals physician.DoctorId
+                              where physician.Sunday == true
+                              select Doctor;
+                    return Doc.ToList();
+                default: return null;
+            }
         }
 
         public  List<Doctor> GetDoctorByDepartment(string Department)
