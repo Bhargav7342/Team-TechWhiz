@@ -57,5 +57,26 @@ namespace Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("GetDoctorsByDepartment")]
+        public IActionResult GetDoctorByDepartment([FromQuery] string? Department)
+        {
+            try
+            {
+                var Doctor = _logic.GetDoctorByDepartment(Department);
+                if (Doctor != null)
+                {
+                    return Ok(Doctor);
+                }
+                return BadRequest();
+            }
+            catch (SqlException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

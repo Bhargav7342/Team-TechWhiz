@@ -1,5 +1,6 @@
 ﻿using DataEntities;
 using DataEntities.Entities;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,14 +43,15 @@ namespace BusinessLogic
             throw new NotImplementedException();
         }
 
-        public Models.Doctor GetDoctorByDepartment(string? Department)
+        public List<Models.Doctor> GetDoctorByDepartment(string? Department)
         {
-            throw new NotImplementedException();
+            //return Mapper.MapDoctor(doctorRepo.GetDoctorByDepartment(Department));
+            return Mapper.MapDoctor(doctorRepo.GetDoctorByDepartment(Department));
         }
 
         public Models.Doctor GetDoctorByEmail(string? Email)
         {
-            throw new NotImplementedException();
+            return Mapper.MapDoctor(doctorRepo.GetDoctorByEmail(Email));
         }
 
         public void UpdateAvailability(Models.PhysicianAvailabilityStatus phy_status)
