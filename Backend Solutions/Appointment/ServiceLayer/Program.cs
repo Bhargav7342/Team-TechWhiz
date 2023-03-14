@@ -21,8 +21,14 @@ builder.Services.AddScoped<IAppointmentRepo, AppointmentRepo>();
 builder.Services.AddScoped<IPatientCheckUP,PatientCheckUpLogic>();
 builder.Services.AddScoped<IPatientCheckUpRepo, PatientCheckUpRepo>();
 
+var Allowpolicy = "AllowPolicy";
+builder.Services.AddCors(options => options.AddPolicy(Allowpolicy, policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); }));
+
+
+
 
 var app = builder.Build();
+app.UseCors(Allowpolicy);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
