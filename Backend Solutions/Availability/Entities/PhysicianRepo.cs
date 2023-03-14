@@ -23,7 +23,20 @@ namespace DataEntities
 
         public PhysicianAvailabilityStatus UpdateAvailability(PhysicianAvailabilityStatus phy_status)
         {
-            throw new NotImplementedException();
+            var existing = context.PhysicianAvailabilityStatuses.FirstOrDefault(x=>x.DoctorId==phy_status.DoctorId);
+            if (existing != null)
+            {
+                existing.Sunday = phy_status.Sunday;
+                existing.Monday = phy_status.Monday;
+                existing.Tuesday = phy_status.Tuesday;
+                existing.Wednesday = phy_status.Wednesday;
+                existing.Thursday = phy_status.Thursday;
+                existing.Friday = phy_status.Friday;
+                existing.Saturday = phy_status.Saturday;
+            }
+            context.Update(existing);
+            context.SaveChanges();
+            return existing;
         }
     }
 }

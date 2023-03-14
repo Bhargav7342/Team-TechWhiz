@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -76,6 +77,44 @@ namespace Services.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet("GetDoctorsByAvailability")]
+        public IActionResult GetDoctorsByAvailability([FromHeader] string Day)
+        {
+            try
+            {
+                var Doctors = _logic.GetAllDoctorsByAvailability(Day);
+                if (Doctors != null)
+                {
+                    return Ok(Doctors);
+                }
+                return BadRequest("No doctors found");
+            }
+            catch (SqlException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("AddDoctor")]
+        public IActionResult AddDoctor([FromBody] Doctor doctor)
+        {
+            try
+            {
+                _logic.AddDoctor(doctor);
+                return Ok(200);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
             }
         }
     }

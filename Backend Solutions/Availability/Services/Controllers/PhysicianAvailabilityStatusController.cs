@@ -32,5 +32,22 @@ namespace Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPut("UpdateAvailability")]
+        public IActionResult UpdateAvailability([FromBody] PhysicianAvailabilityStatus physician)
+        {
+            try
+            {
+                var updated = _logic.UpdateAvailability(physician);
+                return Ok(physician);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
