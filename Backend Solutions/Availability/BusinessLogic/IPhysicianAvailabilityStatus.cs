@@ -10,7 +10,7 @@ namespace BusinessLogic
 {
     public interface IPhysicianAvailabilityStatus
     {
-        public Entity.PhysicianAvailabilityStatus AddAvailability(Models.PhysicianAvailabilityStatus phy_status);
-        public void UpdateAvailability(Models.PhysicianAvailabilityStatus phy_status);
+        public PhysicianAvailabilityStatus AddAvailability(Models.PhysicianAvailabilityStatus phy_status);
+        public PhysicianAvailabilityStatus UpdateAvailability(Models.PhysicianAvailabilityStatus phy_status);
     }
 }

@@ -10,6 +10,6 @@ namespace DataEntities
     public interface IPhysicianRepo
     {
         public TE.PhysicianAvailabilityStatus AddAvailability(TE.PhysicianAvailabilityStatus phy_status);
-        public void UpdateAvailability(TE.PhysicianAvailabilityStatus phy_status);
+        public TE.PhysicianAvailabilityStatus UpdateAvailability(TE.PhysicianAvailabilityStatus phy_status);
     }
 }

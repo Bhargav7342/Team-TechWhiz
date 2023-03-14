@@ -47,7 +47,7 @@ namespace BusinessLogic
             };
         }
 
-        public TE.PhysicianAvailabilityStatus mapPhysicianAvailabilityStatus(PhysicianAvailabilityStatus physicianAvailabilityStatus)
+        public static TE.PhysicianAvailabilityStatus mapPhysicianAvailabilityStatus(PhysicianAvailabilityStatus physicianAvailabilityStatus)
         {
             return new TE.PhysicianAvailabilityStatus()
             {
