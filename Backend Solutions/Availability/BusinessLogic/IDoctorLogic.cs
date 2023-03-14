@@ -12,7 +12,7 @@ namespace BusinessLogic
     {
         public List<Models.Doctor> GetAllDoctors();
         public Models.Doctor GetDoctorByEmail(string Email);
-        public Models.Doctor GetDoctorByDepartment(string Department);
+        public List<Models.Doctor> GetDoctorByDepartment(string Department);
         public List<Models.Doctor> GetAllDoctorsByAvailability(string Day);
         public Entity.Doctor AddDoctor(string Email, Models.Doctor Doctor);
 

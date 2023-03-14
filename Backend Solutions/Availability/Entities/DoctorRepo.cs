@@ -29,14 +29,18 @@ namespace DataEntities
             throw new NotImplementedException();
         }
 
-        public Doctor GetDoctorByDepartment(string Department)
+        public  List<Doctor> GetDoctorByDepartment(string Department)
         {
-            throw new NotImplementedException();
+            var doctor = GetAllDoctors();
+            var dept = doctor.Where(x=> x.Department == Department);
+            return dept.ToList();
         }
 
         public Doctor GetDoctorByEmail(string Email)
         {
-            throw new NotImplementedException();
+            var doctors=GetAllDoctors();
+            var result=doctors.FirstOrDefault(x => x.Email == Email);
+            return result;
         }
     }
 }
