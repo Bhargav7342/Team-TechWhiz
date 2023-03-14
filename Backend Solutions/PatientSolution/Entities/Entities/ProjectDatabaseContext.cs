@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data.Entities;
+namespace DataEntities.Entities;
 
 public partial class ProjectDatabaseContext : DbContext
 {
@@ -21,10 +21,6 @@ public partial class ProjectDatabaseContext : DbContext
 
     public virtual DbSet<Prescription> Prescriptions { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=tcp:bhargav-db-1.database.windows.net,1433;Initial Catalog=ProjectDatabase;Persist Security Info=False;User ID=bhargav7342;Password=Bhargav@420;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<HealthHistory>(entity =>
@@ -36,7 +32,9 @@ public partial class ProjectDatabaseContext : DbContext
             entity.Property(e => e.HhId)
                 .HasDefaultValueSql("(newid())")
                 .HasColumnName("HH_Id");
-            entity.Property(e => e.Date).HasColumnType("date");
+            entity.Property(e => e.Date)
+                .HasMaxLength(10)
+                .IsUnicode(false);
             entity.Property(e => e.Diagnosis).IsUnicode(false);
             entity.Property(e => e.DoctorName)
                 .HasMaxLength(80)
@@ -69,7 +67,8 @@ public partial class ProjectDatabaseContext : DbContext
                 .HasMaxLength(25)
                 .IsUnicode(false);
             entity.Property(e => e.DateOfBirth)
-                .HasColumnType("date")
+                .HasMaxLength(10)
+                .IsUnicode(false)
                 .HasColumnName("Date_of_Birth");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)

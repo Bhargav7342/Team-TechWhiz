@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Data.Entities;
+namespace DataEntities.Entities;
 
 public partial class HealthHistory
 {
@@ -9,7 +9,7 @@ public partial class HealthHistory
 
     public Guid? PatientId { get; set; }
 
-    public DateTime? Date { get; set; }
+    public string? Date { get; set; }
 
     public string? DoctorName { get; set; }
 

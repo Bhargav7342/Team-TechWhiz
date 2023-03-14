@@ -1,5 +1,6 @@
-using Data.Entities;
+
 using DataEntities;
+using DataEntities.Entities;
 using Microsoft.EntityFrameworkCore;
 using Patient_Logic;
 

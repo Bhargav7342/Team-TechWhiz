@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Data.Entities;
+namespace DataEntities.Entities;
 
 public partial class Patient
 {
@@ -19,7 +19,7 @@ public partial class Patient
 
     public string? Gender { get; set; }
 
-    public DateTime? DateOfBirth { get; set; }
+    public string? DateOfBirth { get; set; }
 
     public string? City { get; set; }
 

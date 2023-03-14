@@ -1,8 +1,11 @@
-﻿namespace Patient_Logic
+﻿using DataEntities;
+using DataEntities.Entities;
+
+namespace Patient_Logic
 {
     public class Mapper
     {
-        public static Models.Patient Map(Data.Entities.Patient patient)
+        public static Models.Patient Map(Patient patient)
         {
             return new Models.Patient()
             {
@@ -21,9 +24,9 @@
             };
         }
 
-        public static Data.Entities.Patient Map(Models.Patient patient)
+        public static Patient Map(Models.Patient patient)
         {
-            return new Data.Entities.Patient()
+            return new Patient()
             {
                 PatientId = patient.PatientId,
                 FirstName= patient.FirstName,
@@ -40,12 +43,12 @@
             };
         }
 
-        public static IEnumerable<Models.Patient> Map(IEnumerable<Data.Entities.Patient> patients)
+        public static IEnumerable<Models.Patient> Map(IEnumerable<Patient> patients)
         {
             return patients.Select(Map);
         }
 
-        public static Models.HealthHistory Map(Data.Entities.HealthHistory hh)
+        public static Models.HealthHistory Map(HealthHistory hh)
         {
             return new Models.HealthHistory()
             {
@@ -57,9 +60,9 @@
             };
         }
 
-        public static Data.Entities.HealthHistory Map(Models.HealthHistory hh)
+        public static HealthHistory Map(Models.HealthHistory hh)
         {
-            return new Data.Entities.HealthHistory()
+            return new HealthHistory()
             {
                 HhId= hh.HhId,
                 PatientId= hh.PatientId,
@@ -69,12 +72,12 @@
             };
         }
 
-        public static IEnumerable<Models.HealthHistory> Map(IEnumerable<Data.Entities.HealthHistory> hh)
+        public static IEnumerable<Models.HealthHistory> Map(IEnumerable<HealthHistory> hh)
         {
             return hh.Select(Map);
         }
 
-        public static Models.Prescriptions Map(Data.Entities.Prescription p)
+        public static Models.Prescriptions Map(Prescription p)
         {
             return new Models.Prescriptions()
             {
@@ -86,9 +89,9 @@
             };
         }
 
-        public static Data.Entities.Prescription Map(Models.Prescriptions p)
+        public static Prescription Map(Models.Prescriptions p)
         {
-            return new Data.Entities.Prescription()
+            return new Prescription()
             {
                 PrescriptionId=p.PrescriptionId,
                 HhId= p.HhId,
@@ -98,7 +101,7 @@
             };
         }
 
-        public static IEnumerable<Models.Prescriptions> Map(IEnumerable<Data.Entities.Prescription> p)
+        public static IEnumerable<Models.Prescriptions> Map(IEnumerable<Prescription> p)
         {
             return p.Select(Map);
         }
