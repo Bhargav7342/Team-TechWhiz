@@ -42,10 +42,7 @@ public partial class ProjectDatabaseContext : DbContext
                 .HasColumnName("Doctor_Name");
             entity.Property(e => e.PatientId).HasColumnName("Patient_Id");
 
-            entity.HasOne(d => d.Patient).WithMany(p => p.HealthHistories)
-                .HasForeignKey(d => d.PatientId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_Health_History.Patient_Id");
+          
         });
 
         modelBuilder.Entity<Patient>(entity =>
