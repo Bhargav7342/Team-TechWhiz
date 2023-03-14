@@ -60,7 +60,7 @@ namespace ServiceLayer.Controllers
                
 
                 _logic.AddAppointment(a);
-                return Created("Add", a);
+                return Ok();
             }
             catch (SqlException ex)
             {
@@ -72,5 +72,43 @@ namespace ServiceLayer.Controllers
             }
 
         }
+        [HttpGet("getappointmentsbyDate")]
+        public ActionResult GetAppointmentByDate([FromHeader] string date1)
+        {
+            var date=DateTime.Parse(date1);
+            var appointment=_logic.GetAppointmentsByDate(date);
+            if (appointment != null)
+            {
+                return Ok(appointment);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+
+
+        [HttpPut("Update")]
+        public ActionResult UpdateStatus(Guid AppointmentId ,string Status)
+        {
+            try
+            {
+
+                _logic.UpdateStatus(AppointmentId, Status);
+                return Ok();
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+
+        }
+
     }
 }

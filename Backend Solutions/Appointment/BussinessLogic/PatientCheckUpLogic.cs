@@ -13,27 +13,26 @@ namespace BussinessLogic
     public class PatientCheckUpLogic : IPatientCheckUP
     {
         AppointmentDbContext context;
-        IPatientCheckUp<DataEntities.Entities.PatientIntialCheckup> repo;
-        public PatientCheckUpLogic(IPatientCheckUp<DataEntities.Entities.PatientIntialCheckup> _repo, AppointmentDbContext _context)
+        IPatientCheckUpRepo<DataEntities.Entities.PatientIntialCheckup> repo;
+        public PatientCheckUpLogic(IPatientCheckUpRepo<DataEntities.Entities.PatientIntialCheckup> _repo, AppointmentDbContext _context)
         {
             repo = _repo;
             context = _context;
 
         }
 
-        public PatientIntialCheckUp AddCheckUpDetails(PatientIntialCheckUp intialCheckUp)
+        public PatientIntialCheckUp AddCheckUpDetails(PatientIntialCheckUp initialCheckUp)
         {
-            throw new NotImplementedException();
+            return Mapper.Map(repo.AddCheckUpDetails(Mapper.Map(initialCheckUp)));
         }
 
-        public PatientIntialCheckUp GetCheckUpDetails(Guid appointment_id)
-        {
-            throw new NotImplementedException();
-        }
+     
 
-        public PatientIntialCheckUp UpdateCheckUpStatus(Guid appointment_id)
+  
+
+        IEnumerable<PatientIntialCheckUp> IPatientCheckUP.GetCheckUpDetails(Guid appointment_id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map(repo.GetCheckUpDetails(appointment_id));
         }
     }
 }

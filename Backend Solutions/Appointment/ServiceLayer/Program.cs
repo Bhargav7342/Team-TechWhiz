@@ -18,6 +18,9 @@ builder.Services.AddDbContext<AppointmentDbContext>(options => options.UseSqlSer
 builder.Services.AddScoped<IAppointment, AppointmentLogic>();
 builder.Services.AddScoped<IAppointmentRepo<DataEntities.Entities.Appointment>, AppointmentRepo>();
 
+builder.Services.AddScoped<IPatientCheckUP,PatientCheckUpLogic>();
+builder.Services.AddScoped<IPatientCheckUpRepo<DataEntities.Entities.PatientIntialCheckup>, PatientCheckUpRepo>();
+
 
 var app = builder.Build();
 
