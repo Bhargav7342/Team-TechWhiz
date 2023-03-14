@@ -7,10 +7,10 @@ using ED = DataEntities.Entities;
 
 namespace DataEntities
 {
-    internal interface IEfRepo
+    public interface IEfRepo
     {
         public List<ED.Allergy> GetAllAllergies(Guid patientId);
-        public ED.Allergy addPatientAllergy(Guid patientId, string AllergyName);
+        public ED.Allergy addPatientAllergy(ED.Allergy allergy);
     }
 }
 

@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataEntities;
 using Models;
 
 namespace BusinessLogic
 {
-    internal class logic : Ilogic
+    public class logic : Ilogic
     {
-        public Allergy addPatientAllergy(Guid patientId, string AllergyName)
+        private readonly IEfRepo repo;
+        public logic(IEfRepo _repo)
         {
-            throw new NotImplementedException();
+            repo = _repo;
+        }
+        public Allergy addPatientAllergy(Allergy allergy)
+        {
+           return Mapper.AllergyMapper(repo.addPatientAllergy(Mapper.AllergyMapper(allergy)));
         }
 
         public List<Allergy> GetAllAllergies(Guid patientId)
         {
-            throw new NotImplementedException();
+            return Mapper.AllergyMapper(repo.GetAllAllergies(patientId));
         }
     }
 }

@@ -1,11 +1,20 @@
+using BusinessLogic;
+using DataEntities;
+using DataEntities.Entities;
+using Entities;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var config = builder.Configuration.GetConnectionString("AllergyDb");
 builder.Services.AddControllers();
+builder.Services.AddDbContext<AllergyDContext>(options => options.UseSqlServer(config));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<Ilogic, logic>();
+builder.Services.AddScoped<IEfRepo, EfRepo>();
 
 var app = builder.Build();
 
