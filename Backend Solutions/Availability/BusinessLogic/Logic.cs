@@ -40,8 +40,11 @@ namespace BusinessLogic
 
         public List<Models.Doctor> GetDoctorByDepartment(string? Department)
         {
-            //return Mapper.MapDoctor(doctorRepo.GetDoctorByDepartment(Department));
             return Mapper.MapDoctor(doctorRepo.GetDoctorByDepartment(Department));
+        }
+        public List<Models.Doctor> GetDoctorsByAvailabilityAndDepartment(string Day, string Department)
+        {
+            return Mapper.MapDoctor(doctorRepo.GetDoctorsByAvailabilityAndDepartment(Day, Department));
         }
 
         public Models.Doctor GetDoctorByEmail(string? Email)
@@ -53,5 +56,6 @@ namespace BusinessLogic
         {
             return Mapper.MapPhysicianAvailabilityStatus(physicianRepo.UpdateAvailability(Mapper.mapPhysicianAvailabilityStatus(phy_status)));
         }
+
     }
 }

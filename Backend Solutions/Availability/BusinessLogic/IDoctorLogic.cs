@@ -15,6 +15,6 @@ namespace BusinessLogic
         public List<Models.Doctor> GetDoctorByDepartment(string Department);
         public List<Models.Doctor> GetAllDoctorsByAvailability(string Day);
         public Models.Doctor AddDoctor(Models.Doctor Doctor);
-
+        public List<Models.Doctor> GetDoctorsByAvailabilityAndDepartment(string Day, string Department);
     }
 }

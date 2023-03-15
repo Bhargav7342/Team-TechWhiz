@@ -14,6 +14,7 @@ namespace DataEntities
         public TE.Doctor GetDoctorByEmail(string Email);
         public List<TE.Doctor> GetDoctorByDepartment(string Department);
         public List<TE.Doctor> GetAllDoctorsByAvailability(string Day);
+        public List<TE.Doctor> GetDoctorsByAvailabilityAndDepartment(string Day,string Department);
         public TE.Doctor AddDoctor(TE.Doctor Doctor);
 
     }
