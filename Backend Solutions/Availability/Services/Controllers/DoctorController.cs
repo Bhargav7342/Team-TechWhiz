@@ -100,6 +100,27 @@ namespace Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        public IActionResult GetDoctorsByAvailabilityAndDepartment([FromHeader] string Day, [FromHeader] string Department)
+        {
+            try
+            {
+                var Doctors = _logic.GetDoctorsByAvailabilityAndDepartment(Day, Department);
+                if (Doctors != null)
+                {
+                    return Ok(Doctors);
+                }
+                return BadRequest("No doctors found");
+            }
+            catch (SqlException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost("AddDoctor")]
         public IActionResult AddDoctor([FromBody] Doctor doctor)
         {
