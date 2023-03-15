@@ -26,6 +26,26 @@ namespace Patient_Logic
             return Mapper.Map(pat);
         }
 
+        public Patient GetPatientById(Guid id)
+        {
+            var pa=(from pat in p.GetAllPatient()
+                    where pat.PatientId==id
+                    select pat).FirstOrDefault();
+            if(pa!=null)
+            {
+                return Mapper.Map(pa);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public IEnumerable<Patient> GetPatients()
+        {
+            return Mapper.Map(p.GetAllPatient());
+        }
+
         public Patient LoginPatient(string email, string password)
         {
             var pati=(from pa in p.GetAllPatient()

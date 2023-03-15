@@ -13,6 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.ConfigureSwaggerGen(setup =>
+{
+    setup.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Patient Services",
+        Version = "v1"
+    });
+});
+
 var config = builder.Configuration.GetConnectionString("PatientDatabase");
 builder.Services.AddDbContext<ProjectDatabaseContext>(options => options.UseSqlServer(config));
 
@@ -42,6 +51,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors("_myAllowSpecificOrigins");
 }
 
 app.UseHttpsRedirection();

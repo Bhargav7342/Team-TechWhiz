@@ -42,5 +42,13 @@ namespace DataEntities
             context.SaveChanges();
             return patient;
         }
+
+        public Patient GetPatient(Guid Id)
+        {
+            var patient = (from p in context.Patients
+                           where p.PatientId==Id
+                           select p).FirstOrDefault();
+            return patient;
+        }
     }
 }

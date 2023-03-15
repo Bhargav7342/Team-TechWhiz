@@ -14,5 +14,7 @@ namespace DataEntities
         Patient UpdatePatient(Patient patient);
         Patient DeletePatient(string email);
         List<Patient> GetAllPatient();
+        Patient GetPatient(Guid Id);
+ 
     }
 }

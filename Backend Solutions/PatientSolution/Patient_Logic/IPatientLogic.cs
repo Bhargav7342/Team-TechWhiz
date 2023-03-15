@@ -13,6 +13,8 @@ namespace Patient_Logic
         Patient UpdatePatient(string email,Patient patient);
         Patient DeletePatient(string email);
         Patient LoginPatient(string email,string password);
+        IEnumerable<Patient> GetPatients();
+        Patient GetPatientById(Guid id);
 
     }
 }
