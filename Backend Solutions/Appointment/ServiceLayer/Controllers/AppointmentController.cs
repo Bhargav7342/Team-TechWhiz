@@ -22,16 +22,22 @@ namespace ServiceLayer.Controllers
         [HttpGet("getappointmentsbypatientid")]
         public ActionResult GetAppointmentByPatientId([FromHeader] Guid id)
         {
-
-
-            var appointments = _logic.GetAppointmentsByPatient(id);
-            if (appointments != null)
+            try
             {
-                return Ok(appointments);
+
+                var appointments = _logic.GetAppointmentsByPatient(id);
+                if (appointments != null)
+                {
+                    return Ok(appointments);
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return NoContent();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -39,16 +45,22 @@ namespace ServiceLayer.Controllers
         [HttpGet("getappointmentsbyDoctorid")]
         public ActionResult GetAppointmentsByDoctorId([FromHeader] Guid id)
         {
-
-
-            var appointments = _logic.GetAppointmentsByDoctor(id);
-            if (appointments != null)
+            try
             {
-                return Ok(appointments);
+
+                var appointments = _logic.GetAppointmentsByDoctor(id);
+                if (appointments != null)
+                {
+                    return Ok(appointments);
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NoContent();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -75,15 +87,43 @@ namespace ServiceLayer.Controllers
         [HttpGet("getappointmentsbyDate")]
         public ActionResult GetAppointmentByDate([FromHeader] string date1)
         {
-            var date=DateTime.Parse(date1);
-            var appointment=_logic.GetAppointmentsByDate(date);
-            if (appointment != null)
+            try
             {
-                return Ok(appointment);
+                var date = DateTime.Parse(date1);
+                var appointment = _logic.GetAppointmentsByDate(date);
+                if (appointment != null)
+                {
+                    return Ok(appointment);
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return NoContent();
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet("getappointmentsByStatus")]
+        public ActionResult GetAppointmentByStatus([FromHeader] string date1)
+        {
+            try
+            {
+                var date = DateTime.Parse(date1);
+                var appointment = _logic.GetAppointmentsBystatus(date);
+                if (appointment != null)
+                {
+                    return Ok(appointment);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

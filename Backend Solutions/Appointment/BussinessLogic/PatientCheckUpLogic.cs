@@ -30,5 +30,7 @@ namespace BussinessLogic
         {
             return Mapper.Map(repo.GetCheckUpDetails(appointment_id));
         }
+
+
     }
 }

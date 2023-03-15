@@ -1,4 +1,5 @@
 ﻿using DataEntities.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataEntities
 {
@@ -30,6 +31,13 @@ namespace DataEntities
         public List<Appointment> GetAppointmentsByPatient(Guid patient_id)
         {
             return context.Appointments.Where(a => a.PatientId == patient_id).ToList();
+        }
+
+        public List<Appointment> GetAppointmentsByStatus(DateTime date)
+        {
+            return context.Appointments
+           .Where(a => a.Status == "Accept")
+           .ToList();
         }
 
         public Appointment UpdateStatus(Appointment appointment)
