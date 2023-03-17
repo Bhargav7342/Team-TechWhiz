@@ -14,7 +14,8 @@
           </ng-template>
         </ng-template>
         <ng-template [ngIf]="status=='logout'">
-          <button mat-raised-button (click)="logoutpatient()">Back</button>
+          <button mat-mini-fab id="iconsp" matTooltip="View Profile"><mat-icon>account_box</mat-icon></button>
+          <button mat-raised-button (click)="logoutpatient()" id="iconsp">Back</button>
         </ng-template>
         <ng-template [ngIf]="status=='ploggedin'">
           <button mat-raised-button (click)="logoutpatient1()">log Out</button>

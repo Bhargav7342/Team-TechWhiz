@@ -11,3 +11,8 @@
     margin: 2% 5%;
     font-size: xx-large;
   }
+
+  #buttons{
+    background-color: rgb(161,29,183);
+    color:white;
+  }
