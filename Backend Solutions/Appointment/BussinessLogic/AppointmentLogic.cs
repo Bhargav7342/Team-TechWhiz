@@ -29,6 +29,7 @@ namespace BussinessLogic
             return Mapper.Map( repo.AddAppointment(Mapper.Map(appointment)));
         }
 
+
         public IEnumerable<Models.Appointment> GetAppointmentsByDate(DateTime date)
         {
             return Mapper.Map(repo.GetAppointmentsByDate(date));
@@ -39,10 +40,10 @@ namespace BussinessLogic
             return Mapper.Map(repo.GetAppointmentsByPatient(doctor_id));
         }
 
-      
-
-    
-     
+        public IEnumerable<Models.Appointment> GetAppointmentsBystatus(DateTime date)
+        {
+            return Mapper.Map(repo.GetAppointmentsByStatus(date));
+        }
 
         IEnumerable<Models.Appointment> IAppointment.GetAppointmentsByPatient(Guid patient_id)
         {

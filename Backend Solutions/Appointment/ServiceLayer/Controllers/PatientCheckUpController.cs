@@ -19,13 +19,22 @@ namespace ServiceLayer.Controllers
         [HttpGet("GetCheckUpDetailsByAppointmentId")]
         public ActionResult Get([FromHeader] Guid appointment_id)
         {
-            var checkUpDetails=_logic.GetCheckUpDetails(appointment_id);
-            if(checkUpDetails != null) {
-                return Ok(checkUpDetails);
-            }
-            else
+            try
             {
-                return NoContent();
+                var checkUpDetails = _logic.GetCheckUpDetails(appointment_id);
+                if (checkUpDetails != null)
+                {
+                    return Ok(checkUpDetails);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+    
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
 
         }
