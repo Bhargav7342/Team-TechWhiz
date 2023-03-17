@@ -37,6 +37,18 @@ import { DoctorScheduleComponent } from './Adminpage/doctor-schedule/doctor-sche
 import { PatientslistComponent } from './Adminpage/patientslist/patientslist.component';
 import { AddDoctorComponent } from './Adminpage/add-doctor/add-doctor.component';
 import { AvailabilityComponent } from './Adminpage/availability/availability.component';
+import { InitialcheckupComponent } from './Nursepage/initialcheckup/initialcheckup.component';
+import { AppointmentsfortodayComponent } from './DoctorPage/appointmentsfortoday/appointmentsfortoday.component';
+import { HealthhistoryComponent } from './Patient/healthhistory/healthhistory.component';
+import { ViewPrescriptionComponent } from './Patient/view-prescription/view-prescription.component';
+import { ViewCheckUpComponent } from './Patient/view-check-up/view-check-up.component';
+import { AppointmenthistoryComponent } from './Patient/appointmenthistory/appointmenthistory.component';
+import { CustomdatePipe } from './customdate.pipe';
+import { BookappointmentsComponent } from './Patient/bookappointments/bookappointments.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -56,6 +68,14 @@ import { AvailabilityComponent } from './Adminpage/availability/availability.com
     PatientslistComponent,
     AddDoctorComponent,
     AvailabilityComponent,
+    InitialcheckupComponent,
+    AppointmentsfortodayComponent,
+    HealthhistoryComponent,
+    ViewPrescriptionComponent,
+    ViewCheckUpComponent,
+    AppointmenthistoryComponent,
+    CustomdatePipe,
+    BookappointmentsComponent,
     
   ],
   imports: [
@@ -84,7 +104,10 @@ import { AvailabilityComponent } from './Adminpage/availability/availability.com
     MatTabsModule,
     MatTableModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+
 
   ],
   providers: [],

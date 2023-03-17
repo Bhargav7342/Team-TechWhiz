@@ -11,6 +11,12 @@ import { NurseComponent } from './Nursepage/nurse/nurse.component';
 import { PatientLoginComponent } from './Patient/patient-login/patient-login.component';
 import { PatientSignupComponent } from './Patient/patient-signup/patient-signup.component';
 import { PatientDashboardComponent } from './Patient/patient-dashboard/patient-dashboard.component';
+import { InitialcheckupComponent } from './Nursepage/initialcheckup/initialcheckup.component';
+import { AddDiagnosisComponent } from './DoctorPage/add-diagnosis/add-diagnosis.component';
+import { AppointmentsfortodayComponent } from './DoctorPage/appointmentsfortoday/appointmentsfortoday.component';
+import { BookappointmentsComponent } from './Patient/bookappointments/bookappointments.component';
+import { ViewPrescriptionComponent } from './Patient/view-prescription/view-prescription.component';
+import { HealthhistoryComponent } from './Patient/healthhistory/healthhistory.component';
 
 const routes: Routes = [
   {
@@ -34,10 +40,6 @@ const routes: Routes = [
     component:HomeComponent
   },
   {
-    path:"doctorland",
-    component:AcceptRejectappointmentComponent
-  },
-  {
     path:"presc",
     component:PrescriptionComponent
   },
@@ -52,6 +54,30 @@ const routes: Routes = [
   {
     path:"padash",
     component:PatientDashboardComponent
+  },
+  {
+    path:"addcheck",
+    component:InitialcheckupComponent
+  },
+  {
+    path:"adddiagnosis",
+    component:AddDiagnosisComponent
+  },
+  {
+    path:"appToday",
+    component:AppointmentsfortodayComponent
+  },
+  {
+    path:"book",
+    component:BookappointmentsComponent
+  },
+  {
+    path:"viewpre",
+    component:ViewPrescriptionComponent
+  },
+  {
+    path:"healthhistory",
+    component:HealthhistoryComponent
   }
 ];
 

@@ -1,2 +1,19 @@
-<h1>nurse works!</h1>
-{{name}}
+<div class="card-container" *ngFor="let p of patients">
+
+        <mat-card class="cards">
+            <mat-card-header>
+              <mat-card-title>{{p.name}}</mat-card-title>
+
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{ p.Doctor}}</p>
+              </mat-card-content>
+            <mat-card-content>
+              <p>{{p.concerns}}</p>
+            </mat-card-content>
+            <mat-card-actions class="card-buttons">
+
+              <button mat-raised-button color="primary" id="adddetailsbutton"  (click)="disablebutton()" [disabled]="added">Add Details</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>

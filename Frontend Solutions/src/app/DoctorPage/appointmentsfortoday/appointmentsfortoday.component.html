@@ -1,4 +1,5 @@
-<div class="card-container" *ngFor="let p of patients">
+
+<div class="card-container"*ngFor='let p of patients'>
 
     <mat-card class="cards">
         <mat-card-header>
@@ -7,14 +8,8 @@
         <mat-card-content>
           <p>Concern : {{p.concerns}}</p>
         </mat-card-content>
-        <mat-card-content>
-          <p>Date : {{p.date}}</p>
-        </mat-card-content>
         <mat-card-actions class="card-buttons">
-          <button mat-raised-button (click)="accept()" >Accept</button>
-          <button mat-raised-button  (click)="reject()">Reject</button>
-    
+          <button mat-raised-button color="primary" (click)="handleClick()">Add Diagnosis</button>
         </mat-card-actions>
       </mat-card>
     </div>
-    {{status}}

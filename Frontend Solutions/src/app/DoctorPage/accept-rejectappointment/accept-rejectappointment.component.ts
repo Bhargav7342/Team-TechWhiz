@@ -9,9 +9,9 @@ import { Route, Router } from '@angular/router';
 export class AcceptRejectappointmentComponent {
   constructor(private router:Router){}
   patients = [
-    { name: 'John Doe', concerns: 'Fever' },
-    { name: 'Jane Smith', concerns: 'Cough' },
-    { name: 'Bob Johnson', concerns: 'Headache' },
+    { name: 'John Doe', concerns: 'Fever',date:'12-MAR-2023' },
+    { name: 'Jane Smith', concerns: 'Cough',date:'14-MAR-2023' },
+    { name: 'Bob Johnson', concerns: 'Headache',date:'11-MAR-2023' },
 
   ];
   status!: string;

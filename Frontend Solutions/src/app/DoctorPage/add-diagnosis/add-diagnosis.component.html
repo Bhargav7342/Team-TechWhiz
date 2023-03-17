@@ -29,7 +29,7 @@
             </mat-grid-tile>
             <mat-grid-tile>
                 <mat-card-content>
-                    <button mat-raised-button id="B2">View Health History</button>
+                    <button mat-raised-button id="B2" (click)="viewHealthHistory()">View Health History</button>
                 </mat-card-content>
             </mat-grid-tile>
           </mat-grid-list>
@@ -42,7 +42,7 @@
             <mat-card-content id="buttons">
                 <button mat-raised-button id="B1" (click)="Clicked()"><mat-icon>note_add</mat-icon>Add Prescription</button>
                 <button mat-raised-button id="B1" (click)="ViewPrescription()"><mat-icon>visibility</mat-icon>View Prescription</button><br>
-                <button mat-raised-button id="B3">Save Details</button>
+                <button mat-raised-button id="B3" (click)="Save()">Save Details</button>
             </mat-card-content>
     </mat-card-content>
 </mat-card>
