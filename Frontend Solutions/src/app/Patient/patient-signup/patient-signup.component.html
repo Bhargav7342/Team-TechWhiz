@@ -1,0 +1,84 @@
+<form #signupForm="ngForm" (ngSubmit)="signup(signupForm.value)">
+    <div class="center-content">
+      <mat-card class="example-card">
+        <mat-card-content>
+              <h1>Sign up</h1>
+              <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Enter Email" value="" name="email" ngModel>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Enter Password" value="" name="Password" ngModel>
+              </mat-form-field>
+              <mat-form-field class="example-full-width"> 
+                <mat-label>Name</mat-label>
+                <input type="Name" matInput placeholder="Enter name" value="" name="name" ngModel >
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Phone Number</mat-label>
+                <input type="Phone Number" matInput placeholder="Enter Phone Number" value="" name="Phone Number" ngModel >
+              </mat-form-field>
+              <mat-grid-list cols="3" rowHeight="2:1">
+                <mat-grid-tile>
+                <mat-form-field  class="example-full-width">
+                  <mat-label>Gender</mat-label>
+                  <mat-select  name="Gender" ngModel>
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Other">Other</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                  </mat-grid-tile>
+              
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>BloodGroup</mat-label>
+                    <mat-select name="BloodGroup" ngModel>
+                      <mat-option value="A+">A+</mat-option>
+                      <mat-option value="A-">A-</mat-option>
+                      <mat-option value="B+">B+</mat-option>
+                
+                        <mat-option value="B-">B-</mat-option>
+                        <mat-option value="O+">O+</mat-option>
+                        <mat-option value="O-">O-</mat-option>
+                       
+                          <mat-option value="AB+">AB+</mat-option>
+                          <mat-option value="AB-">AB-</mat-option>
+                       
+                      
+                    </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+              
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Age</mat-label>
+                    <input type="Age" matInput placeholder="Enter Age" value="" name="Age" ngModel>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>City</mat-label>
+                    <input type="City" matInput placeholder="Enter City" value="" name="City" ngModel >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>State</mat-label>
+                    <input type="State" matInput placeholder="Enter State" value="" name="State" ngModel >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Zipcode</mat-label>
+                    <input type="Zipcode" matInput placeholder="Enter Zipcode" value="" name="Zipcode" ngModel >
+                    </mat-form-field>
+                </mat-grid-tile>
+              </mat-grid-list>
+              
+              <button mat-button color="primary" type="submit" id="bt1" >Sign Up</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    </form>
