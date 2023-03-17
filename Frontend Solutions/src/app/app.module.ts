@@ -28,6 +28,16 @@ import { PatientSignupComponent } from './Patient/patient-signup/patient-signup.
 import { FormsModule }   from '@angular/forms';
 import { PatientDashboardComponent } from './Patient/patient-dashboard/patient-dashboard.component';
 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { DoctorScheduleComponent } from './Adminpage/doctor-schedule/doctor-schedule.component';
+import { PatientslistComponent } from './Adminpage/patientslist/patientslist.component';
+import { AddDoctorComponent } from './Adminpage/add-doctor/add-doctor.component';
+import { AvailabilityComponent } from './Adminpage/availability/availability.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +51,12 @@ import { PatientDashboardComponent } from './Patient/patient-dashboard/patient-d
     PrescriptionComponent,
     PatientLoginComponent,
     PatientSignupComponent,
-    PatientDashboardComponent
+    PatientDashboardComponent,
+    DoctorScheduleComponent,
+    PatientslistComponent,
+    AddDoctorComponent,
+    AvailabilityComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -64,7 +79,12 @@ import { PatientDashboardComponent } from './Patient/patient-dashboard/patient-d
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
