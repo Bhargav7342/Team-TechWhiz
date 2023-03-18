@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ServiceLayer.Controllers
 {
@@ -150,10 +151,11 @@ namespace ServiceLayer.Controllers
 
         [HttpGet("Email_Notification")]
 
-        public IActionResult SendEmail([FromHeader]string Email, [FromHeader]DateTime date, [FromHeader]string status)
+        public IActionResult SendEmail([FromHeader]string Email, [FromHeader]string date1, [FromHeader]string status)
         {
             try
             {
+                var date = DateTime.Parse(date1);
                 _logic.EmailFunc(Email, date, status);
                 return Ok("Email Sent");
             }
