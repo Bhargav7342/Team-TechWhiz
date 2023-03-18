@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: 
+      run: |
         cd BackendSolutions/PatientSolution
           dotnet restore
     - name: Build
