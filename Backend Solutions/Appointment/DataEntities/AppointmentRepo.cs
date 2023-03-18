@@ -1,5 +1,7 @@
 ﻿using DataEntities.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 
 namespace DataEntities
 {
@@ -15,6 +17,57 @@ namespace DataEntities
             context.Appointments.Add(appointment);
             context.SaveChanges();
             return appointment;
+        }
+
+        public void EmailToPatient(string email, DateTime date, string status)
+        {
+            MailMessage mailMessage = new MailMessage();
+            string toEmail = email;
+            DateTime d = date;
+            string s = "", b = "";
+            string stat = status;
+            switch (stat)
+            {
+                case "Accepted":
+                    s = "Appointment Accepted";
+                    b = $"Dear applicant, \n\nYour Appointment has been accepted from the Doctor on {d}.\nThank you.\nWhizcare Hospital\nIndia";
+                    break;
+                case "Rejected":
+                    s = "Appointment Rejected";
+                    b = "Dear applicant, \n\nYour Appointment has been rejected from the Doctor. Sorry for the inconvinience.\nPlease Re-Schedule your Appointment.\n\nThank you.\nWhizcare Hospital\nIndia";
+                    break;
+                case "Sent":
+                    s = "Appointment Booked Successfully";
+                    b = "Dear applicant, \n\nYour Appointment has been booked for the doctor.\nThank you.\nWhizcare Hospital\nIndia";
+                    break;
+                default:
+                    break;
+            }
+            string fromEmail = "whizcarehospital@gmail.com";
+            string password = "ikzwdfetggbdkqui";
+            string smtpHost = "smtp.gmail.com";
+            int smtpPort = 587;
+
+            // Create a MailMessage object
+            mailMessage = new MailMessage(fromEmail, toEmail);
+            mailMessage.Subject = s;
+            mailMessage.Body = b;
+            // Create a SmtpClient object
+            SmtpClient smtpClient = new SmtpClient(smtpHost, smtpPort);
+            smtpClient.EnableSsl = true;
+            smtpClient.Credentials = new NetworkCredential(fromEmail, password);
+            smtpClient.UseDefaultCredentials = false;
+
+            // Send the email
+            try
+            {
+                smtpClient.Send(mailMessage);
+                Console.WriteLine("Email sent successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error sending email: " + ex.Message);
+            }
         }
 
         public List<Appointment> GetAppointmentsByDate(DateTime date)

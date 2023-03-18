@@ -146,8 +146,22 @@ namespace ServiceLayer.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
 
+        [HttpGet("Email_Notification")]
 
+        public IActionResult SendEmail([FromHeader]string Email, [FromHeader]DateTime date, [FromHeader]string status)
+        {
+            try
+            {
+                _logic.EmailFunc(Email, date, status);
+                return Ok("Email Sent");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message+"Email not sent");
+            }
+            
         }
 
     }

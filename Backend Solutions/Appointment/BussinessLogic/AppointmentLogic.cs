@@ -29,6 +29,10 @@ namespace BussinessLogic
             return Mapper.Map( repo.AddAppointment(Mapper.Map(appointment)));
         }
 
+        public void EmailFunc(string email, DateTime date, string status)
+        {
+            repo.EmailToPatient(email, date, status);
+        }
 
         public IEnumerable<Models.Appointment> GetAppointmentsByDate(DateTime date)
         {

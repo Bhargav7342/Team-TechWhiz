@@ -23,5 +23,7 @@ namespace DataEntities
 
         public DataEntities.Entities.Appointment AddAppointment(DataEntities.Entities.Appointment appointment);
 
+        public void EmailToPatient(string email, DateTime date, string status);
+
     }
 }
