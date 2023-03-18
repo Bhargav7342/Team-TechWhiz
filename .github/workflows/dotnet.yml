@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: 
         cd BackendSolutions/PatientSolution
-        dotnet restore
+          dotnet restore
     - name: Build
       run: dotnet build --no-restore BackendSolutions/PatientSolution
     - name: Test
