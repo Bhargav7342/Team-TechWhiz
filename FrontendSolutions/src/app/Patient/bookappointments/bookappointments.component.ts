@@ -15,6 +15,6 @@ export class BookappointmentsComponent {
 
 booked(){
   
-  this.router.navigate(['/padash']);
+  this.router.navigate(['/patientdashboard']);
 }
 }

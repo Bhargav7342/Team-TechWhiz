@@ -5,19 +5,23 @@
               <h1>Sign up</h1>
               <mat-form-field class="example-full-width">
                 <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Enter Email" value="" name="email" ngModel>
+                <input type="email" matInput placeholder="Enter Email" value="" name="Email" ngModel>
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <mat-label>Password</mat-label>
                 <input type="password" matInput placeholder="Enter Password" value="" name="Password" ngModel>
               </mat-form-field>
               <mat-form-field class="example-full-width"> 
-                <mat-label>Name</mat-label>
-                <input type="Name" matInput placeholder="Enter name" value="" name="name" ngModel >
+                <mat-label>First Name</mat-label>
+                <input type="Name" matInput placeholder="Enter name" value="" name="FirstName" ngModel >
+              </mat-form-field>
+              <mat-form-field class="example-full-width"> 
+                <mat-label>Last Name</mat-label>
+                <input type="Name" matInput placeholder="Enter name" value="" name="LastName" ngModel >
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <mat-label>Phone Number</mat-label>
-                <input type="Phone Number" matInput placeholder="Enter Phone Number" value="" name="Phone Number" ngModel >
+                <input type="Phone Number" matInput placeholder="Enter Phone Number" value="" name="Phone" ngModel >
               </mat-form-field>
               <mat-grid-list cols="3" rowHeight="2:1">
                 <mat-grid-tile>
@@ -52,10 +56,12 @@
                 </mat-grid-tile>
               
                 <mat-grid-tile>
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Age</mat-label>
-                    <input type="Age" matInput placeholder="Enter Age" value="" name="Age" ngModel>
-                    </mat-form-field>
+                  <mat-form-field appearance="fill">
+                    <mat-label>DOB</mat-label>
+                    <input matInput [matDatepicker]="picker" class="dateclass" name="DateOfBirth" ngModel>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field> 
                 </mat-grid-tile>
                 <mat-grid-tile>
                   <mat-form-field class="example-full-width">

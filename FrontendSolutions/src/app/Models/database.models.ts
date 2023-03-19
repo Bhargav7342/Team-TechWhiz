@@ -5,7 +5,7 @@ function guid(guid: string) : GUID {
 
 //Patient Table
 export interface Patient{
-    patientId:GUID;
+    patientId:string;
     FirstName:string;
     LastName:string;
     Email:string;
@@ -63,13 +63,13 @@ export interface PhysicianAvailabilityStatus{
 
 //Appointment Table
 export interface Appointment{
-    AppointmentId:GUID;
-    PatientId :GUID;
-    DoctorId :GUID;
-    Date :any;
-    DoctorName:string;
-    Concerns:string;
-    Status:string;
+    appointmentId:string;
+    patientId :string;
+    doctorId :string;
+    date :string;
+    doctorName:string;
+    concerns:string;
+    status:string;
 }
 
 //PatientIntialCheckup Table 

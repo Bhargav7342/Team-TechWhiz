@@ -6,7 +6,7 @@
 
         public Guid? PatientId { get; set; }
 
-        public string? Date { get; set; }
+        public DateTime? Date { get; set; }
 
         public string? DoctorName { get; set; }
 

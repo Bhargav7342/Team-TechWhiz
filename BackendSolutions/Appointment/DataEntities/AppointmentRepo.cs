@@ -83,7 +83,11 @@ namespace DataEntities
 
         public List<Appointment> GetAppointmentsByPatient(Guid patient_id)
         {
-            return context.Appointments.Where(a => a.PatientId == patient_id).ToList();
+            var app=(from a in context.Appointments
+                     where a.PatientId==patient_id
+                     orderby a.Date descending
+                     select a).ToList();
+            return app;
         }
 
         public List<Appointment> GetAppointmentsByStatus(DateTime date)

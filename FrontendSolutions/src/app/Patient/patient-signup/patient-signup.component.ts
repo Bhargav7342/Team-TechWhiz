@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomdatePipe } from 'src/app/customdate.pipe';
+import { Patient } from 'src/app/Models/database.models';
+import { PatientServicesService } from 'src/app/Service/patient-services.service';
+
 
 @Component({
   selector: 'app-patient-signup',
@@ -8,21 +12,31 @@ import { Router } from '@angular/router';
 })
 export class PatientSignupComponent {
 
-  constructor(private router:Router){}
-  title = 'SIGNUP';
-  remail:string="";
-  rpassword:string="";
-  rcname:string=""
-  rcphonenumber:string="";
-  rcGender:string="";
-  rcBloodGroup:string="";
-  rcAge:string="";
-  rcCity:string="";
-  rcState:string="";
-  rcZipcode:string="";
-
+  constructor(private router:Router,private patientService:PatientServicesService){}
+  addPatient:Patient={
+    patientId:'',
+    FirstName:'',
+    LastName:'',
+    Email:'',
+    Password:'',
+    Phone:'',
+    Gender:'',
+    DateOfBirth:'',
+    City:'',
+    State:'',
+    Zipcode:'',
+    BloodGroup:'',
+  }
   signup(item: any){
-    console.log(item);
-    this.router.navigate(['/plogin']);
+    
+    this.patientService.patientRegister(item).subscribe({
+      next:(response)=>{
+        this.addPatient=item;
+        console.log(response);
+        console.log(item.DateOfBirth.toLocaleDateString());
+        this.router.navigate(['/plogin']);
+      }
+    })
+    
   }
 }

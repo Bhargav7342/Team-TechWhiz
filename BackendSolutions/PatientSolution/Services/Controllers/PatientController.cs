@@ -52,7 +52,7 @@ namespace Services.Controllers
         }
 
         [HttpGet("SignIn_Patient")]
-        public IActionResult SignInPatient([FromQuery]string email, [FromQuery] string pass)
+        public IActionResult SignInPatient([FromHeader]string email, [FromHeader] string pass)
         {
             var p=patientlogic.LoginPatient(email, pass);
             if (p != null)

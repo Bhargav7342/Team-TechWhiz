@@ -2,6 +2,9 @@ import { Component,Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Output,EventEmitter } from '@angular/core';
+import { PatientServicesService } from 'src/app/Service/patient-services.service';
+import { Patient } from 'src/app/Models/database.models';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-patient-login',
@@ -9,14 +12,24 @@ import { Output,EventEmitter } from '@angular/core';
   styleUrls: ['./patient-login.component.css']
 })
 export class PatientLoginComponent {
-  constructor(private router:Router){}
-  signinFunc(event: any){
-    console.log(event);
-    this.router.navigate(['/padash']);
-  }
+  constructor(private router:Router,private patientService:PatientServicesService){}
 
-  @Output() newItemEvent=new EventEmitter<string>();
-  addNewItem(status:string){
-    this.newItemEvent.emit(status)
+
+  signinFunc(event: any){
+        console.log(event.Email);
+    this.patientService.patientLogin(event.Email,event.Password).subscribe({
+      next:(response)=>{
+        console.log(response);
+        
+        sessionStorage.setItem('pid',response.patientId);
+        window.alert("Sign In Successfull");
+        
+        this.router.navigate(['/patientdashboard']);
+      },
+      error:(e)=>{
+        window.alert("Login Failed");
+      }
+    })
   }
 }
+

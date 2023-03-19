@@ -52,7 +52,7 @@ const routes: Routes = [
     component:PatientSignupComponent
   },
   {
-    path:"padash",
+    path:"patientdashboard",
     component:PatientDashboardComponent
   },
   {
