@@ -27,4 +27,9 @@ export class PatientServicesService {
     });
     return this.http.get<Patient>(this.baseApiUrl+'/Patient/SignIn_Patient',{headers:headers});
   }
+
+  getAllPatient():Observable<Patient[]>
+  {
+    return this.http.get<Patient[]>(this.baseApiUrl+'/Patient/GetAllPatients');
+  }
 }

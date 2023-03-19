@@ -30,17 +30,6 @@ export class AppointmenthistoryComponent implements OnInit {
    })
   }}
   added:boolean=false;
-// appointment's = [
-//   { date:'03-12-22', doctor: 'John Doe', concerns: 'Fever' ,status:'Sent'},
-//   { date:'05-12-22', doctor: 'Jane Smith', concerns: 'Cough', status:'Accepted' },
-//   { date:'09-12-22', doctor: 'Bob Johnson', concerns: 'Headache', status:'Rejected' },
-//   { date:'12-12-22', doctor: 'John Doe', concerns: 'Fever' ,status:'Sent'},
-//   { date:'11-12-22', doctor: 'Jane Smith', concerns: 'Cough', status:'Accepted' },
-//   { date:'12-12-22', doctor: 'Bob Johnson', concerns: 'Headache', status:'Rejected' }
-// ];
-
-
-
 
 
 handleClick(){

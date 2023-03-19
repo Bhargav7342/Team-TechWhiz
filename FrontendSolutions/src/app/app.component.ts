@@ -49,6 +49,7 @@ export class AppComponent {
   }
 
   logout(){
+    sessionStorage.clear();
     this.auth.logout();
   }
   new(){

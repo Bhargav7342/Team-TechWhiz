@@ -126,8 +126,8 @@ namespace Services.Controllers
         {
             try
             {
-                _logic.AddDoctor(doctor);
-                return Ok(200);
+                
+                return Ok(_logic.AddDoctor(doctor));
             }
             catch (SqlException ex)
             {

@@ -40,25 +40,25 @@ export interface Prescription{
 
 //Doctor table
 export interface Doctor{
-    DoctorId:GUID;
-    DoctorName:string;
-    Email:string;
-    Qualification:string;
-    Department:string;
+    doctorId:string;
+    doctorName:string;
+    email:string;
+    qualification:string;
+    department:string;
 }
 
 
 //Availability Table
 export interface PhysicianAvailabilityStatus{
-    AvailabilityId :GUID;
-    DoctorId:GUID;
-    Sunday:boolean;
-    Monday:boolean;
-    Tuesday:boolean;
-    Wednesday:boolean;
-    Thursday:boolean;
-    Friday:boolean;
-    Saturday:boolean;
+    availabilityId :string;
+    doctorId:string;
+    sunday:boolean;
+    monday:boolean;
+    tuesday:boolean;
+    wednesday:boolean;
+    thursday:boolean;
+    friday:boolean;
+    saturday:boolean;
 }
 
 //Appointment Table

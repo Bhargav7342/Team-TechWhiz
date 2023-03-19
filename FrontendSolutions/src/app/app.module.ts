@@ -47,6 +47,7 @@ import { CustomdatePipe } from './customdate.pipe';
 import { BookappointmentsComponent } from './Patient/bookappointments/bookappointments.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AddAvailabilityComponent } from './Adminpage/add-availability/add-availability.component';
 
 
 
@@ -76,6 +77,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppointmenthistoryComponent,
     CustomdatePipe,
     BookappointmentsComponent,
+    AddAvailabilityComponent,
     
   ],
   imports: [
