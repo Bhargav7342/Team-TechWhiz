@@ -22,9 +22,9 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: |
-        cd BackendSolutions/PatientSolution
+        cd BackendSolutions/PatientSolution/Services
         dotnet restore
     - name: Build
-      run: dotnet build --no-restore BackendSolutions/PatientSolution
+      run: dotnet build --no-restore BackendSolutions/PatientSolution/Services
     - name: Test
-      run: dotnet test --no-build --verbosity normal BackendSolutions/PatientSolution
+      run: dotnet test --no-build --verbosity normal BackendSolutions/PatientSolution/Services
