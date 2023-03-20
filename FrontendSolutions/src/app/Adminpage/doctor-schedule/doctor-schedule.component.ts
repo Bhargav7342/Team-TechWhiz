@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 export class DoctorScheduleComponent implements OnInit {
   doctor:Doctor[]=[];
   constructor(private dialogbox:MatDialog,private doctorservice:AvailabilityService,private router:Router){
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    
+  }
+  ngOnInit(): void {
     this.doctorservice.getAllDoctor().subscribe({
       next:(response)=>{
         console.log(response)
@@ -22,9 +24,6 @@ export class DoctorScheduleComponent implements OnInit {
         window.alert("Something is wrong");
       }
     })
-  }
-  ngOnInit(): void {
-    
   }
   
   openDialog(){

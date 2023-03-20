@@ -18,7 +18,7 @@ export class AvailabilityComponent {
   });
 
   constructor(private _formBuilder: FormBuilder) {}
-  saveAvailability(){
+  saveAvailability() {
     console.log(this.days.value);
   }
 }

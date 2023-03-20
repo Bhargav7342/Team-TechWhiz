@@ -34,6 +34,7 @@ export class PatientSignupComponent {
         this.addPatient=item;
         console.log(response);
         console.log(item.DateOfBirth.toLocaleDateString());
+        window.alert("Sign Up Successfull....Welcome...!")
         this.router.navigate(['/plogin']);
       }
     })

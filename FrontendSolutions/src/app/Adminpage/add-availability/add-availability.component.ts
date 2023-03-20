@@ -13,10 +13,10 @@ import { AvailabilityComponent } from '../availability/availability.component';
 })
 export class AddAvailabilityComponent {
   constructor(private _formBuilder: FormBuilder,private router:Router,private availabilityService:AvailabilityService,@Inject(MAT_DIALOG_DATA) public data:any) {}
-   docid:string| any=sessionStorage.getItem('addDocId')
-   days:PhysicianAvailabilityStatus=({
+  
+  days:PhysicianAvailabilityStatus=({
     availabilityId :'',
-    doctorId:this.docid,
+    doctorId:'',
     sunday:false,
     monday:false,
     tuesday:false,
@@ -26,11 +26,17 @@ export class AddAvailabilityComponent {
     saturday:false,
    })
   addAvailability(item:any){
-
-    this.availabilityService.addAvailability(item).subscribe({
-      next:(response)=>
+    console.log(item);
+    this.days=item
+    this.days.doctorId=this.data.dataKey
+    console.log(this.data)
+    this.availabilityService.addAvailability(this.days).subscribe({
+      next:(response)=>{
+      console.log(response)
       window.alert("Availability added for the Doctor")
+      }
     })
+    
     this.router.navigate(['/admin'])
   }
 }
