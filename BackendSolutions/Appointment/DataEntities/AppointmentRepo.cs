@@ -72,7 +72,7 @@ namespace DataEntities
 
         public List<Appointment> GetAppointmentsByDate(DateTime date)
         {
-            var find = context.Appointments.Where(a => a.Date == date.Date).ToList();
+            var find = context.Appointments.Where(a => a.Date == date.Date && a.Status=="Accepted").ToList();
             return find;
         }
 
