@@ -15,6 +15,7 @@ export class PatientslistComponent implements OnInit  {
       next:(response)=>{
         this.patients=response
         console.log(response)
+        this.dataSource = this.patients;
       },
       error:(e)=>
       {
@@ -23,7 +24,8 @@ export class PatientslistComponent implements OnInit  {
     })
 
   }
-  displayedColumns: string[] = ['Name', 'Email','Phone', 'Age', 'Gender'];
+  displayedColumns: string[] = ['Name', 'Email','Phone', 'Date of Birth', 'Gender'];
   dataSource = this.patients;
+  
   
 }

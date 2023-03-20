@@ -3,6 +3,7 @@ mat-grid-list {
     margin: auto;
 }
 mat-card{
+    width:80%;
     padding: 10%;
     font-size: large;
     border-radius: 10%;
