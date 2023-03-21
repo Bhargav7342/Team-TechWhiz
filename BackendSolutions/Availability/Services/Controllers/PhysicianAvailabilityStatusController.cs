@@ -49,5 +49,23 @@ namespace Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("GetStatus")]
+        public IActionResult GetAvailability([FromHeader]Guid id)
+        {
+            try
+            {
+                var status = _logic.GetAvailabilityStatus(id);
+                return Ok(status);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

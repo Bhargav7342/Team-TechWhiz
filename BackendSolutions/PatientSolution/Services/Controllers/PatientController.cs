@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Patient_Logic;
+using System;
 
 namespace Services.Controllers
 {
@@ -42,6 +43,7 @@ namespace Services.Controllers
         [HttpPost("Register_Patient")]
         public IActionResult RegisterPat([FromBody]Patient patient)
         {
+            patient.DateOfBirth = patient.DateOfBirth.AddDays(1);
             var p = patientlogic.AddPatient(patient);
             if (p != null)
             {

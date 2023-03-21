@@ -21,6 +21,14 @@ namespace DataEntities
             return phy_status;
         }
 
+        public PhysicianAvailabilityStatus GetStatus(Guid id)
+        {
+            var sta=(from s in context.PhysicianAvailabilityStatuses
+                     where s.DoctorId==id
+                     select s).FirstOrDefault();
+            return sta;
+        }
+
         public PhysicianAvailabilityStatus UpdateAvailability(PhysicianAvailabilityStatus phy_status)
         {
             var existing = context.PhysicianAvailabilityStatuses.FirstOrDefault(x=>x.DoctorId==phy_status.DoctorId);

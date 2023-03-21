@@ -57,5 +57,9 @@ namespace BusinessLogic
             return Mapper.MapPhysicianAvailabilityStatus(physicianRepo.UpdateAvailability(Mapper.mapPhysicianAvailabilityStatus(phy_status)));
         }
 
+        public Models.PhysicianAvailabilityStatus GetAvailabilityStatus(Guid id)
+        {
+            return Mapper.MapPhysicianAvailabilityStatus(physicianRepo.GetStatus(id));
+        }
     }
 }

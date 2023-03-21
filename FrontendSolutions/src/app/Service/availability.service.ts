@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
@@ -28,5 +28,30 @@ export class AvailabilityService {
   getAllDoctor():Observable<Doctor[]>
   {
     return this.http.get<Doctor[]>(this.baseApiUrl+'/Doctor/GetAllDoctors');
+  }
+
+  getDoctorIdbyEmail(email:string):Observable<Doctor>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'Email':email,
+    });
+    return this.http.get<Doctor>(this.baseApiUrl+'/Doctor/GetDoctorByEmail',{headers:header});
+  }
+
+  getStatusByDoctorId(doctorId:string):Observable<PhysicianAvailabilityStatus>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'id':doctorId,
+    });
+    return this.http.get<PhysicianAvailabilityStatus>(this.baseApiUrl+'/PhysicianAvailabilityStatus/GetStatus',{headers:header});
+  }
+
+  updateDoctorAvailablity(updatedstatus:PhysicianAvailabilityStatus):Observable<PhysicianAvailabilityStatus>
+  {
+    return this.http.put<PhysicianAvailabilityStatus>(this.baseApiUrl+'/PhysicianAvailabilityStatus/UpdateAvailability',updatedstatus);
   }
 }

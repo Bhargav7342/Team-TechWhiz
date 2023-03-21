@@ -28,12 +28,17 @@ export class PatientSignupComponent {
     BloodGroup:'',
   }
   signup(item: any){
-    
+    console.log(item.DateOfBirth);
+    this.addPatient=item;
+    console.log(item.DateOfBirth)
+    this.addPatient.DateOfBirth=item.DateOfBirth
+    console.log(this.addPatient.DateOfBirth)
     this.patientService.patientRegister(item).subscribe({
       next:(response)=>{
         this.addPatient=item;
+        
         console.log(response);
-        console.log(item.DateOfBirth.toLocaleDateString());
+        console.log(item.DateOfBirth);
         window.alert("Sign Up Successfull....Welcome...!")
         this.router.navigate(['/plogin']);
       }

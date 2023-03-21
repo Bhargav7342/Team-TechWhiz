@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PhysicianAvailabilityStatus } from 'src/app/Models/database.models';
+import { AvailabilityService } from 'src/app/Service/availability.service';
 
 @Component({
   selector: 'app-availability',
@@ -7,18 +10,24 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./availability.component.css']
 })
 export class AvailabilityComponent {
-  days = this._formBuilder.group({
-    Monday: false,
-    Tuesday: false,
-    Wednesday: false,
-    Thursday: false,
-    Friday: false,
-    Saturday: false,
-    Sunday:false,
+  
+  days:PhysicianAvailabilityStatus =({
+    availabilityId :'',
+    doctorId:'',
+    monday: true,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
+    sunday:true,
   });
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder,private router:Router,private availabilityservice:AvailabilityService) {}
+  status:boolean=true;
   saveAvailability() {
-    console.log(this.days.value);
+    console.log()
+    console.log(this.days);
+    this.router.navigate(['/admin']);
   }
 }

@@ -27,9 +27,10 @@ export class DoctorScheduleComponent implements OnInit {
   }
   
   openDialog(){
+    console.log()
     this.dialogbox.open(AvailabilityComponent,{
       height:'400px',
-      width:'500px'
+      width:'500px',
     })
   }
 }

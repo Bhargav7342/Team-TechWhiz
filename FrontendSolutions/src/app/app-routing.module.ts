@@ -17,6 +17,8 @@ import { AppointmentsfortodayComponent } from './DoctorPage/appointmentsfortoday
 import { BookappointmentsComponent } from './Patient/bookappointments/bookappointments.component';
 import { ViewPrescriptionComponent } from './Patient/view-prescription/view-prescription.component';
 import { HealthhistoryComponent } from './Patient/healthhistory/healthhistory.component';
+import { AddAvailabilityComponent } from './Adminpage/add-availability/add-availability.component';
+import { AvailabilityComponent } from './Adminpage/availability/availability.component';
 
 const routes: Routes = [
   {
@@ -78,6 +80,10 @@ const routes: Routes = [
   {
     path:"healthhistory",
     component:HealthhistoryComponent
+  },
+  {
+    path:"availability/:email",
+    component:AvailabilityComponent
   }
 ];
 

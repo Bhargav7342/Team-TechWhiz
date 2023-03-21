@@ -12,5 +12,6 @@ namespace BusinessLogic
     {
         public PhysicianAvailabilityStatus AddAvailability(Models.PhysicianAvailabilityStatus phy_status);
         public PhysicianAvailabilityStatus UpdateAvailability(Models.PhysicianAvailabilityStatus phy_status);
+        public PhysicianAvailabilityStatus GetAvailabilityStatus(Guid id);
     }
 }

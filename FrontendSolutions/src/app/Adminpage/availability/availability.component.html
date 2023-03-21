@@ -1,13 +1,18 @@
-
-<section class="example-section" [formGroup]="days">
-    <h4>Select your toppings:</h4>
-    <p><mat-checkbox color="primary" formControlName="Monday">Monday</mat-checkbox></p>
-    <p><mat-checkbox color="primary" formControlName="Tuesday">Tuesday</mat-checkbox></p>
-    <p><mat-checkbox color="primary" formControlName="Wednesday">Wednesday</mat-checkbox></p>
-    <p><mat-checkbox color="primary" formControlName="Thursday">Thursday</mat-checkbox></p>
-    <p><mat-checkbox color="primary" formControlName="Friday">Friday</mat-checkbox></p>
-    <p><mat-checkbox color="primary" formControlName="Saturday">Saturday</mat-checkbox></p>
-    <p><mat-checkbox color="primary" formControlName="Sunday">Sunday</mat-checkbox></p>
-    <button mat-raised-button (click)="saveAvailability()">Save Changes</button>
-  </section>
-  
+<div id="cards">
+<mat-card id="card">
+  <mat-card-content>
+    <form #signupForm="ngForm" (ngSubmit)="saveAvailability()">
+<section class="example-section" >
+    <h4>Select Days and Click on Save:</h4>
+    <input type="checkbox" [checked]="days.monday" name="monday" [(ngModel)]="days.monday"><label> Monday </label><br>
+    <input type="checkbox" [checked]="days.tuesday" name="tuesday" [(ngModel)]="days.tuesday"><label> Tuesday </label><br>
+    <input type="checkbox" [checked]="days.wednesday" name="wednesday" [(ngModel)]="days.wednesday"><label> Wednesday </label><br>
+    <input type="checkbox" [checked]="days.thursday" name="thursday" [(ngModel)]="days.thursday"><label> Thursday </label><br>
+    <input type="checkbox" [checked]="days.friday" name="friday" [(ngModel)]="days.friday"><label> Friday </label><br>
+    <input type="checkbox" [checked]="days.saturday" name="saturday" [(ngModel)]="days.saturday"><label> Saturday </label><br>
+    <input type="checkbox" [checked]="days.sunday" name="sunday" [(ngModel)]="days.sunday"><label> Sunday </label><br>
+    <button mat-raised-button type="submit">Save Changes</button>
+  </section></form>
+</mat-card-content>
+</mat-card>
+</div>
