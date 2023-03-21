@@ -32,4 +32,14 @@ export class PatientServicesService {
   {
     return this.http.get<Patient[]>(this.baseApiUrl+'/Patient/GetAllPatients');
   }
+
+  getPatientById(patientId:string):Observable<Patient>{
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'Id':patientId
+    });
+    return this.http.get<Patient>(this.baseApiUrl+'/Patient/GetAllPatientsById',{headers:header});
+    
+  }
 }
