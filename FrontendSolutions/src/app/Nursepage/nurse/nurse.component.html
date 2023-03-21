@@ -1,17 +1,17 @@
 
 <h2>Welcome, Appointments for Today</h2>
-<div class="card-container" *ngFor="let p of patients">
+<div class="card-container" *ngFor="let a of appointments;let i=index"  >
 
         <mat-card class="cards">
             <mat-card-header>
-              <mat-card-title>patientNamehere</mat-card-title>
+              <mat-card-title>PatientName:{{patients[i].firstName}}</mat-card-title>
 
             </mat-card-header>
             <mat-card-content>
-                <p>{{ p.doctorName}}</p>
+                <p>doctorName:{{ a.doctorName}}</p>
               </mat-card-content>
             <mat-card-content>
-              <p>{{p.concerns}}</p>
+              <p>Concern:{{a.concerns}}</p>
             </mat-card-content>
             <mat-card-actions class="card-buttons">
 

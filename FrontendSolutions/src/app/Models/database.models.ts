@@ -6,7 +6,7 @@ function guid(guid: string) : GUID {
 //Patient Table
 export interface Patient{
     patientId:string;
-    FirstName:string;
+    firstName:string;
     LastName:string;
     Email:string;
     Password:string;
