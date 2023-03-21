@@ -37,7 +37,7 @@ export class AvailabilityService {
       'resposneType':'json',
       'Email':email,
     });
-    return this.http.get<Doctor>(this.baseApiUrl+'/Doctor/GetDoctorByEmail',{headers:header});
+    return this.http.get<Doctor>(this.baseApiUrl+'/Doctor/GetDoctorsByEmail',{headers:header});
   }
 
   getStatusByDoctorId(doctorId:string):Observable<PhysicianAvailabilityStatus>

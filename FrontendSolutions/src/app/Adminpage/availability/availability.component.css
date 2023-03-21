@@ -4,6 +4,10 @@
 }
 
 #card{
-    width: 62%;
+    width: 50%;
     margin: auto;
+}
+
+#savebutton{
+    margin-top: 1%;
 }
