@@ -15,7 +15,7 @@ export class PatientSignupComponent {
   constructor(private router:Router,private patientService:PatientServicesService){}
   addPatient:Patient={
     patientId:'',
-    FirstName:'',
+    firstName:'',
     LastName:'',
     Email:'',
     Password:'',
