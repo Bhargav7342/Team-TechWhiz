@@ -16,5 +16,6 @@ namespace Patient_Logic
         IEnumerable<Patient> GetPatients();
         Patient GetPatientById(Guid id);
 
+      
     }
 }

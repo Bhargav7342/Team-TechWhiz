@@ -75,8 +75,8 @@ export interface Appointment{
 //PatientIntialCheckup Table 
 
 export interface PatientIntialCheckup{
-    PicId :GUID;
-    AppointmentId :GUID;
+    PicId :string;
+    AppointmentId :string;
     Height :number;
     Weight :number;
     Temperature :number;
