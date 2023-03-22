@@ -9,7 +9,7 @@ namespace BusinessLogic
 {
     public interface Ilogic
     {
-        public List<Allergy> GetAllAllergies(Guid patientId);
+        public List<Allergy> GetAllAllergies(Guid appointmentid);
         public Allergy addPatientAllergy(Allergy allergy);
     }
 }

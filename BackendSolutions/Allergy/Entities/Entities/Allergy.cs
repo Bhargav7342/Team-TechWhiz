@@ -9,5 +9,5 @@ public partial class Allergy
 
     public string? AllergyName { get; set; }
 
-    public Guid? PatientId { get; set; }
+    public Guid? AppointmentId { get; set; }
 }

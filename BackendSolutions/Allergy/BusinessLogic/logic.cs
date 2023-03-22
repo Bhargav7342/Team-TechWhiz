@@ -20,9 +20,9 @@ namespace BusinessLogic
            return Mapper.AllergyMapper(repo.addPatientAllergy(Mapper.AllergyMapper(allergy)));
         }
 
-        public List<Allergy> GetAllAllergies(Guid patientId)
+        public List<Allergy> GetAllAllergies(Guid appointmentid)
         {
-            return Mapper.AllergyMapper(repo.GetAllAllergies(patientId));
+            return Mapper.AllergyMapper(repo.GetAllAllergies(appointmentid));
         }
     }
 }
