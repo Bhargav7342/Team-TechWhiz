@@ -7,25 +7,26 @@ function guid(guid: string) : GUID {
 export interface Patient{
     patientId:string;
     firstName:string;
-    LastName:string;
-    Email:string;
-    Password:string;
-    Phone:string;
-    Gender:string;
-    DateOfBirth:string;
-    City:string;
-    State:string;
-    Zipcode:string
-    BloodGroup:string;
+    lastName:string;
+    email:string;
+    password:string;
+    phone:string;
+    gender:string;
+    dateOfBirth:string;
+    city:string;
+    state:string;
+    zipcode:string
+    bloodGroup:string;
 }
 
 //Health History Table
 export interface HealthHistory {
-    HhId:GUID;
-    patientId:GUID;
-    Date:string;
-    DoctorName:string;
-    Diagnosis:string;
+    hhId:string;
+    patientId:string;
+    date:string;
+    doctorName:string;
+    diagnosis:string;
+    appointmentId:string;
 }
 
 //Prescription Table
@@ -75,21 +76,21 @@ export interface Appointment{
 //PatientIntialCheckup Table 
 
 export interface PatientIntialCheckup{
-    PicId :string;
-    AppointmentId :string;
-    Height :number;
-    Weight :number;
-    Temperature :number;
-    Spo2 :number;
-    BloodPressure :string;
-    SugarLevel :number;
-    AdditionalDetails :string;
-    ChechupStatus :boolean;
+    picId :GUID;
+    appointmentId :GUID;
+    height :number;
+    weight :number;
+    temperature :number;
+    spo2 :number;
+    bloodPressure :string;
+    sugarLevel :number;
+    additionalDetails :string;
+    chechupStatus :boolean;
 }
 
 //Allergy Table 
 export interface Allergy{
-    AllergyId :GUID;
-    AllergyName :string;
-    PatientId :GUID;
+    allergyId :GUID;
+    allergyName :string;
+    patientId :GUID;
 }
