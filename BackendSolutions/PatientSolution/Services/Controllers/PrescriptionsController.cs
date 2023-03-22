@@ -22,9 +22,9 @@ namespace Services.Controllers
 
         // GET api/values/5
         [HttpGet("Get_Prescription")]
-        public IActionResult Get([FromHeader] Guid prId)
+        public IActionResult Get([FromHeader] Guid HHID)
         {
-            var x = presciption.GetPrescriptions(prId);
+            var x = presciption.GetPrescriptions(HHID);
             if (x != null)
             {
                 return Ok(x);

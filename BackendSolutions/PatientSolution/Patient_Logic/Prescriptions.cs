@@ -16,7 +16,10 @@ namespace Patient_Logic
         public Prescriptions AddPrescriptions(Prescriptions prescriptions) => Mapper.Map(pr.AddPrescription(Mapper.Map(prescriptions)));
 
 
-        public Prescriptions GetPrescriptions(Guid prId) => Mapper.Map(pr.GetPrescription(prId));
+        public IEnumerable<Prescriptions> GetPrescriptions(Guid prId)
+        {
+            return Mapper.Map(pr.GetPrescription(prId));
+        }
        
     }
 }

@@ -11,6 +11,6 @@ namespace DataEntities
     public interface IPrescriptions
     {
         Prescription AddPrescription(Prescription prescription);
-        Prescription GetPrescription(Guid patientId);
+        List<Prescription> GetPrescription(Guid hhid);
     }
 }
