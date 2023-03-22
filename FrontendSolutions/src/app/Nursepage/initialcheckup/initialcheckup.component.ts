@@ -44,7 +44,6 @@ export class InitialcheckupComponent implements OnInit{
               next:(res)=>{
                 console.log(res);
                 this.AddCheckUpDetail=res;
-            
           }
         })
       }

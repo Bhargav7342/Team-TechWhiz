@@ -81,6 +81,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     AddAvailabilityComponent,
     ViewprofileComponent,
     EditprofileComponent,
+
     
   ],
   imports: [
