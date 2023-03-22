@@ -3,12 +3,28 @@ import { Router } from '@angular/router';
 import { CustomdatePipe } from 'src/app/customdate.pipe';
 import { Patient } from 'src/app/Models/database.models';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
 
 
 @Component({
   selector: 'app-patient-signup',
   templateUrl: './patient-signup.component.html',
-  styleUrls: ['./patient-signup.component.css']
+  styleUrls: ['./patient-signup.component.css'],
+  providers: [
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+  ]
 })
 export class PatientSignupComponent {
 
