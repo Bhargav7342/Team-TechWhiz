@@ -15,11 +15,11 @@ namespace Services.Controllers
             logic   = _logic;
         }
         [HttpGet]
-        public  IActionResult GetAllAllergy([FromHeader] Guid patientId)
+        public  IActionResult GetAllAllergy([FromHeader] Guid appointmentid)
         {
             try
             {
-                var allergyList = logic.GetAllAllergies(patientId);
+                var allergyList = logic.GetAllAllergies(appointmentid);
                 return Ok(allergyList);
             }
             catch(Exception ex)

@@ -9,7 +9,7 @@ namespace DataEntities
 {
     public interface IEfRepo
     {
-        public List<ED.Allergy> GetAllAllergies(Guid patientId);
+        public List<ED.Allergy> GetAllAllergies(Guid appointmentid);
         public ED.Allergy addPatientAllergy(ED.Allergy allergy);
     }
 }

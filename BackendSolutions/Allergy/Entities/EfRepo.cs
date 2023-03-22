@@ -17,9 +17,9 @@ namespace Entities
             return allergy;
         }
 
-        public List<Allergy> GetAllAllergies(Guid patientId)
+        public List<Allergy> GetAllAllergies(Guid appointmentid)
         {
-            return context.Allergies.Where(x => x.PatientId == patientId).ToList();
+            return context.Allergies.Where(x => x.AppointmentId == appointmentid).ToList();
         }
     }
 }
