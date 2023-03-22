@@ -11,19 +11,19 @@ import { NurseService } from 'src/app/Service/nurse.service';
 })
 export class InitialcheckupComponent implements OnInit{
 
-  AddCheckUpDetail:PatientIntialCheckup={
-    PicId:'',
-    AppointmentId:'',
-    Height: 0,
-    Weight: 0,
-    Temperature:0,
-    Spo2:0,
-    BloodPressure:'',
-    SugarLevel:0,
-    AdditionalDetails:'',
-    ChechupStatus:false,
+  // AddCheckUpDetail:PatientIntialCheckup={
+  //   picId:'',
+  //   AppointmentId:'',
+  //   Height: 0,
+  //   Weight: 0,
+  //   Temperature:0,
+  //   Spo2:0,
+  //   BloodPressure:'',
+  //   SugarLevel:0,
+  //   AdditionalDetails:'',
+  //   ChechupStatus:false,
   
-  }
+  // }
 
   constructor(private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute){}
 
@@ -38,9 +38,9 @@ export class InitialcheckupComponent implements OnInit{
    add_Check_Up(item:any){
     console.log(item);
     
-    this.AddCheckUpDetail=item
-    this.AddCheckUpDetail.appointmentId=this.id
-    console.log(this.AddCheckUpDetail);
+    // this.AddCheckUpDetail=item
+    // this.AddCheckUpDetail.appointmentId=this.id
+    // console.log(this.AddCheckUpDetail);
     this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
       next:(res)=>{
         console.log(res);
