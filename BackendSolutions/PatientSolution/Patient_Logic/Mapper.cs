@@ -53,6 +53,7 @@ namespace Patient_Logic
             return new Models.HealthHistory()
             {
                 HhId= hh.HhId,
+                AppointmentId= hh.AppointmentId,
                 PatientId= hh.PatientId,
                 Date= hh.Date,
                 DoctorName= hh.DoctorName,
@@ -65,6 +66,7 @@ namespace Patient_Logic
             return new HealthHistory()
             {
                 HhId= hh.HhId,
+                AppointmentId= hh.AppointmentId,
                 PatientId= hh.PatientId,
                 Date= hh.Date,
                 DoctorName= hh.DoctorName,

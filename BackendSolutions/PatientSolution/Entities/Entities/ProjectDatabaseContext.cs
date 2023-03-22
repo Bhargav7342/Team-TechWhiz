@@ -15,7 +15,6 @@ public partial class ProjectDatabaseContext : DbContext
     {
     }
 
-
     public virtual DbSet<HealthHistory> HealthHistories { get; set; }
 
     public virtual DbSet<Patient> Patients { get; set; }
@@ -37,6 +36,7 @@ public partial class ProjectDatabaseContext : DbContext
             entity.Property(e => e.HhId)
                 .HasDefaultValueSql("(newid())")
                 .HasColumnName("HH_Id");
+            entity.Property(e => e.AppointmentId).HasColumnName("appointmentId");
             entity.Property(e => e.Date).HasColumnType("date");
             entity.Property(e => e.Diagnosis).IsUnicode(false);
             entity.Property(e => e.DoctorName)

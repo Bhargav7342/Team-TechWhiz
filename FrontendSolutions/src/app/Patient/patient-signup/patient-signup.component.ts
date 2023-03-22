@@ -16,23 +16,23 @@ export class PatientSignupComponent {
   addPatient:Patient={
     patientId:'',
     firstName:'',
-    LastName:'',
-    Email:'',
-    Password:'',
-    Phone:'',
-    Gender:'',
-    DateOfBirth:'',
-    City:'',
-    State:'',
-    Zipcode:'',
-    BloodGroup:'',
+    lastName:'',
+    email:'',
+    password:'',
+    phone:'',
+    gender:'',
+    dateOfBirth:'',
+    city:'',
+    state:'',
+    zipcode:'',
+    bloodGroup:'',
   }
   signup(item: any){
     console.log(item.DateOfBirth);
     this.addPatient=item;
     console.log(item.DateOfBirth)
-    this.addPatient.DateOfBirth=item.DateOfBirth
-    console.log(this.addPatient.DateOfBirth)
+    this.addPatient.dateOfBirth=item.DateOfBirth
+    console.log(this.addPatient.dateOfBirth)
     this.patientService.patientRegister(item).subscribe({
       next:(response)=>{
         this.addPatient=item;

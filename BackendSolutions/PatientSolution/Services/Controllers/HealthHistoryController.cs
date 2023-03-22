@@ -5,6 +5,7 @@ using Models;
 using Patient_Logic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using DataEntities.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -36,8 +37,9 @@ namespace Services.Controllers
         }
 
         [HttpPost("HealthHistory_Add")]
-        public IActionResult Post([FromBody] HealthHistory healthHistory)
+        public IActionResult Post([FromBody] Models.HealthHistory healthHistory)
         {
+            healthHistory.Date = healthHistory.Date.AddDays(1);
             var s = healthLogic.AddHealthHistory(healthHistory);
             if (s != null)
             {
