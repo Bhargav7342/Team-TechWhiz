@@ -58,7 +58,7 @@ const routes: Routes = [
     component:PatientDashboardComponent
   },
   {
-    path:"addcheck/:email",
+    path:"addcheck/:appointmentId",
     component:InitialcheckupComponent
   },
   {
