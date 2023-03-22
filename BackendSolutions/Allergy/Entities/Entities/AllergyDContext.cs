@@ -17,7 +17,7 @@ public partial class AllergyDContext : DbContext
 
     public virtual DbSet<Allergy> Allergies { get; set; }
 
-    public virtual DbSet<Sample> Samples { get; set; }
+    
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -41,21 +41,7 @@ public partial class AllergyDContext : DbContext
             entity.Property(e => e.AppointmentId).HasColumnName("Appointment_Id");
         });
 
-        modelBuilder.Entity<Sample>(entity =>
-        {
-            entity.HasKey(e => e.Eid).HasName("PK__sample__D9509F6D622FE2EA");
-
-            entity.ToTable("sample");
-
-            entity.Property(e => e.Eid)
-                .ValueGeneratedNever()
-                .HasColumnName("eid");
-            entity.Property(e => e.Age).HasColumnName("age");
-            entity.Property(e => e.Ename)
-                .HasMaxLength(1)
-                .IsUnicode(false)
-                .HasColumnName("ename");
-        });
+       
 
         OnModelCreatingPartial(modelBuilder);
     }
