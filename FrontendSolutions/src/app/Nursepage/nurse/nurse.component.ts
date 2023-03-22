@@ -35,7 +35,8 @@ export class NurseComponent  implements OnInit{
     response.forEach(element => {
       this.patientService.getPatientById(element.patientId).subscribe({
         next:(res)=>{
-          this.patients.push(res);  
+          this.patients.push(res); 
+          console.log(res); 
         }
       })
         

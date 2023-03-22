@@ -26,6 +26,11 @@ namespace Patient_Logic
             return Mapper.Map(pat);
         }
 
+        public Patient GetPatientByEmail(string email)
+        {
+            return Mapper.Map(p.GetPatientByEmail(email));
+        }
+
         public Patient GetPatientById(Guid id)
         {
             var pa=(from pat in p.GetAllPatient()

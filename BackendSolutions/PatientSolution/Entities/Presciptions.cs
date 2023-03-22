@@ -13,13 +13,19 @@ namespace DataEntities
 
         public Prescription AddPrescription(Prescription prescription)
         {
-            //throw new NotImplementedException();
+
             context.Prescriptions.Add(prescription);
             context.SaveChanges();
             return prescription;
         }
 
-        public Prescription GetPrescription(Guid patientId) => context.Prescriptions.Where(x => x.HhId == patientId).FirstOrDefault();
+        public List<Prescription> GetPrescription(Guid hhid)
+        {
+            var s=(from prescription in context.Prescriptions
+                   where prescription.HhId== hhid
+                   select prescription).ToList();
+            return s;
+        }
     }
      
    

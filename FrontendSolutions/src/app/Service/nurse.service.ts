@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Appointment, Patient } from '../Models/database.models';
+import { Appointment, Patient, PatientIntialCheckup } from '../Models/database.models';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,12 @@ export class NurseService {
     
 
     return this.http.get<Appointment[]>(this.baseApiUrl+'/Appointment/getappointmentsbyDate',{headers:header});
+  }
+
+
+  AddCheckUpDetails(adddetails:PatientIntialCheckup):Observable<PatientIntialCheckup>
+  {
+    return this.http.post<PatientIntialCheckup>(this.baseApiUrl+'/PatientCheckUp/AddcheckUpdetails',adddetails);
   }
  
 }

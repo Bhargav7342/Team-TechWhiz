@@ -85,5 +85,24 @@ namespace Services.Controllers
             patientlogic.UpdatePatient(email, patient);
             return Ok(patient);
         }
+
+
+        [HttpGet("GetPatientsByEmail")]
+        public IActionResult getpatientsbyemail([FromHeader]string email)
+        {
+            try
+            {
+                var patient=patientlogic.GetPatientByEmail(email);
+                if(patient!=null)
+                {
+                    return Ok(patient);
+                }
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
