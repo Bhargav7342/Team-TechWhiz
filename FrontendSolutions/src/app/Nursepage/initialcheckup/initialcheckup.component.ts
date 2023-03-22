@@ -11,39 +11,42 @@ import { NurseService } from 'src/app/Service/nurse.service';
 })
 export class InitialcheckupComponent implements OnInit{
 
-  // AddCheckUpDetail:PatientIntialCheckup={
-  //   picId:'',
-  //   AppointmentId:'',
-  //   Height: 0,
-  //   Weight: 0,
-  //   Temperature:0,
-  //   Spo2:0,
-  //   BloodPressure:'',
-  //   SugarLevel:0,
-  //   AdditionalDetails:'',
-  //   ChechupStatus:false,
+  AddCheckUpDetail:PatientIntialCheckup={
+    picId:'',
+    appointmentId:'',
+    height: 0,
+    weight: 0,
+    temperature:0,
+    spo2:0,
+    bloodPressure:'',
+    sugarLevel:0,
+    additionalDetails:'',
+    chechupStatus:false,
   
-  // }
+  }
 
   constructor(private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute){}
 
-  id:string|any=''
+  email:string|any=''
+  Id:string|any=''
   ngOnInit(): void {
   this.route.paramMap.subscribe({
     next:(params)=>{
-      this.id=params.get('appointmentId');
+      this.email=params.get('email');
     }
   });
   }
    add_Check_Up(item:any){
-    console.log(item);
-    
-    // this.AddCheckUpDetail=item
-    // this.AddCheckUpDetail.appointmentId=this.id
-    // console.log(this.AddCheckUpDetail);
-    this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
-      next:(res)=>{
-        console.log(res);
+    this.initialcheckupservice.getPatientIdbyEmail(this.email).subscribe({
+          next:(response)=>{
+            console.log(response);
+            this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
+              next:(res)=>{
+                console.log(res);
+                this.AddCheckUpDetail=res;
+            
+          }
+        })
       }
     })
     this.router.navigate(['/nurse']);

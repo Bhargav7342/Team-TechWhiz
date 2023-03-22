@@ -15,7 +15,7 @@
             </mat-card-content>
             <mat-card-actions class="card-buttons">
 
-              <button mat-raised-button color="primary" id="adddetailsbutton" [routerLink]="['/addcheck',a.appointmentId]"  [disabled]="added">Add Details</button>
+              <button mat-raised-button color="primary" id="adddetailsbutton" [routerLink]="['/addcheck',patients[i].email]"  [disabled]="added">Add Details</button>
             </mat-card-actions>
         </mat-card>
     </div>

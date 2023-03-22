@@ -9,6 +9,7 @@ import { Appointment, Patient, PatientIntialCheckup } from '../Models/database.m
 })
 export class NurseService {
   baseApiUrl:string=environment.baseApiUrl1;
+  baseApiUrl2:string=environment.baseApiUrl
 
   constructor(private http:HttpClient) { }
 
@@ -28,6 +29,17 @@ export class NurseService {
   AddCheckUpDetails(adddetails:PatientIntialCheckup):Observable<PatientIntialCheckup>
   {
     return this.http.post<PatientIntialCheckup>(this.baseApiUrl+'/PatientCheckUp/AddcheckUpdetails',adddetails);
+  }
+
+
+  getPatientIdbyEmail(Email:string):Observable<Patient>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'email':Email,
+    });
+    return this.http.get<Patient>(this.baseApiUrl2+'/Patient/GetPatientsByEmail',{headers:header});
   }
  
 }
