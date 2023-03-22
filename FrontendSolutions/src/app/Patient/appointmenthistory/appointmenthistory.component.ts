@@ -12,7 +12,6 @@ export class AppointmenthistoryComponent implements OnInit {
  @Input() patientId:string|null=''; 
 
   pid=this.patientId
-
   appointments:Appointment[]=[];
   constructor(private router:Router,private appointmentService:AppointmentService){
   }

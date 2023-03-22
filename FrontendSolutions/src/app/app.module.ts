@@ -48,6 +48,8 @@ import { BookappointmentsComponent } from './Patient/bookappointments/bookappoin
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AddAvailabilityComponent } from './Adminpage/add-availability/add-availability.component';
+import { ViewprofileComponent } from './Patient/viewprofile/viewprofile.component';
+import { EditprofileComponent } from './Patient/editprofile/editprofile.component';
 
 
 
@@ -78,6 +80,8 @@ import { AddAvailabilityComponent } from './Adminpage/add-availability/add-avail
     CustomdatePipe,
     BookappointmentsComponent,
     AddAvailabilityComponent,
+    ViewprofileComponent,
+    EditprofileComponent,
     
   ],
   imports: [
