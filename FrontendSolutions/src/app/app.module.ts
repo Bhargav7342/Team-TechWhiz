@@ -50,8 +50,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AddAvailabilityComponent } from './Adminpage/add-availability/add-availability.component';
 import { ViewprofileComponent } from './Patient/viewprofile/viewprofile.component';
 import { EditprofileComponent } from './Patient/editprofile/editprofile.component';
-
-
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -113,10 +112,11 @@ import { EditprofileComponent } from './Patient/editprofile/editprofile.componen
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatMomentDateModule
 
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

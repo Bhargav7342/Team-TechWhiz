@@ -42,4 +42,12 @@ export class PatientServicesService {
     return this.http.get<Patient>(this.baseApiUrl+'/Patient/GetAllPatientsById',{headers:header});
     
   }
+  updatePatient(email: string, updatedData: Patient):Observable<Patient>{
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'Email' : email
+    });
+    return this.http.put<Patient>(this.baseApiUrl+'/Patient/Update_Patient', updatedData, {headers:header} );
+  }
 }
