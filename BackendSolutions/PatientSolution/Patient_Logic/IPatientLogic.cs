@@ -15,7 +15,7 @@ namespace Patient_Logic
         Patient LoginPatient(string email,string password);
         IEnumerable<Patient> GetPatients();
         Patient GetPatientById(Guid id);
-
+         public Models.Patient GetPatientByEmail(string email);
       
     }
 }

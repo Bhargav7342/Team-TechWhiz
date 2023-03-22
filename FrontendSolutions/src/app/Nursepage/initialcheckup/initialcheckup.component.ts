@@ -39,13 +39,13 @@ export class InitialcheckupComponent implements OnInit{
     console.log(item);
     
     this.AddCheckUpDetail=item
-    this.AddCheckUpDetail.AppointmentId=this.id
+    this.AddCheckUpDetail.appointmentId=this.id
     console.log(this.AddCheckUpDetail);
-    // this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
-    //   next:(res)=>{
-    //     console.log(res);
-    //   }
-    // })
+    this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
+      next:(res)=>{
+        console.log(res);
+      }
+    })
     this.router.navigate(['/nurse']);
   }
   allergies = new FormControl('');

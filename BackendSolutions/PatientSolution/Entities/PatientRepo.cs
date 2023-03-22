@@ -50,5 +50,12 @@ namespace DataEntities
                            select p).FirstOrDefault();
             return patient;
         }
+
+        public Patient GetPatientByEmail(string email)
+        {
+            var patients=GetAllPatient();
+            var result=patients.FirstOrDefault(p=>p.Email==email);
+            return result;
+        }
     }
 }
