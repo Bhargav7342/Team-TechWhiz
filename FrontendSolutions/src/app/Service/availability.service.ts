@@ -30,6 +30,16 @@ export class AvailabilityService {
     return this.http.get<Doctor[]>(this.baseApiUrl+'/Doctor/GetAllDoctors');
   }
 
+  getAllDoctorbyAvailability(day:string):Observable<Doctor[]>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'Day':day,
+    });
+    return this.http.get<Doctor[]>(this.baseApiUrl+'/Doctor/GetDoctorsByAvailability',{headers:header});
+  }
+
   getDoctorIdbyEmail(email:string):Observable<Doctor>
   {
     let header=new HttpHeaders({
