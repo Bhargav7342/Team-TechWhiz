@@ -1,7 +1,9 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PatientIntialCheckup } from 'src/app/Models/database.models';
+import { Allergy, PatientIntialCheckup } from 'src/app/Models/database.models';
+import { AllergyService } from 'src/app/Service/allergy.service';
 import { NurseService } from 'src/app/Service/nurse.service';
 
 @Component({
@@ -24,8 +26,14 @@ export class InitialcheckupComponent implements OnInit{
     chechupStatus:false,
   
   }
-
-  constructor(private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute){}
+  AddAllergydetails:Allergy={
+    allergyId:'',
+    allergyName:'',
+    appointmentId:'',
+  }
+  
+  
+  constructor(private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService){}
 
   email:string|any=''
   Id:string|any=''
@@ -51,12 +59,40 @@ export class InitialcheckupComponent implements OnInit{
 
     
   
-          this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
+          this.initialcheckupservice.AddCheckUpDetails(this.AddCheckUpDetail).subscribe({
               next:(res)=>{
                 console.log(res);
                 this.AddCheckUpDetail=res;
+                
+            this.allarr.forEach(element => {
+              const item1:any={
+                allergyName:element,
+                appointmentId:this.Id,
+                
+              }
+              
+              if(this.allarr[0]=="None"){
+             this.allergyservice.AddAllergydetails(item1).subscribe({
+              next:(res1)=>{
+                console.log(res);
+                this.AddAllergydetails=res1
+              }
+             })
+            
+            }
+            else{
+              this.allergyservice.AddAllergydetails(item1).subscribe({
+                next:(res1)=>{
+                  console.log(res);
+                  this.AddAllergydetails=res1
+                }
+               })
 
-                window.alert("Details Added successfully");
+            }
+                
+              });              
+              
+              window.alert("Details Added successfully");
            
           }
         })
