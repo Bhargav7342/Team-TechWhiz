@@ -90,7 +90,7 @@ export interface PatientIntialCheckup{
 
 //Allergy Table 
 export interface Allergy{
-    allergyId :GUID;
+    allergyId :string;
     allergyName :string;
-    patientId :GUID;
+    appointmentId :string;
 }
