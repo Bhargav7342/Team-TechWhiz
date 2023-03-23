@@ -38,7 +38,7 @@
                 <mat-grid-tile>
                     <mat-form-field appearance="fill">
                         <mat-label>BP</mat-label>
-                        <input matInput name="bloodPresuure" ngModel>
+                        <input matInput name="bloodPressure" ngModel>
                         <span matTextSuffix style="font-size: small;">mmHg</span>
                     </mat-form-field>
                 </mat-grid-tile>
@@ -55,7 +55,7 @@
     
             <mat-form-field class="detail" appearance="fill">
                 <mat-label>Allergy</mat-label>
-                <mat-select name="allergy" ngModel multiple>
+                <mat-select name="allergy" [(ngModel)]="allarr" multiple>
                   <mat-option *ngFor="let allergy of allergyList" [value]="allergy">{{allergy}}</mat-option>
                 </mat-select>
               </mat-form-field>

@@ -11,8 +11,8 @@ import { NurseService } from 'src/app/Service/nurse.service';
 })
 export class InitialcheckupComponent implements OnInit{
 
-  AddCheckUpDetail:PatientIntialCheckup={
-    picId:'',
+  AddCheckUpDetail:any={
+   
     appointmentId:'',
     height: 0,
     weight: 0,
@@ -29,25 +29,39 @@ export class InitialcheckupComponent implements OnInit{
 
   email:string|any=''
   Id:string|any=''
+  allarr:string[]=[];
   ngOnInit(): void {
   this.route.paramMap.subscribe({
     next:(params)=>{
-      this.email=params.get('email');
+      this.Id=params.get('appointmentId');
     }
   });
   }
-   add_Check_Up(item:any){
-    this.initialcheckupservice.getPatientIdbyEmail(this.email).subscribe({
-          next:(response)=>{
-            console.log(response);
-            this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
+   add_Check_Up(item:PatientIntialCheckup){
+   
+    this.AddCheckUpDetail.appointmentId=this.Id
+    this.AddCheckUpDetail.height=item.height
+    this.AddCheckUpDetail.weight=item.weight
+    this.AddCheckUpDetail.temperature=item.temperature
+    this.AddCheckUpDetail.spo2=item.spo2
+    this.AddCheckUpDetail.bloodPressure=item.bloodPressure
+    this.AddCheckUpDetail.sugarLevel=item.sugarLevel
+    this.AddCheckUpDetail.additionalDetails=item.additionalDetails
+    console.log(this.AddCheckUpDetail);
+
+    
+  
+          this.initialcheckupservice.AddCheckUpDetails(item).subscribe({
               next:(res)=>{
                 console.log(res);
                 this.AddCheckUpDetail=res;
+
+                window.alert("Details Added successfully");
+           
           }
         })
-      }
-    })
+      
+  
     this.router.navigate(['/nurse']);
   }
   allergies = new FormControl('');
