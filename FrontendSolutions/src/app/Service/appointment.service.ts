@@ -21,4 +21,7 @@ export class AppointmentService {
     });
     return this.http.get<Appointment[]>(this.baseApiUrl+'/Appointment/getappointmentsbypatientid',{headers:header})
   }
+  bookAppointment(item:Appointment):Observable<Appointment>{
+    return this.http.post<Appointment>(this.baseApiUrl+'/Appointment/BookAppiontment',item);
+  }
 }

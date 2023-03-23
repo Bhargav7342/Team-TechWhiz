@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { AvailabilityService } from 'src/app/Service/availability.service';
 import { Doctor } from 'src/app/Models/database.models';
+import { AppointmentService } from 'src/app/Service/appointment.service';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -24,13 +25,43 @@ export const MY_DATE_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
   ]
 })
-export class BookappointmentsComponent {
-  constructor(private router:Router,private availabilityService:AvailabilityService){}
+export class BookappointmentsComponent implements   OnInit {
+  pid:string='';
+  appdate:string='';
+  constructor(private router:Router,private availabilityService:AvailabilityService,private appointmentService:AppointmentService){
+    const nav=this.router.getCurrentNavigation()?.extras.state as {patientId:string};
+    this.pid=nav.patientId;
+    
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
   bookAppointment(item: any) {
+
     console.log(item);
-    console.log(item.doctor.split(",",2));
-    //console.log(item.date.getDate())
-    //this.router.navigate(['/patientdashboard']);
+    this.appdate=item.date;
+    const docinfo:String=(item.doctor.split(",",2));
+    const item1:any={
+      patientId:this.pid,
+      doctorId:docinfo[0],
+      date:this.appdate,
+      doctorName:docinfo[1],
+      concerns:item.concerns,
+      status:"Sent"
+    }
+    console.log(item1);
+
+    this.appointmentService.bookAppointment(item1).subscribe({
+      next:(response)=>
+      {
+        console.log(response);
+        window.alert("Appointment book successfully");
+        this.router.navigate(['/patientdashboard'])
+      }
+
+    })
+
+
   }
   date1:string='';
   currDate:Date=new Date();
@@ -48,4 +79,6 @@ export class BookappointmentsComponent {
   })
 
 }
+
+
 }

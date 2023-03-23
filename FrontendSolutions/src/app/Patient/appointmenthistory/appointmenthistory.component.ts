@@ -38,6 +38,6 @@ handleClick(){
 }
 bookAppointment(){
   console.log(this.patientId);
-  this.router.navigate(['/book']);
+  this.router.navigate(['/book'],{state:{patientId:this.patientId}});
 }
 }
