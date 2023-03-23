@@ -55,8 +55,9 @@ export class InitialcheckupComponent implements OnInit{
               next:(res)=>{
                 console.log(res);
                 this.AddCheckUpDetail=res;
+
                 window.alert("Details Added successfully");
-            
+           
           }
         })
       

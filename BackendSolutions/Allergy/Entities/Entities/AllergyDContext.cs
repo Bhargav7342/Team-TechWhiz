@@ -17,6 +17,12 @@ public partial class AllergyDContext : DbContext
 
     public virtual DbSet<Allergy> Allergies { get; set; }
 
+    
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=tcp:sai-db-server.database.windows.net,1433;Initial Catalog=AllergyD;Persist Security Info=False;User ID=saikrishna;Password=Sai123456;");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Allergy>(entity =>
@@ -32,8 +38,10 @@ public partial class AllergyDContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("Allergy_Name");
-            entity.Property(e => e.PatientId).HasColumnName("Patient_Id");
+            entity.Property(e => e.AppointmentId).HasColumnName("Appointment_Id");
         });
+
+       
 
         OnModelCreatingPartial(modelBuilder);
     }

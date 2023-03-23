@@ -10,7 +10,7 @@ namespace BusinessLogic
             {
                 AllergyId= a.AllergyId,
                 AllergyName= a.AllergyName,
-                PatientId= a.PatientId,
+                AppointmentId=a.AppointmentId,
             };
         }
 
@@ -20,7 +20,7 @@ namespace BusinessLogic
             {
                 AllergyId = a.AllergyId,
                 AllergyName = a.AllergyName,
-                PatientId = a.PatientId,
+                AppointmentId = a.AppointmentId,
             };
         }
 
