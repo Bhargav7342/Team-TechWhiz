@@ -70,7 +70,7 @@ namespace ServiceLayer.Controllers
         {
             try
             {
-               
+                a.Date = a.Date.AddDays(1);
 
                 _logic.AddAppointment(a);
                 return Ok();

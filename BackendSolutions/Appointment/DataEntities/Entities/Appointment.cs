@@ -11,7 +11,7 @@ public partial class Appointment
 
     public Guid? DoctorId { get; set; }
 
-    public DateTime? Date { get; set; }
+    public DateTime Date { get; set; }
 
     public string? DoctorName { get; set; }
 
