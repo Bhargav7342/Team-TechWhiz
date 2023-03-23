@@ -32,11 +32,11 @@ export interface HealthHistory {
 //Prescription Table
 
 export interface Prescription{
-    PrescriptionId:GUID;
-    HhId:GUID;
-    MedicineName:string;
-    Dosage:string;
-    Note:string;
+    prescriptionId:GUID;
+    hhId:GUID;
+    medicineName:string;
+    dosage:string;
+    note:string;
 }
 
 //Doctor table

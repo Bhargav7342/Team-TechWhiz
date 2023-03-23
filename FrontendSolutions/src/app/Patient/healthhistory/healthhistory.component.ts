@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { HealthHistory } from 'src/app/Models/database.models';
+import { PatientServicesService } from 'src/app/Service/patient-services.service';
 import { ViewCheckUpComponent } from '../view-check-up/view-check-up.component';
 import { ViewPrescriptionComponent } from '../view-prescription/view-prescription.component';
 
@@ -8,31 +10,37 @@ import { ViewPrescriptionComponent } from '../view-prescription/view-prescriptio
   templateUrl: './healthhistory.component.html',
   styleUrls: ['./healthhistory.component.css']
 })
-export class HealthhistoryComponent {
-  constructor(private dialogbox: MatDialog){}
+export class HealthhistoryComponent implements OnInit{
+  @Input() patientId:string|null=''; 
 
-  openDiaog(){
+  pid:string|any=this.patientId;
+  constructor(private dialogbox: MatDialog,private hhservices:PatientServicesService)
+  {
+    
+    
+  }
+  
+  health:HealthHistory[]=[];
+  ngOnInit(): void {
+    if(this.patientId!=null){
+      this.hhservices.getHealthHistorybyPatientId(this.patientId).subscribe({
+        next:(response)=>{
+          this.health=response;
+          console.log(response);
+        }
+      })
+      }
+  }
+  
+  openDiaog(value:string){
     this.dialogbox.open(ViewPrescriptionComponent,{
       height:'300px',
-      width:'600px'
+      width:'600px',
+      data:{
+        dataKey:value
+      }
     });
   }
-  health=[{
-    date:"12/03/2023",
-    doctor:"sam",
-    dignosis:"everything look good"
-  },
-  {
-    date:"1/03/2023",
-    doctor:"john",
-    dignosis:"everything looks Great"
-  },
-  {
-    date:"3/03/2023",
-    doctor:"jack",
-    dignosis:"everything looks something"
-  }
-]
 openDialog2(){
   this.dialogbox.open(ViewCheckUpComponent,{
     height:'300px',

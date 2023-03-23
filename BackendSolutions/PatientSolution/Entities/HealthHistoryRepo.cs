@@ -17,7 +17,13 @@ namespace DataEntities
             return healthHistory;
         }
 
-        public HealthHistory GetHealthHistory(Guid patientId) => context.HealthHistories.Where(x => x.PatientId == patientId).FirstOrDefault();
+        public List<HealthHistory> GetHealthHistory(Guid patientId)
+        {
+            var h=(from hh in context.HealthHistories
+                   where hh.PatientId == patientId
+                   select hh).ToList();
+            return h;
+        }
      
     }
 }

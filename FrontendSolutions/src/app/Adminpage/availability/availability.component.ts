@@ -24,14 +24,23 @@ export class AvailabilityComponent implements OnInit{
   });
 
   email:string | any='';
-  docid:string|any =''
-  constructor(private route:ActivatedRoute,private _formBuilder: FormBuilder,private router:Router,private availabilityservice:AvailabilityService) {}
+  docid:string|any ='';
+  email1:string='';
+  dname:string='';
+  constructor(private route:ActivatedRoute,private _formBuilder: FormBuilder,private router:Router,private availabilityservice:AvailabilityService) {
+    const nav=this.router.getCurrentNavigation()?.extras.state as {email:string,name:string}
+    console.log(nav.email);
+    this.email=nav.email;
+    this.dname=nav.name;
+  }
   ngOnInit(): void {
-    this.route.paramMap.subscribe({
-      next:(params)=>{
-         this.email=params.get('email');
-      }
-    });
+    // this.route.paramMap.subscribe({
+    //   next:(params)=>{
+    //      this.email=params.get('email');
+    //   }
+    // });
+    
+    
     this.availabilityservice.getDoctorIdbyEmail(this.email).subscribe({
       next:(response)=>{
         console.log(response);

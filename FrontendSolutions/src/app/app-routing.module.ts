@@ -82,7 +82,7 @@ const routes: Routes = [
     component:HealthhistoryComponent
   },
   {
-    path:"availability/:email",
+    path:"availability",
     component:AvailabilityComponent
   }
 ];

@@ -5,7 +5,7 @@ namespace Patient_Logic
 	public interface IHealthHistoryLogic
 	{
 		HealthHistory AddHealthHistory(HealthHistory healthHistory);
-		HealthHistory GetHealthHistory(Guid patientId);
+		IEnumerable<HealthHistory> GetHealthHistory(Guid patientId);
 		
 	}
 }

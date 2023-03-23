@@ -8,13 +8,13 @@
         
         <div>
             <p> <strong>Date :</strong>  {{h.date|customdate}}  </p>
-            <p><strong>Doctor : </strong> {{h.doctor}} </p>
-            <p> <strong>Note : </strong>  {{h.dignosis}}</p>
+            <p><strong>Doctor : </strong> {{h.doctorName}} </p>
+            <p> <strong>Note : </strong>  {{h.diagnosis}}</p>
         </div>
    </mat-grid-tile>
    <mat-grid-tile>
     <mat-card-actions class="btn" >
-        <button id="buttons" (click)="openDiaog()" mat-raised-button color="primary">Prescription</button>
+        <button id="buttons" (click)="openDiaog(h.hhId)" mat-raised-button color="primary">Prescription</button>
         <button id="buttons" (click)="openDialog2()"  mat-raised-button color="primary">Check Up info</button>
     </mat-card-actions>
    </mat-grid-tile>

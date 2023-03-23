@@ -10,6 +10,6 @@ namespace DataEntities
     public interface IHealthHistory
     {
         HealthHistory AddHealthHistory(HealthHistory healthHistory);
-        HealthHistory GetHealthHistory(Guid patientId);
+        List<HealthHistory> GetHealthHistory(Guid patientId);
     }
 }

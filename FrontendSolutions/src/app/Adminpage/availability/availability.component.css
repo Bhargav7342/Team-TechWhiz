@@ -11,3 +11,14 @@
 #savebutton{
     margin-top: 1%;
 }
+
+#close{
+    background-color: white;
+    margin-left: 95%;
+    width: 5%;
+    border: none;
+}
+
+#close:hover{
+    background-color: rgb(160, 157, 157);
+}

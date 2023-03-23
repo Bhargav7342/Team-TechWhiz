@@ -16,7 +16,10 @@ namespace Patient_Logic
       
         
 
-        public HealthHistory GetHealthHistory(Guid patientId) => Mapper.Map(h.GetHealthHistory(patientId));
+        public IEnumerable<HealthHistory> GetHealthHistory(Guid patientId)
+        {
+            return Mapper.Map(h.GetHealthHistory(patientId));
+        }
        
     }
 }

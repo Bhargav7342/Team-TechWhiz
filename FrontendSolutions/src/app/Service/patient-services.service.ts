@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Patient } from '../Models/database.models';
+import { HealthHistory, Patient, Prescription } from '../Models/database.models';
 @Injectable({
   providedIn: 'root'
 })
@@ -49,5 +49,24 @@ export class PatientServicesService {
       'Email' : email
     });
     return this.http.put<Patient>(this.baseApiUrl+'/Patient/Update_Patient', updatedData, {headers:header} );
+  }
+
+  getHealthHistorybyPatientId(pid:string):Observable<HealthHistory[]>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'patientId' : pid
+    });
+    return this.http.get<HealthHistory[]>(this.baseApiUrl+'/HealthHistory/GetHistory',{headers:header});
+  }
+  getPrescriptionByHHID(hhid:string):Observable<Prescription[]>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'hhId' : hhid
+    });
+    return this.http.get<Prescription[]>(this.baseApiUrl+'/Prescriptions/Get_Prescription',{headers:header});
   }
 }

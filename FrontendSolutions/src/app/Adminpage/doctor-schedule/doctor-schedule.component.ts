@@ -3,7 +3,7 @@ import { AvailabilityComponent } from '../availability/availability.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Doctor } from 'src/app/Models/database.models';
 import { AvailabilityService } from 'src/app/Service/availability.service';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 @Component({
   selector: 'app-doctor-schedule',
   templateUrl: './doctor-schedule.component.html',
@@ -25,12 +25,9 @@ export class DoctorScheduleComponent implements OnInit {
       }
     })
   }
-  
-  openDialog(){
-    console.log()
-    this.dialogbox.open(AvailabilityComponent,{
-      height:'400px',
-      width:'500px',
-    })
+ 
+  goto(demail:string,dname:string)
+  {  
+    this.router.navigate(['/availability'],{state:{email:demail,name:dname}});
   }
 }

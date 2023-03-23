@@ -1,6 +1,6 @@
 
 <mat-tab-group   class="tabsc">
     <mat-tab label="Appointments"><app-appointmenthistory [patientId]="patientId"></app-appointmenthistory></mat-tab>
-    <mat-tab label="Health History"><app-healthhistory></app-healthhistory></mat-tab>
+    <mat-tab label="Health History"><app-healthhistory [patientId]="patientId"></app-healthhistory></mat-tab>
     <mat-tab label="Profile"><app-viewprofile [patientId]="patientId"></app-viewprofile></mat-tab>
   </mat-tab-group>

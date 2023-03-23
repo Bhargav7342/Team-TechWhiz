@@ -1,28 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Prescription } from 'src/app/Models/database.models';
+import { PatientServicesService } from 'src/app/Service/patient-services.service';
 
 @Component({
   selector: 'app-view-prescription',
   templateUrl: './view-prescription.component.html',
   styleUrls: ['./view-prescription.component.css']
 })
-export class ViewPrescriptionComponent {
-  prescription= [
-    {
-      Medication: "Dolo650",
-      Dosage: "1 - 0 - 1",
-      Note: "Some tablebts",
-    },
-    {
-      Medication: "Limc",
-      Dosage: "1 - 0 - 1",
-      Note: "When ever needed",
-    },
-    {
-      Medication: "paracetamol",
-      Dosage: "1 - 1 - 1",
-      Note: "Daily 4 times",
-    }
-  ]; 
+export class ViewPrescriptionComponent implements OnInit{
+
+  prescription:Prescription[]=[];
+  hhid:string|any='';
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private preservices:PatientServicesService){}
+  ngOnInit(): void {
+    this.hhid=this.data.dataKey
+    console.log(this.hhid);
+    this.preservices.getPrescriptionByHHID(this.hhid).subscribe({
+      next:(response)=>{
+        this.prescription=response
+        this.dataSource=this.prescription
+        console.log(response);
+
+      }
+    })
+  }
+   
   displayedColumns: string[] = ['Medication', 'Dosage', 'Note'];
-  dataSource = this.prescription
+  dataSource=this.prescription
 }
