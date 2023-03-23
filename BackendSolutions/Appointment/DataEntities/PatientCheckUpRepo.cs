@@ -22,9 +22,9 @@ namespace DataEntities
             return intialCheckUp;
         }
 
-        public List<PatientIntialCheckup> GetCheckUpDetails(Guid appointment_id)
+        public PatientIntialCheckup GetCheckUpDetails(Guid appointment_id)
         {
-            return context.PatientIntialCheckups.Where(a => a.AppointmentId == appointment_id).ToList();
+            return context.PatientIntialCheckups.Where(a => a.AppointmentId == appointment_id).FirstOrDefault();
         }
     }
 }

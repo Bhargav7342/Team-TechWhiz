@@ -26,7 +26,7 @@ namespace BussinessLogic
             return Mapper.Map(repo.AddCheckUpDetails(Mapper.Map(initialCheckUp)));
         }
 
-        public IEnumerable<PatientIntialCheckUp> GetCheckUpDetails(Guid appointment_id)
+        public PatientIntialCheckUp GetCheckUpDetails(Guid appointment_id)
         {
             return Mapper.Map(repo.GetCheckUpDetails(appointment_id));
         }

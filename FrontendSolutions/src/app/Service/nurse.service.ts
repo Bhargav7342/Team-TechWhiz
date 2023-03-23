@@ -41,5 +41,14 @@ export class NurseService {
     });
     return this.http.get<Patient>(this.baseApiUrl2+'/Patient/GetPatientsByEmail',{headers:header});
   }
- 
+
+  getCheckupInfo(appId:string):Observable<PatientIntialCheckup>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'appointment_id':appId,
+    }); 
+    return this.http.get<PatientIntialCheckup>(this.baseApiUrl+'/PatientCheckUp/GetCheckUpDetailsByAppointmentId',{headers:header});
+  }
 }

@@ -41,10 +41,13 @@ export class HealthhistoryComponent implements OnInit{
       }
     });
   }
-openDialog2(){
+openDialog2(value:string){
   this.dialogbox.open(ViewCheckUpComponent,{
     height:'300px',
-    width:'700px'
+    width:'700px',
+    data:{
+      dataKey:value
+    }
   })
 }
 

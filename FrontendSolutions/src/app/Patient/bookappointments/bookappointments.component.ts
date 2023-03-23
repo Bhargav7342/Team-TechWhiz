@@ -29,8 +29,7 @@ export class BookappointmentsComponent {
   bookAppointment(item: any) {
     console.log(item);
     console.log(item.doctor.split(",",2));
-    //console.log(item.date.getDate())
-    //this.router.navigate(['/patientdashboard']);
+
   }
   date1:string='';
   currDate:Date=new Date();

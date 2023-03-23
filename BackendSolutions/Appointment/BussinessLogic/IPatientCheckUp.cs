@@ -9,7 +9,7 @@ namespace BussinessLogic
 {
     public interface IPatientCheckUP
     {
-        public IEnumerable<Models.PatientIntialCheckUp> GetCheckUpDetails(Guid appointment_id);
+        public Models.PatientIntialCheckUp GetCheckUpDetails(Guid appointment_id);
 
         public Models.PatientIntialCheckUp AddCheckUpDetails(Models.PatientIntialCheckUp initialCheckUp);
 
