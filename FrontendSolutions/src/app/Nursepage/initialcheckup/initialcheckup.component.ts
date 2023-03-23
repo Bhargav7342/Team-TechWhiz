@@ -32,22 +32,21 @@ export class InitialcheckupComponent implements OnInit{
     appointmentId:'',
   }
   
-  
-  constructor(private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService){}
+  appointId:string|any='';
+  constructor(private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService){
+    const nav=this.router.getCurrentNavigation()?.extras.state as {appId:string}
+    this.appointId=nav.appId
+    console.log(this.appointId);
+    
+  }
 
   email:string|any=''
-  Id:string|any=''
   allarr:string[]=[];
   ngOnInit(): void {
-  this.route.paramMap.subscribe({
-    next:(params)=>{
-      this.Id=params.get('appointmentId');
-    }
-  });
   }
    add_Check_Up(item:PatientIntialCheckup){
    
-    this.AddCheckUpDetail.appointmentId=this.Id
+    this.AddCheckUpDetail.appointmentId=this.appointId
     this.AddCheckUpDetail.height=item.height
     this.AddCheckUpDetail.weight=item.weight
     this.AddCheckUpDetail.temperature=item.temperature
@@ -67,7 +66,7 @@ export class InitialcheckupComponent implements OnInit{
             this.allarr.forEach(element => {
               const item1:any={
                 allergyName:element,
-                appointmentId:this.Id,
+                appointmentId:this.appointId,
                 
               }
               

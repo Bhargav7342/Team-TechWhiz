@@ -48,7 +48,9 @@ export class NurseComponent  implements OnInit{
    })
   }
 
- 
+  goto(value:any){
+    this.router.navigate(['/addcheck'],{state:{appId:value}})
+  }
  
 
 

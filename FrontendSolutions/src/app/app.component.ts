@@ -14,6 +14,8 @@ export class AppComponent {
   name1:string="doctor";
   name2:string="nurse";
   name3:string="admin";
+  docname:string|any="";
+  docmail:string|any="";
   status:string="login";
   constructor(public auth: AuthService,private router: Router) {}
   ngOnInit(): void {
@@ -21,12 +23,15 @@ export class AppComponent {
     console.log(profile);
       this.email=profile?.email;
       this.name=profile?.name;
+      this.docmail=profile?.email;
+      this.docname=profile?.name;
       console.log(this.email);
       console.log(this.name);
+      
       if(this.email.includes(this.name1))
       {
         console.log("Doctor Page");
-        this.router.navigate(['/doctor'],{replaceUrl:true})
+        this.router.navigate(['/doctor'],{state:{email:this.docmail,dname:this.docname}})
       }
       if(this.email.includes(this.name2))
       {
