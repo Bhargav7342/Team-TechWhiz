@@ -9,7 +9,7 @@ namespace DataEntities
 {
     public interface IPatientCheckUpRepo
     {
-        public List<DataEntities.Entities.PatientIntialCheckup> GetCheckUpDetails(Guid appointment_id);
+        public DataEntities.Entities.PatientIntialCheckup GetCheckUpDetails(Guid appointment_id);
         public DataEntities.Entities.PatientIntialCheckup AddCheckUpDetails(PatientIntialCheckup intialCheckUp);
     }
 }

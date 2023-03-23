@@ -34,13 +34,6 @@ export class AvailabilityComponent implements OnInit{
     this.dname=nav.name;
   }
   ngOnInit(): void {
-    // this.route.paramMap.subscribe({
-    //   next:(params)=>{
-    //      this.email=params.get('email');
-    //   }
-    // });
-    
-    
     this.availabilityservice.getDoctorIdbyEmail(this.email).subscribe({
       next:(response)=>{
         console.log(response);

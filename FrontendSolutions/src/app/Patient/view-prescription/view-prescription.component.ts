@@ -21,7 +21,6 @@ export class ViewPrescriptionComponent implements OnInit{
         this.prescription=response
         this.dataSource=this.prescription
         console.log(response);
-
       }
     })
   }

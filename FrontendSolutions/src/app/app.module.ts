@@ -27,7 +27,6 @@ import { PatientLoginComponent } from './Patient/patient-login/patient-login.com
 import { PatientSignupComponent } from './Patient/patient-signup/patient-signup.component';
 import { FormsModule }   from '@angular/forms';
 import { PatientDashboardComponent } from './Patient/patient-dashboard/patient-dashboard.component';
-
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
