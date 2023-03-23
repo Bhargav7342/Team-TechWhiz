@@ -22,6 +22,8 @@ export class PatientLoginComponent {
         console.log(response);
         
         sessionStorage.setItem('pid',response.patientId);
+        sessionStorage.setItem('pemail',response.email);
+        
         window.alert("Sign In Successfull");
         
         this.router.navigate(['/patientdashboard']);

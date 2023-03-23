@@ -24,4 +24,16 @@ export class AppointmentService {
   bookAppointment(item:Appointment):Observable<Appointment>{
     return this.http.post<Appointment>(this.baseApiUrl+'/Appointment/BookAppiontment',item);
   }
+
+  sendEmail(email:string,date:string,status:string):Observable<string>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'Email':email,
+      'date1':date,
+      'status':status
+    });
+    return this.http.get<string>(this.baseApiUrl+'/Appointment/Email_Notification',{headers:header});
+  }
 }

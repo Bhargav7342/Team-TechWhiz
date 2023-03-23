@@ -11,6 +11,10 @@ export class PatientDashboardComponent implements OnInit{
 
  
   constructor(private patientService:PatientServicesService,private router:Router,private route:ActivatedRoute){}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
   patientId=sessionStorage.getItem('pid');
+  patientEmail=sessionStorage.getItem('pemail');
+  
 }

@@ -28,12 +28,14 @@ export const MY_DATE_FORMATS = {
 export class BookappointmentsComponent implements   OnInit {
   pid:string='';
   appdate:string='';
+  pemailId:string='';
   constructor(private router:Router,private availabilityService:AvailabilityService,private appointmentService:AppointmentService){
-    const nav=this.router.getCurrentNavigation()?.extras.state as {patientId:string};
+    const nav=this.router.getCurrentNavigation()?.extras.state as {patientId:string,pemail:string};
     this.pid=nav.patientId;
-    
+    this.pemailId=nav.pemail;
   }
   ngOnInit(): void {
+    console.log(this.pemailId)
     throw new Error('Method not implemented.');
   }
   bookAppointment(item: any) {
@@ -56,12 +58,14 @@ export class BookappointmentsComponent implements   OnInit {
       {
         console.log(response);
         window.alert("Appointment book successfully");
-        this.router.navigate(['/patientdashboard'])
+        // this.appointmentService.sendEmail(this.pemailId,this.appdate,"Sent").subscribe({
+        //   next:(response)=>{
+        //     console.log(response);
+        //   }
+        // });
+        this.router.navigate(['/patientdashboard']);
       }
-
-    })
-
-
+    });
   }
   date1:string='';
   currDate:Date=new Date();
