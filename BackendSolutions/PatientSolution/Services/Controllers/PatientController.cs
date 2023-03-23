@@ -82,6 +82,7 @@ namespace Services.Controllers
 
         public IActionResult Update([FromHeader]string email, [FromBody]Patient patient)
         {
+            patient.DateOfBirth = patient.DateOfBirth.AddDays(1);
             patientlogic.UpdatePatient(email, patient);
             return Ok(patient);
         }
