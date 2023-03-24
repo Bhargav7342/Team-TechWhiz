@@ -19,11 +19,11 @@ namespace DataEntities
             return appointment;
         }
 
-        public void EmailToPatient(string email, DateTime date, string status)
+        public void EmailToPatient(string email, string date, string status)
         {
             MailMessage mailMessage = new MailMessage();
             string toEmail = email;
-            DateTime d = date;
+            string d = date;
             string s = "", b = "";
             string stat = status;
             switch (stat)
@@ -38,13 +38,13 @@ namespace DataEntities
                     break;
                 case "Sent":
                     s = "Appointment Booked Successfully";
-                    b = "Dear applicant, \n\nYour Appointment has been booked for the doctor.\nThank you.\nWhizcare Hospital\nIndia";
+                    b = $"Dear applicant, \n\nYour Appointment has been booked for the doctor on {d}.\nThank you.\nWhizcare Hospital\nIndia";
                     break;
                 default:
                     break;
             }
-            string fromEmail = "whizcarehospital@gmail.com";
-            string password = "ikzwdfetggbdkqui";
+            string fromEmail = "whizcarehospitalgroup@gmail.com";
+            string password = "pvczuyxapumuimvn";
             string smtpHost = "smtp.gmail.com";
             int smtpPort = 587;
 

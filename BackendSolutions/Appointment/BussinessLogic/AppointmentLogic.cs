@@ -29,7 +29,7 @@ namespace BussinessLogic
             return Mapper.Map( repo.AddAppointment(Mapper.Map(appointment)));
         }
 
-        public void EmailFunc(string email, DateTime date, string status)
+        public void EmailFunc(string email, string date, string status)
         {
             repo.EmailToPatient(email, date, status);
         }

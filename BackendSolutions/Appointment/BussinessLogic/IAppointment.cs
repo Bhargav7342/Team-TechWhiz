@@ -20,7 +20,7 @@ namespace BussinessLogic
 
         public Models.Appointment AddAppointment(Models.Appointment appointment);
 
-        public void EmailFunc(string email, DateTime date, string status);
+        public void EmailFunc(string email, string date, string status);
 
     }
 }
