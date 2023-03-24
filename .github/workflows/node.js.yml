@@ -33,8 +33,8 @@ jobs:
         path: "FrontendSolutions/node_modules"
         key: node-modules-${{ hashFiles('FrontendSolutions/package.json') }}
     - run: npm ci
-      working-directory: /FrontendSolutions
+      working-directory: FrontendSolutions
     - run: npm run build --if-present
-      working-directory: /FrontendSolutions
+      working-directory: FrontendSolutions
     - run: npm test
-      working-directory: /FrontendSolutions
+      working-directory: FrontendSolutions
