@@ -10,7 +10,7 @@ namespace ServiceLayer.Controllers
     [ApiController]
     public class PatientCheckUpController : ControllerBase
     {
-        IPatientCheckUP _logic;
+        private readonly IPatientCheckUP _logic;
         public PatientCheckUpController(IPatientCheckUP logic)
         {
             _logic = logic;

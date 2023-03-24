@@ -7,7 +7,7 @@ namespace DataEntities
 {
     public class AppointmentRepo : IAppointmentRepo
     {
-        AppointmentDbContext context;
+        private readonly AppointmentDbContext context;
         public AppointmentRepo(AppointmentDbContext _context)
         {
             context = _context;

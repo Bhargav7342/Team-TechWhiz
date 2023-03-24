@@ -14,8 +14,8 @@ namespace BussinessLogic
     public class AppointmentLogic : IAppointment
     {
      
-        AppointmentDbContext context;
-        IAppointmentRepo repo;
+         private readonly AppointmentDbContext context;
+         private readonly IAppointmentRepo repo;
         public AppointmentLogic(IAppointmentRepo _repo, AppointmentDbContext _context)
         {
             repo = _repo;
