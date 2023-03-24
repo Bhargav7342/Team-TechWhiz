@@ -43,13 +43,13 @@ namespace ServiceLayer.Controllers
         }
 
 
-        [HttpGet("getappointmentsbyDoctorid")]
-        public ActionResult GetAppointmentsByDoctorId([FromHeader] Guid id)
+        [HttpGet("getappointmentsbyDoctoridAndStatus")]
+        public ActionResult GetAppointmentsByDoctorId([FromHeader] Guid id ,[FromHeader] string status)
         {
             try
             {
 
-                var appointments = _logic.GetAppointmentsByDoctor(id);
+                var appointments = _logic.GetAppointmentsByDoctor_idByStatus(id,status);
                 if (appointments != null)
                 {
                     return Ok(appointments);
@@ -106,27 +106,7 @@ namespace ServiceLayer.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("getappointmentsByStatus")]
-        public ActionResult GetAppointmentByStatus([FromHeader] string date1, [FromHeader] string status)
-        {
-            try
-            {
-                var date = DateTime.Parse(date1);
-                var appointment = _logic.GetAppointmentsBystatus(date,status);
-                if (appointment != null)
-                {
-                    return Ok(appointment);
-                }
-                else
-                {
-                    return NoContent();
-                }
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+       
 
 
 

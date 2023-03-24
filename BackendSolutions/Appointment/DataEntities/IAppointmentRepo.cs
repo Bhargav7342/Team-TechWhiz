@@ -14,9 +14,9 @@ namespace DataEntities
 
         public List<DataEntities.Entities.Appointment> GetAppointmentsByDate(DateTime date);
 
-        public List<DataEntities.Entities.Appointment> GetAppointmentsByStatus(DateTime date,string status);
 
-        public List<DataEntities.Entities.Appointment> GetAppointmentsByDoctor(Guid doctor_id);
+
+        public List<DataEntities.Entities.Appointment> GetAppointmentsByDoctor(Guid doctor_id,string status);
 
 
         public DataEntities.Entities.Appointment UpdateStatus(DataEntities.Entities.Appointment appointment);

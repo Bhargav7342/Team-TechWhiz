@@ -76,9 +76,9 @@ namespace DataEntities
             return find;
         }
 
-        public List<Appointment> GetAppointmentsByDoctor(Guid doctor_id)
+        public List<Appointment> GetAppointmentsByDoctor(Guid doctor_id, string status)
         {
-            return context.Appointments.Where(a => a.DoctorId == doctor_id).ToList();
+            return context.Appointments.Where(a => a.DoctorId == doctor_id && a.Status==status).ToList();
         }
 
         public List<Appointment> GetAppointmentsByPatient(Guid patient_id)
@@ -90,13 +90,6 @@ namespace DataEntities
             return app;
         }
 
-        public List<Appointment> GetAppointmentsByStatus(DateTime date,string status)
-        {
-            var appointments = context.Appointments
-                               .Where(a => a.Date == date && a.Status == status)
-                               .ToList();
-            return appointments;
-        }
 
         public Appointment UpdateStatus(Appointment appointment)
         {

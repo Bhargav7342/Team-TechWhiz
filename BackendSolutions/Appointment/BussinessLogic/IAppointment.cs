@@ -12,9 +12,9 @@ namespace BussinessLogic
 
         public IEnumerable<Models.Appointment> GetAppointmentsByDate(DateTime date);
 
-        public IEnumerable<Models.Appointment> GetAppointmentsByDoctor(Guid doctor_id);
+        public IEnumerable<Models.Appointment> GetAppointmentsByDoctor_idByStatus(Guid doctor_id,string status);
 
-        public IEnumerable<Models.Appointment> GetAppointmentsBystatus(DateTime date,string status);
+ 
 
         public Models.Appointment UpdateStatus(Guid appointment_id,string status);
 

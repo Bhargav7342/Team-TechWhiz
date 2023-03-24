@@ -1,7 +1,9 @@
+<button mat-raised-button color="primary" style="margin-top:3%;margin-left: 75%;background-color:rgb(161, 29, 183);" (click)="PendingAppointments()">Pending Appointments</button>
 
-<mat-tab-group   class="tabsc">
+
   
-    <mat-tab label="Appointments for Today"><h1>Welcome Back : {{dname}} </h1><app-appointmentsfortoday></app-appointmentsfortoday></mat-tab>
-    <mat-tab label="Pending Appointments"><app-accept-rejectappointment></app-accept-rejectappointment></mat-tab>
-  </mat-tab-group>
+   <h1>Welcome Back : {{dname}} <h2>these are the appointments for today</h2></h1><app-appointmentsfortoday></app-appointmentsfortoday>
+
+    <!-- <mat-tab label="Pending Appointments"><app-accept-rejectappointment [doctorId]="docid"></app-accept-rejectappointment></mat-tab> -->
+
   

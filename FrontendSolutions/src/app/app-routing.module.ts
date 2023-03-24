@@ -84,6 +84,10 @@ const routes: Routes = [
   {
     path:"availability",
     component:AvailabilityComponent
+  },
+  {
+    path:"pendingAppointments",
+    component:AcceptRejectappointmentComponent
   }
 ];
 

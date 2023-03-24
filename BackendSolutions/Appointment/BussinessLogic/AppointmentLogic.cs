@@ -39,16 +39,10 @@ namespace BussinessLogic
             return Mapper.Map(repo.GetAppointmentsByDate(date));
         }
 
-        public IEnumerable<Models.Appointment> GetAppointmentsByDoctor(Guid doctor_id)
-        {
-            return Mapper.Map(repo.GetAppointmentsByPatient(doctor_id));
-        }
 
-        public IEnumerable<Models.Appointment> GetAppointmentsBystatus(DateTime date,string status)
+        public IEnumerable<Models.Appointment> GetAppointmentsByDoctor_idByStatus(Guid doctor_id, string status)
         {
-            
-
-            return Mapper.Map(repo.GetAppointmentsByStatus(date,status));
+            return Mapper.Map(repo.GetAppointmentsByDoctor(doctor_id,status));
         }
 
         IEnumerable<Models.Appointment> IAppointment.GetAppointmentsByPatient(Guid patient_id)
