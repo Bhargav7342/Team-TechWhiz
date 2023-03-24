@@ -9,7 +9,6 @@ import { AvailabilityComponent } from '../availability/availability.component';
 @Component({
   selector: 'app-add-availability',
   templateUrl: './add-availability.component.html',
-  styleUrls: ['./add-availability.component.css']
 })
 export class AddAvailabilityComponent {
   constructor(private _formBuilder: FormBuilder,private router:Router,private availabilityService:AvailabilityService,@Inject(MAT_DIALOG_DATA) public data:any) {}
