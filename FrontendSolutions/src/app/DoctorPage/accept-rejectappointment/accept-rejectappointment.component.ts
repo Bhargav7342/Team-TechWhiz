@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Appointment, Patient } from 'src/app/Models/database.models';
+import { AppointmentService } from 'src/app/Service/appointment.service';
 import { DoctorService } from 'src/app/Service/doctor.service';
 import { NurseService } from 'src/app/Service/nurse.service';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
@@ -18,7 +19,7 @@ export class AcceptRejectappointmentComponent implements OnInit{
  appointments:Appointment[]=[];
 
   
-  constructor(private router:Router,private doctorservice:DoctorService,private patientservice:PatientServicesService,private appointmentservice:NurseService){
+  constructor(private router:Router,private doctorservice:DoctorService,private patientservice:PatientServicesService,private appointmentservice:AppointmentService){
     const nav=this.router.getCurrentNavigation()?.extras.state as{doctorId:string}
     this.docId=nav.doctorId
   }
@@ -44,11 +45,23 @@ export class AcceptRejectappointmentComponent implements OnInit{
  
 
 
-  accept() {
-    this.status = 'Accept';
+  accept(appId:string) {
+    console.log(appId);
+    this.appointmentservice.updateAppointmentStatus(appId,"Accepted").subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.router.navigate(['/pendingAppointments'])
+      }
+    });
   }
 
-  reject() {
+  reject(appId:string) {
     this.status = 'Reject';
+    this.appointmentservice.updateAppointmentStatus(appId,"Rejected").subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.router.navigate(['/pendingAppointments'])
+      }
+    })
   }
 }

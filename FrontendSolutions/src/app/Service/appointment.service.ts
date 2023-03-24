@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
@@ -37,5 +37,13 @@ export class AppointmentService {
     return this.http.get<string>(this.baseApiUrl+'/Appointment/Email_Notification',{headers:header});
   }
 
-  
+
+  updateAppointmentStatus(appId:string,status:string):Observable<Appointment>
+  {
+    
+    
+    return this.http.put<Appointment>(this.baseApiUrl+'/Appointment/Update?AppointmentId='+ appId+'&status1='+ status,status);
+
+  }
+
 }
