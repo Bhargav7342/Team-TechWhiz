@@ -111,12 +111,12 @@ namespace ServiceLayer.Controllers
 
 
         [HttpPut("Update")]
-        public  ActionResult UpdateStatus(Guid AppointmentId ,string Status)
+        public  IActionResult UpdateStatus( Guid AppointmentId , string status1)
         {
             try
             {
 
-               var result= _logic.UpdateStatus(AppointmentId, Status);
+               var result= _logic.UpdateStatus(AppointmentId, status1);
                 return Ok(result);
             }
             catch (SqlException ex)

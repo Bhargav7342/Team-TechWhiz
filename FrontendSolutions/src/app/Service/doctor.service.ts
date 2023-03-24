@@ -38,6 +38,6 @@ export class DoctorService {
 
     return this.http.get<Appointment[]>(this.baseApiurl2+'/Appointment/getappointmentsbyDoctoridAndStatus',{headers:header});
   }
-
+    
 
 }
