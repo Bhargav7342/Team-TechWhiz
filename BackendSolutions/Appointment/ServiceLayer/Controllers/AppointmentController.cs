@@ -135,8 +135,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
-                var date = DateTime.Parse(date1);
-                _logic.EmailFunc(Email, date, status);
+                //var date = DateTime.Parse(date1);
+                _logic.EmailFunc(Email, date1, status);
                 return Ok("Email Sent");
             }
             catch (Exception e)
