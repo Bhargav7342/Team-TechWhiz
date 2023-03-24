@@ -107,12 +107,12 @@ namespace ServiceLayer.Controllers
             }
         }
         [HttpGet("getappointmentsByStatus")]
-        public ActionResult GetAppointmentByStatus([FromHeader] string date1)
+        public ActionResult GetAppointmentByStatus([FromHeader] string date1, [FromHeader] string status)
         {
             try
             {
                 var date = DateTime.Parse(date1);
-                var appointment = _logic.GetAppointmentsBystatus(date);
+                var appointment = _logic.GetAppointmentsBystatus(date,status);
                 if (appointment != null)
                 {
                     return Ok(appointment);
