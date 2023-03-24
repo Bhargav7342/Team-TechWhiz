@@ -26,7 +26,6 @@ export class AddAvailabilityComponent {
     saturday:false,
    })
   addAvailability(item:any){
-    console.log(item);
     this.days=item
     this.days.doctorId=this.data.dataKey
     console.log(this.data)
