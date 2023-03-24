@@ -32,6 +32,8 @@ jobs:
       with:
         path: "FrontendSolutions/node_modules"
         key: node-modules-${{ hashFiles('FrontendSolutions/package.json') }}
+    - name: Install Dependencies
+      run: npm install
     - run: npm run build --if-present
       working-directory: FrontendSolutions
     - run: npm test
