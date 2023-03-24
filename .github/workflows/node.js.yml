@@ -34,14 +34,16 @@ jobs:
         key: node-modules-${{ hashFiles('FrontendSolutions/package.json') }}
     - name: Install Dependencies
       run: npm install
+      
     - name: Install Angular CLI
       run: npm install -g @angular/cli
+      
     - name: Install Moment.js and its type definitions
       run: npm install moment @types/moment --save
       working-directory: FrontendSolutions
-    - run: npm run build
+      
+    - run: npm run build -- --prod
       working-directory: FrontendSolutions
-    - run: npm install --save-dev @angular-devkit/build-angular
-      working-directory: FrontendSolutions
+
     - run: npm test
       working-directory: FrontendSolutions
