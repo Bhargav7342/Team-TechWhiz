@@ -1,14 +1,14 @@
-<div class="card-container" *ngFor="let p of patients">
+<div class="card-container" *ngFor="let a of appointments;let i=index">
 
     <mat-card class="cards">
         <mat-card-header>
-          <mat-card-title>Patient Name : {{p.name}}</mat-card-title>
+          <mat-card-title>PatientName:{{patients[i].firstName}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p>Concern : {{p.concerns}}</p>
+          <p>Concern : {{a.concerns}}</p>
         </mat-card-content>
         <mat-card-content>
-          <p>Date : {{p.date}}</p>
+          <p>Date : {{a.date|customdate}}</p>
         </mat-card-content>
         <mat-card-actions class="card-buttons">
           <button mat-raised-button (click)="accept()" >Accept</button>
