@@ -6,7 +6,7 @@ namespace Patient_Logic
 {
 	public class HealthHistoryLogic : IHealthHistoryLogic
 	{
-        IHealthHistory h;
+        private readonly IHealthHistory h;
 		public HealthHistoryLogic(IHealthHistory _h)
 		{
             h = _h;

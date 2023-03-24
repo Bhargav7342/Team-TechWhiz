@@ -9,7 +9,7 @@ namespace DataEntities
 {
     public class PhysicianRepo : IPhysicianRepo
     {
-        DoctorDbContext context;
+        private readonly DoctorDbContext context;
         public PhysicianRepo(DoctorDbContext _context)
         {
             context = _context;

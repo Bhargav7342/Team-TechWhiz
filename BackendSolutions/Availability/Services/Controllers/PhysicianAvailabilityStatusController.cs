@@ -10,7 +10,7 @@ namespace Services.Controllers
     [ApiController]
     public class PhysicianAvailabilityStatusController : ControllerBase
     {
-        IPhysicianAvailabilityStatus _logic;
+        private readonly IPhysicianAvailabilityStatus _logic;
         public PhysicianAvailabilityStatusController(IPhysicianAvailabilityStatus logic)
         {
             _logic = logic;
@@ -38,7 +38,7 @@ namespace Services.Controllers
             try
             {
                 var updated = _logic.UpdateAvailability(physician);
-                return Ok(physician);
+                return Ok(updated);
             }
             catch (SqlException ex)
             {

@@ -42,10 +42,6 @@ namespace BusinessLogic
         {
             return Mapper.MapDoctor(doctorRepo.GetDoctorByDepartment(Department));
         }
-        public List<Models.Doctor> GetDoctorsByAvailabilityAndDepartment(string Day, string Department)
-        {
-            return Mapper.MapDoctor(doctorRepo.GetDoctorsByAvailabilityAndDepartment(Day, Department));
-        }
 
         public Models.Doctor GetDoctorByEmail(string? Email)
         {

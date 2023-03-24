@@ -2,7 +2,7 @@
 using ED = DataEntities.Entities;
 namespace BusinessLogic
 {
-    public class Mapper
+    public static class Mapper
     {
         public static ED.Allergy AllergyMapper(Models.Allergy a)
         {

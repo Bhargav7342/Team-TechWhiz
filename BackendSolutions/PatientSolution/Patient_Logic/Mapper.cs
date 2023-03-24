@@ -3,7 +3,7 @@ using DataEntities.Entities;
 
 namespace Patient_Logic
 {
-    public class Mapper
+    public static class Mapper
     {
         public static Models.Patient Map(Patient patient)
         {

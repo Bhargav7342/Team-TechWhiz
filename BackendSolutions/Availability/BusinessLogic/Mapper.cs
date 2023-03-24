@@ -3,9 +3,8 @@ using TE = DataEntities.Entities;
 
 namespace BusinessLogic
 {
-    public class Mapper
+    public static class Mapper
     {
-        // entity to model
         public static Doctor MapDoctor(TE.Doctor doctor)
         {
             return new Doctor()
@@ -34,7 +33,6 @@ namespace BusinessLogic
             };
         }
 
-        // models to entities
         public static TE.Doctor mapDoctor(Doctor doctor)
         {
             return new TE.Doctor()
@@ -63,7 +61,8 @@ namespace BusinessLogic
             };
         }
 
-        public static List<Doctor> MapDoctor(List<TE.Doctor> doctors) {
+        public static List<Doctor> MapDoctor(List<TE.Doctor> doctors) 
+        {
             return doctors.Select(MapDoctor).ToList();
         }
     }
