@@ -37,6 +37,7 @@ export class AppointmentService {
     return this.http.get<string>(this.baseApiUrl+'/Appointment/Email_Notification',{headers:header});
   }
 
+
   updateAppointmentStatus(appId:string,status:string):Observable<Appointment>
   {
     
