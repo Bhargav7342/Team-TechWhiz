@@ -6,7 +6,7 @@ namespace Patient_Logic
 {
 	public class PrescriptionsLogic : IPresciptionLogic
 	{
-        IPrescriptions pr;
+        private readonly IPrescriptions pr;
 
 		public PrescriptionsLogic(IPrescriptions _pr)
 		{

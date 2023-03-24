@@ -14,7 +14,7 @@ namespace Services.Controllers
     public class PrescriptionsController : Controller
     {
 
-        IPresciptionLogic presciption;
+        private readonly IPresciptionLogic presciption;
         public PrescriptionsController(IPresciptionLogic _prescription)
         {
             presciption = _prescription;

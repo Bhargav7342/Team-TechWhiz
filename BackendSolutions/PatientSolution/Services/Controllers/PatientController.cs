@@ -10,7 +10,7 @@ namespace Services.Controllers
     [ApiController]
     public class PatientController : ControllerBase
     {
-        IPatientLogic patientlogic;
+        private readonly IPatientLogic patientlogic;
         public PatientController(IPatientLogic _patientlogic)
         {
             patientlogic = _patientlogic;

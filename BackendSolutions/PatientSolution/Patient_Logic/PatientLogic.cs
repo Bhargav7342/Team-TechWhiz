@@ -10,7 +10,7 @@ namespace Patient_Logic
 {
     public class PatientLogic : IPatientLogic
     {
-        IPatient p;
+        private readonly IPatient p;
         public PatientLogic(IPatient _p) 
         { 
             p= _p;

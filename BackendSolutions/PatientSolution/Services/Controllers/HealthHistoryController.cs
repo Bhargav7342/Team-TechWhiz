@@ -14,7 +14,7 @@ namespace Services.Controllers
     [Route("api/[controller]")]
     public class HealthHistoryController : Controller
     {
-        IHealthHistoryLogic healthLogic;
+        private readonly IHealthHistoryLogic healthLogic;
         public HealthHistoryController(IHealthHistoryLogic _healthLogic)
         {
             healthLogic = _healthLogic;
