@@ -13,8 +13,6 @@ namespace BussinessLogic
 
         public Models.PatientIntialCheckUp AddCheckUpDetails(Models.PatientIntialCheckUp initialCheckUp);
 
-        //public ArrayList GetAppointmentandCheckUp(Guid appointment_id);
-
-       // public Models.PatientIntialCheckUp UpdateCheckUpStatus(Guid appointment_id);
+    
     }
 }

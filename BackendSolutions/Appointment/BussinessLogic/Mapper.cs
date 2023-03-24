@@ -9,8 +9,9 @@ using Models;
 
 namespace BussinessLogic
 {
-    public class Mapper
+    public static class Mapper
     {
+      
         public static Models.Appointment Map(DataEntities.Entities.Appointment a)
         {
             return new Models.Appointment()

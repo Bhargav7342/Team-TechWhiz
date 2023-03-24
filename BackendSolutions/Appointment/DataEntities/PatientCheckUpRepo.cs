@@ -9,7 +9,7 @@ namespace DataEntities
 {
     public class PatientCheckUpRepo : IPatientCheckUpRepo
     {
-        AppointmentDbContext context;
+        private readonly AppointmentDbContext context;
         public PatientCheckUpRepo(AppointmentDbContext _context)
         {
             context = _context;

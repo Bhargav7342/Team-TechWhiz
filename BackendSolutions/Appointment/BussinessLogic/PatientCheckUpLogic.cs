@@ -12,12 +12,12 @@ namespace BussinessLogic
 {
     public class PatientCheckUpLogic : IPatientCheckUP
     {
-        AppointmentDbContext context;
-        IPatientCheckUpRepo repo;
-        public PatientCheckUpLogic(IPatientCheckUpRepo _repo, AppointmentDbContext _context)
+      
+        private readonly IPatientCheckUpRepo repo;
+        public PatientCheckUpLogic(IPatientCheckUpRepo _repo)
         {
             repo = _repo;
-            context = _context;
+           
 
         }
 

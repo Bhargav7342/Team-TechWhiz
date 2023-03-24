@@ -12,7 +12,7 @@ namespace ServiceLayer.Controllers
     [ApiController]
     public class AppointmentController : ControllerBase
     {
-        private IAppointment _logic;
+        private  readonly IAppointment _logic;
         
         public AppointmentController(IAppointment logic)
         {
@@ -72,8 +72,8 @@ namespace ServiceLayer.Controllers
             {
                
 
-                _logic.AddAppointment(a);
-                return Ok();
+                var result=_logic.AddAppointment(a);
+                return Ok(result);
             }
             catch (SqlException ex)
             {
@@ -131,13 +131,13 @@ namespace ServiceLayer.Controllers
 
 
         [HttpPut("Update")]
-        public ActionResult UpdateStatus(Guid AppointmentId ,string Status)
+        public  ActionResult UpdateStatus(Guid AppointmentId ,string Status)
         {
             try
             {
 
-                _logic.UpdateStatus(AppointmentId, Status);
-                return Ok();
+               var result= _logic.UpdateStatus(AppointmentId, Status);
+                return Ok(result);
             }
             catch (SqlException ex)
             {
