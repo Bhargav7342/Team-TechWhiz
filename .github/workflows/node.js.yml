@@ -41,5 +41,7 @@ jobs:
       working-directory: FrontendSolutions
     - run: npm run build
       working-directory: FrontendSolutions
+    - run: npm install --save-dev @angular-devkit/build-angular
+      working-directory: FrontendSolutions
     - run: npm test
       working-directory: FrontendSolutions
