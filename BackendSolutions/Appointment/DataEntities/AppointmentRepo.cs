@@ -90,11 +90,12 @@ namespace DataEntities
             return app;
         }
 
-        public List<Appointment> GetAppointmentsByStatus(DateTime date)
+        public List<Appointment> GetAppointmentsByStatus(DateTime date,string status)
         {
-            return context.Appointments
-           .Where(a => a.Status == "Accept")
-           .ToList();
+            var appointments = context.Appointments
+                               .Where(a => a.Date == date && a.Status == status)
+                               .ToList();
+            return appointments;
         }
 
         public Appointment UpdateStatus(Appointment appointment)
