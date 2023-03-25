@@ -14,7 +14,7 @@
               <p>Concern:{{a.concerns}}</p>
             </mat-card-content>
             <mat-card-actions class="card-buttons">
-
+              <button mat-raised-button color="primary" id="adddetailsbutton" (click)="healthHistory(a.patientId)"  [disabled]="added">View Health Histroy</button>
               <button mat-raised-button color="primary" id="adddetailsbutton" (click)="goto(a.appointmentId)"  [disabled]="added">Add Details</button>
             </mat-card-actions>
         </mat-card>

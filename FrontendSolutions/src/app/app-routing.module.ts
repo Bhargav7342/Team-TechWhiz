@@ -19,6 +19,7 @@ import { ViewPrescriptionComponent } from './Patient/view-prescription/view-pres
 import { HealthhistoryComponent } from './Patient/healthhistory/healthhistory.component';
 import { AddAvailabilityComponent } from './Adminpage/add-availability/add-availability.component';
 import { AvailabilityComponent } from './Adminpage/availability/availability.component';
+import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,14 @@ const routes: Routes = [
   {
     path:"pendingAppointments",
     component:AcceptRejectappointmentComponent
+  },
+  {
+    path:"healthHistoryNurse",
+    component:HealthHistoryNurseComponent
+  },
+  {
+    path:"NurseHomePage",
+    component:NurseComponent
   }
 ];
 

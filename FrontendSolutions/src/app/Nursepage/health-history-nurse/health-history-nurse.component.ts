@@ -2,28 +2,33 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { HealthHistory } from 'src/app/Models/database.models';
+import { ViewCheckUpComponent } from 'src/app/Patient/view-check-up/view-check-up.component';
+import { ViewPrescriptionComponent } from 'src/app/Patient/view-prescription/view-prescription.component';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
-import { ViewCheckUpComponent } from '../view-check-up/view-check-up.component';
-import { ViewPrescriptionComponent } from '../view-prescription/view-prescription.component';
+
 
 @Component({
-  selector: 'app-healthhistory',
-  templateUrl: './healthhistory.component.html',
-  styleUrls: ['./healthhistory.component.css']
+  selector: 'app-health-history-nurse',
+  templateUrl: './health-history-nurse.component.html',
+  styleUrls: ['./health-history-nurse.component.css']
 })
-export class HealthhistoryComponent implements OnInit{
-  @Input() patientId:string|null=''; 
-  patientIdOut:string="";
+export class HealthHistoryNurseComponent implements OnInit{
+ 
+  patientId:string="";
   fromOut:boolean=false;
-  pid:string|any=this.patientId;
+  
   constructor(private dialogbox: MatDialog,private hhservices:PatientServicesService,private router:Router)
   {
+    
+    const nav=this.router.getCurrentNavigation()?.extras.state as {pId:string}
+    this.patientId=nav.pId
+    console.log(this.patientId);
+    
     
   }
   
   health:HealthHistory[]=[];
   ngOnInit(): void {
-
     if(this.patientId!=null){
       this.hhservices.getHealthHistorybyPatientId(this.patientId).subscribe({
         next:(response)=>{
@@ -51,6 +56,10 @@ openDialog2(value:string){
       dataKey:value
     }
   })
+}
+goBack()
+{
+  this.router.navigate(['\NurseHomePage']);
 }
 
 }

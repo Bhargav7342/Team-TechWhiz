@@ -50,6 +50,9 @@ import { AddAvailabilityComponent } from './Adminpage/add-availability/add-avail
 import { ViewprofileComponent } from './Patient/viewprofile/viewprofile.component';
 import { EditprofileComponent } from './Patient/editprofile/editprofile.component';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
+import { AgePipePipe } from './age-pipe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +83,9 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     AddAvailabilityComponent,
     ViewprofileComponent,
     EditprofileComponent,
-
+    HealthHistoryNurseComponent,
+    AgePipePipe,
+    
     
   ],
   imports: [
