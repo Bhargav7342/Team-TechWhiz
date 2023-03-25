@@ -12,8 +12,13 @@ import { PrescriptionComponent } from '../add-prescription/prescription.componen
   styleUrls: ['./add-diagnosis.component.css']
 })
 export class AddDiagnosisComponent {
-
-  constructor(private dailog:MatDialog,private router:Router){}
+  patientId:string='';
+  appointmentId:string='';
+  constructor(private dailog:MatDialog,private router:Router){
+    const nav=this.router.getCurrentNavigation()?.extras.state as{appointmentId:string,patientId:string}
+    this.appointmentId=nav.appointmentId;
+    this.patientId=nav.patientId;
+  }
   pname="Jonny";
   bg="A +ve";
   Age=25;
@@ -40,9 +45,7 @@ export class AddDiagnosisComponent {
     this.router.navigate(['/doctor']);
   }
   viewHealthHistory(){
-    // this.dailog.open(HealthhistoryComponent,{
-    //   height:'1000px',width:'1000px'
-    // });
-    this.router.navigate(['/healthhistory']);
+
+    this.router.navigate(['/healthhistory'],{state:{pId:this.patientId,fromOut:true}});
   }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { HealthHistory } from 'src/app/Models/database.models';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
 import { ViewCheckUpComponent } from '../view-check-up/view-check-up.component';
@@ -12,16 +13,24 @@ import { ViewPrescriptionComponent } from '../view-prescription/view-prescriptio
 })
 export class HealthhistoryComponent implements OnInit{
   @Input() patientId:string|null=''; 
-
+  patientIdOut:string="";
+  fromOut:boolean=false;
   pid:string|any=this.patientId;
-  constructor(private dialogbox: MatDialog,private hhservices:PatientServicesService)
+  constructor(private dialogbox: MatDialog,private hhservices:PatientServicesService,private router:Router)
   {
-    
+    const nav=this.router.getCurrentNavigation()?.extras.state as {pId:string,fromOut:boolean}
+    this.patientIdOut=nav.pId
+    console.log(this.patientIdOut);
+    this.fromOut=nav.fromOut;
     
   }
   
   health:HealthHistory[]=[];
   ngOnInit(): void {
+    if(this.fromOut)
+    {
+      this.patientId=this.patientIdOut;
+    }
     if(this.patientId!=null){
       this.hhservices.getHealthHistorybyPatientId(this.patientId).subscribe({
         next:(response)=>{
