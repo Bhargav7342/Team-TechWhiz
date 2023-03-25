@@ -54,7 +54,7 @@ export class NurseComponent  implements OnInit{
  
   healthHistory(patientId:string)
   {
-    this.router.navigate(['/healthhistory'],{state:{pId:patientId,fromOut:true}})
+    this.router.navigate(['/healthHistoryNurse'],{state:{pId:patientId}})
 
   }
 

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Appointment } from '../Models/database.models';
+import { Appointment, PatientIntialCheckup, PhysicianAvailabilityStatus } from '../Models/database.models';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,16 @@ export class AppointmentService {
     
     return this.http.put<Appointment>(this.baseApiUrl+'/Appointment/Update?AppointmentId='+ appId+'&status1='+ status,status);
 
+  }
+
+  getInitialCheckUp(appId:string):Observable<PatientIntialCheckup>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'appointment_id':appId
+    });
+    return this.http.get<PatientIntialCheckup>(this.baseApiUrl+'/PatientCheckUp/GetCheckUpDetailsByAppointmentId',{headers:header});
   }
 
 }

@@ -2,28 +2,28 @@
 
 <h1>Patient Details</h1>
 
-
+<button mat-raised-button color="primary" style="margin-top:1%;margin-left: 95%;background-color:rgb(161, 29, 183);" (click)="goBack()">Back</button>
 <mat-card id="card">
     <mat-card-content>
         <mat-grid-list cols="3" rowHeight="1:1">
             <mat-grid-tile>
                     <mat-card-content>
-                        <h4>Patient Name : {{pname}}</h4>
-                        <h4>Age : {{Age}}</h4>
-                        <h4>Gender : {{Gender}}</h4>
-                        <h4>Blood Group : {{bg}}</h4>       
-                        <h4>Height(cm) : {{Height}}</h4> 
-                        <h4>SPO2 : {{SPO2}}</h4>
+                        <h4>Patient Name : {{patientDet.firstName}} {{patientDet.lastName}}</h4>
+                        <h4>Age : {{patientDet.dateOfBirth|agePipe}}</h4>
+                        <h4>Gender : {{patientDet.gender}}</h4>
+                        <h4>Blood Group : {{patientDet.bloodGroup}}</h4>       
+                        <h4>Height(cm) : {{patientInitialDet.height}}</h4> 
+                        <h4>SPO2 : {{patientInitialDet.spo2}}</h4>
                     </mat-card-content>
             </mat-grid-tile>
             <mat-grid-tile>
                 <mat-card-content>
-                    <h4>Weight (KG) : {{Weight}}</h4> 
-                    <h4>BP (mm/Hg) : {{BP}}</h4>
-                    <h4>Temperature (F) : {{Temp}}</h4>
-                    <h4>Sugar Level : {{SugarLevel}}</h4>
+                    <h4>Weight (KG) : {{patientInitialDet.weight}}</h4> 
+                    <h4>BP (mm/Hg) : {{patientInitialDet.bloodPressure}}</h4>
+                    <h4>Temperature (C) : {{patientInitialDet.temperature}}</h4>
+                    <h4>Sugar Level : {{patientInitialDet.sugarLevel}}</h4>
                     <h4>Allergy : {{Allergy}}</h4>
-                    <h4>Additional Details : {{Additional}}</h4>   
+                    <h4>Additional Details : {{patientInitialDet.additionalDetails}}</h4>   
                     
                 </mat-card-content>
             </mat-grid-tile>
