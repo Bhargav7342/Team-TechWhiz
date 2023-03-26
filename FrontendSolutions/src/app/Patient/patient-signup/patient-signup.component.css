@@ -26,4 +26,9 @@
 
   #bt1{
     color: white;
+    
+  }
+
+  #bt1:disabled{
+    background-color: rgb(177, 137, 183);
   }
