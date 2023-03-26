@@ -11,6 +11,8 @@ import { PatientServicesService } from 'src/app/Service/patient-services.service
 })
 export class AppointmentsfortodayComponent implements OnInit{
   @Input() docid:string|any='';
+  @Input() dname:string|any='';
+  @Input() docemail:string|any=''
   
   patient:Patient[]=[];
   appointments:Appointment[]=[];
@@ -45,6 +47,6 @@ export class AppointmentsfortodayComponent implements OnInit{
   
 
   handleClick(appId:string,pId:string){
-    this.router.navigate(['/adddiagnosis'],{state:{appointmentId:appId,patientId:pId}});
+    this.router.navigate(['/adddiagnosis'],{state:{appointmentId:appId,patientId:pId,docname:this.dname,docemail:this.docemail}});
   }
 }
