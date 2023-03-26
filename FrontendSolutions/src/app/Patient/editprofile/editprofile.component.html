@@ -27,7 +27,7 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>Phone Number</mat-label>
                     <input type="Phone Number" matInput placeholder="Enter Phone Number" name="phone"
-                        [(ngModel)]="editdata.phone">
+                        [(ngModel)]="editdata.phone" pattern="[6-9]\d{9}">
                 </mat-form-field>
                 <mat-grid-list cols="3" rowHeight="2:1">
                     <mat-grid-tile>
@@ -91,7 +91,7 @@
                         <mat-form-field class="example-full-width">
                             <mat-label>Zipcode</mat-label>
                             <input type="Zipcode" matInput placeholder="Enter Zipcode" name="zipcode"
-                                [(ngModel)]="editdata.zipcode">
+                                [(ngModel)]="editdata.zipcode" pattern="\d{6}">
                         </mat-form-field>
                     </mat-grid-tile>
                 </mat-grid-list>

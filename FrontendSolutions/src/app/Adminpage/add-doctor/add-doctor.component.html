@@ -5,22 +5,22 @@
         <h1>Add Doctor Details</h1>
         <mat-form-field appearance="fill">
             <mat-label>Enter Name</mat-label>
-            <input matInput name="DoctorName" [(ngModel)]="doctor.doctorName">
+            <input matInput name="DoctorName" [(ngModel)]="doctor.doctorName" required>
           </mat-form-field>
 
           <mat-form-field appearance="fill">
             <mat-label>Enter Email</mat-label>
-            <input type="email" matInput name="Email" [(ngModel)]="doctor.email">
+            <input type="email" matInput name="Email" [(ngModel)]="doctor.email" required >
           </mat-form-field>
 
           <mat-form-field appearance="fill">
             <mat-label>Qualification</mat-label>
-            <input matInput name="Qualification" [(ngModel)]="doctor.qualification">
+            <input matInput name="Qualification" [(ngModel)]="doctor.qualification" required>
           </mat-form-field>
     
           <mat-form-field appearance="fill">
             <mat-label>Select Department</mat-label>
-            <mat-select name="Department" [(ngModel)]="doctor.department">
+            <mat-select name="Department" [(ngModel)]="doctor.department" required>
               <mat-option value="Cardiology">Cardiology</mat-option>
               <mat-option value="Dermatology">Dermatology</mat-option>
               <mat-option value="Gynecology">Gynecology</mat-option>
@@ -37,7 +37,7 @@
           
     
     
-          <button mat-fab extended color="accent" class="btn-color">
+          <button mat-fab extended color="accent" class="btn-color" [disabled]="!appointmentForm.form.valid">
             Add
           </button>
       
