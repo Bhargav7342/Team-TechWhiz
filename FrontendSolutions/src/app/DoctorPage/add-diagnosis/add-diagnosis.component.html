@@ -22,7 +22,7 @@
                     <h4>BP (mm/Hg) : {{patientInitialDet.bloodPressure}}</h4>
                     <h4>Temperature (C) : {{patientInitialDet.temperature}}</h4>
                     <h4>Sugar Level : {{patientInitialDet.sugarLevel}}</h4>
-                    <h4>Allergy : {{Allergy}}</h4>
+                    <h4>Allergy : <span *ngFor="let a of allergy">{{a.allergyName}},</span></h4>
                     <h4>Additional Details : {{patientInitialDet.additionalDetails}}</h4>   
                     
                 </mat-card-content>

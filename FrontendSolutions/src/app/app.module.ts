@@ -53,6 +53,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import { EditpasswordComponent } from './Patient/editpassword/editpassword.component';
 import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
 import { AgePipePipe } from './age-pipe.pipe';
+import { ViewPrescriptionDocComponent } from './DoctorPage/view-prescription-doc/view-prescription-doc.component';
 
 
 @NgModule({
@@ -85,7 +86,7 @@ import { AgePipePipe } from './age-pipe.pipe';
     ViewprofileComponent,
     EditprofileComponent,
     EditpasswordComponent,
-
+    ViewPrescriptionDocComponent,
     HealthHistoryNurseComponent,
     AgePipePipe,
     
