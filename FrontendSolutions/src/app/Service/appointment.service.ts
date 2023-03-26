@@ -46,14 +46,6 @@ export class AppointmentService {
 
   }
 
-  getInitialCheckUp(appId:string):Observable<PatientIntialCheckup>
-  {
-    let header=new HttpHeaders({
-      'Content-Type':'application/json',
-      'resposneType':'json',
-      'appointment_id':appId
-    });
-    return this.http.get<PatientIntialCheckup>(this.baseApiUrl+'/PatientCheckUp/GetCheckUpDetailsByAppointmentId',{headers:header});
-  }
-
+ 
+  
 }

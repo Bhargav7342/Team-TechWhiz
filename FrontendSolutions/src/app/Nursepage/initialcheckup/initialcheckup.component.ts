@@ -57,7 +57,7 @@ export class InitialcheckupComponent implements OnInit{
     this.AddCheckUpDetail.chechupStatus=true
     console.log(this.AddCheckUpDetail);
 
-    
+    console.log(this.allarr);
   
           this.initialcheckupservice.AddCheckUpDetails(this.AddCheckUpDetail).subscribe({
               next:(res)=>{
@@ -67,7 +67,7 @@ export class InitialcheckupComponent implements OnInit{
             this.allarr.forEach(element => {
               const item1:any={
                 allergyName:element,
-                appointmentId:this.appointId,
+                appointmentId:this.AddCheckUpDetail.appointmentId
                 
               }
               

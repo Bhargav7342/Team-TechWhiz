@@ -38,6 +38,16 @@ export class DoctorService {
 
     return this.http.get<Appointment[]>(this.baseApiurl2+'/Appointment/getappointmentsbyDoctoridAndStatus',{headers:header});
   }
-    
+  
+  GetAppointmentsAfterCheckup(date:string,docId:string):Observable<Appointment[]>
+  {
+    let header=new HttpHeaders({
+      'Content-Type':'application/json',
+      'resposneType':'json',
+      'doc_id':docId,
+      'dates':date
+    });
+    return this.http.get<Appointment[]>(this.baseApiurl2+'/Appointment/GetAppointmentsAfterCheckup',{headers:header})
+  }
 
 }

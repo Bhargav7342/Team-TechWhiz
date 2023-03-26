@@ -14,13 +14,15 @@ export class AppointmentsfortodayComponent implements OnInit{
   
   patient:Patient[]=[];
   appointments:Appointment[]=[];
+  today: Date = new Date(); 
+  dateString: string = this.today.toISOString().slice(0, 10); 
   constructor(private router:Router,private doctorservice:DoctorService,private patientservice:PatientServicesService){}
   
  
   ngOnInit(): void {
     this.docid=sessionStorage.getItem('docId')
     console.log(this.docid+"ds")
-    this.doctorservice.getAllAppointmetsBydoctorandstatus(this.docid,"Accepted").subscribe({
+    this.doctorservice.GetAppointmentsAfterCheckup(this.dateString,this.docid).subscribe({
       next:(response)=>{
         this.appointments=response;
         console.log(response);

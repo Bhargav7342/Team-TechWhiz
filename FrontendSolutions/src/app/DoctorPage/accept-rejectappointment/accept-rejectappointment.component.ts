@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, OnChanges } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Appointment, Patient } from 'src/app/Models/database.models';
 import { AppointmentService } from 'src/app/Service/appointment.service';
@@ -23,6 +23,7 @@ export class AcceptRejectappointmentComponent implements OnInit{
     const nav=this.router.getCurrentNavigation()?.extras.state as{doctorId:string}
     this.docId=nav.doctorId
   }
+
   ngOnInit(): void {
  
     this.doctorservice.getAllAppointmetsBydoctorandstatus(this.docId,"Sent").subscribe({
@@ -42,8 +43,8 @@ export class AcceptRejectappointmentComponent implements OnInit{
     })
     
   }
- 
 
+  
 
   accept(appId:string) {
     console.log(appId);
