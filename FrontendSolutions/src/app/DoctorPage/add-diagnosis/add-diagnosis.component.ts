@@ -124,6 +124,26 @@ export class AddDiagnosisComponent implements OnInit {
       next:(response)=>{
         console.log(response);
         hhId=response.hhId
+        if(hhId!='')
+        {
+          this.prescriptions.forEach(element=>{
+            const item1:any={
+              hhId:hhId,
+              medicineName:element.medicineName,
+              dosage:element.dosage,
+              note:element.note
+            }
+            this.docService.AddPrescription(item1).subscribe({
+              next:(response)=>{
+                console.log(response);
+              },
+              error:(response)=>{
+                console.log(response);
+              }
+            })
+          })
+        }
+        window.alert("Added Succesfully")
       },
       error:(response)=>{
         console.log(response);
@@ -133,25 +153,7 @@ export class AddDiagnosisComponent implements OnInit {
     
     console.log(this.prescriptions);
 
-    if(hhId!='')
-    {
-      this.prescriptions.forEach(element=>{
-        const item1:any={
-          hhId:hhId,
-          medicineName:element.medicineName,
-          dosage:element.dosage,
-          note:element.note
-        }
-        this.docService.AddPrescription(item1).subscribe({
-          next:(response)=>{
-            console.log(response);
-          },
-          error:(response)=>{
-            console.log(response);
-          }
-        })
-      })
-    }
+    
     this.router.navigate(['/doctor'],{state:{email:this.docemail,dname:this.doctorName}});
   }
 
