@@ -52,17 +52,17 @@ export class NurseComponent  implements OnInit{
     this.router.navigate(['/addcheck'],{state:{appId:value}})
   }
  
+  healthHistory(patientId:string)
+  {
+    this.router.navigate(['/healthHistoryNurse'],{state:{pId:patientId}})
 
+  }
 
  
 
      added:boolean=false;
 
-       disablebutton(){
-        this.added=true;
-        this.router.navigate(['addcheck']);
-
-       }
+       
       
       }
 

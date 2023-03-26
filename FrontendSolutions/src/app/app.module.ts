@@ -51,6 +51,9 @@ import { ViewprofileComponent } from './Patient/viewprofile/viewprofile.componen
 import { EditprofileComponent } from './Patient/editprofile/editprofile.component';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import { EditpasswordComponent } from './Patient/editpassword/editpassword.component';
+import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
+import { AgePipePipe } from './age-pipe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -83,6 +86,9 @@ import { EditpasswordComponent } from './Patient/editpassword/editpassword.compo
     EditprofileComponent,
     EditpasswordComponent,
 
+    HealthHistoryNurseComponent,
+    AgePipePipe,
+    
     
   ],
   imports: [

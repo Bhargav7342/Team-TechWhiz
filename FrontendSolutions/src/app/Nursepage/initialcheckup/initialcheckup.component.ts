@@ -54,6 +54,7 @@ export class InitialcheckupComponent implements OnInit{
     this.AddCheckUpDetail.bloodPressure=item.bloodPressure
     this.AddCheckUpDetail.sugarLevel=item.sugarLevel
     this.AddCheckUpDetail.additionalDetails=item.additionalDetails
+    this.AddCheckUpDetail.chechupStatus=true
     console.log(this.AddCheckUpDetail);
 
     

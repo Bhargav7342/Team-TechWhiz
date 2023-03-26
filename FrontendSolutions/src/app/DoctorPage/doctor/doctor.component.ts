@@ -18,7 +18,9 @@ export class DoctorComponent {
     this.docserve.getDoctorDetails(this.docemail).subscribe({
       next:(response)=>{
         this.docid=response.doctorId;
-        console.log(response)
+        sessionStorage.setItem('docId',this.docid);
+        console.log(response);
+        console.log(this.docid);
       }
     })
   }
