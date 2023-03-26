@@ -1,25 +1,28 @@
 import { Component, OnInit,Input, OnChanges } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { CustomdatePipe } from 'src/app/customdate.pipe';
 import { Appointment, Patient } from 'src/app/Models/database.models';
 import { AppointmentService } from 'src/app/Service/appointment.service';
 import { DoctorService } from 'src/app/Service/doctor.service';
-import { NurseService } from 'src/app/Service/nurse.service';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
 
 @Component({
   selector: 'app-accept-rejectappointment',
   templateUrl: './accept-rejectappointment.component.html',
-  styleUrls: ['./accept-rejectappointment.component.css']
+  styleUrls: ['./accept-rejectappointment.component.css'],
+  providers: [CustomdatePipe]
 })
 export class AcceptRejectappointmentComponent implements OnInit{
   
-  status:string=''
+ status:string=''
  docId:string=''
+ pemail:string=''
+ date:string=''
  patients:Patient[]=[];
  appointments:Appointment[]=[];
 
   
-  constructor(private router:Router,private doctorservice:DoctorService,private patientservice:PatientServicesService,private appointmentservice:AppointmentService){
+  constructor(private emailservice:AppointmentService,private router:Router,private doctorservice:DoctorService,private patientservice:PatientServicesService,private appointmentservice:AppointmentService,private custdate:CustomdatePipe){
     const nav=this.router.getCurrentNavigation()?.extras.state as{doctorId:string}
     this.docId=nav.doctorId
   }
@@ -46,20 +49,36 @@ export class AcceptRejectappointmentComponent implements OnInit{
 
   
 
-  accept(appId:string) {
-    console.log(appId);
+  accept(appId:string,patemail:string,datenow:string) {
+    console.log(datenow);
+
+    this.date=this.custdate.transform(datenow);
+    this.pemail=patemail
     this.appointmentservice.updateAppointmentStatus(appId,"Accepted").subscribe({
       next:(response)=>{
+        this.emailservice.sendEmail(this.pemail,this.date,"Accepted").subscribe({
+          next:(response)=>{
+              console.log(response);  
+            }
+          });
         console.log(response);
         this.router.navigate(['/pendingAppointments'])
       }
     });
   }
 
-  reject(appId:string) {
+  reject(appId:string,patemail:string,datenow:string) {
     this.status = 'Reject';
+    this.date=this.custdate.transform(datenow);
+    this.pemail=patemail
+
     this.appointmentservice.updateAppointmentStatus(appId,"Rejected").subscribe({
       next:(response)=>{
+        this.emailservice.sendEmail(this.pemail,this.date,"Rejected").subscribe({
+          next:(response)=>{
+              console.log(response);  
+            }
+          });
         console.log(response);
         this.router.navigate(['/pendingAppointments'])
       }
