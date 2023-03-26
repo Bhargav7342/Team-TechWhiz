@@ -50,6 +50,7 @@ import { AddAvailabilityComponent } from './Adminpage/add-availability/add-avail
 import { ViewprofileComponent } from './Patient/viewprofile/viewprofile.component';
 import { EditprofileComponent } from './Patient/editprofile/editprofile.component';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import { EditpasswordComponent } from './Patient/editpassword/editpassword.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     AddAvailabilityComponent,
     ViewprofileComponent,
     EditprofileComponent,
+    EditpasswordComponent,
 
     
   ],
