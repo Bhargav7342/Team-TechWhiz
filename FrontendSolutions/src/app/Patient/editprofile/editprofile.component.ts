@@ -27,7 +27,6 @@ export const MY_DATE_FORMATS = {
 })
 export class EditprofileComponent {
 
-  
   public showPassword: boolean = false;
   public togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
@@ -39,6 +38,8 @@ export class EditprofileComponent {
   
   ngOnInit(): void {
     this.editdata=this.data;
+
+   
   console.log(this.editdata);
   console.log(typeof(this.editdata.DOB));
    this.date = new Date(this.editdata.dateOfBirth);
@@ -62,6 +63,7 @@ export class EditprofileComponent {
     this.newobj = item;
     this.newobj.patientId = this.data.patientId;
     this.newobj.email = this.data.email;
+
     console.log(this.newobj);
 
     this.patientService.updatePatient(this.newobj.email, this.newobj).subscribe({
@@ -72,4 +74,5 @@ export class EditprofileComponent {
     window.alert("Details Saved Successfully");
     this.dialog.closeAll();
   }
+ 
 }

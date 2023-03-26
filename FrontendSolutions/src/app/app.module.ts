@@ -50,6 +50,7 @@ import { AddAvailabilityComponent } from './Adminpage/add-availability/add-avail
 import { ViewprofileComponent } from './Patient/viewprofile/viewprofile.component';
 import { EditprofileComponent } from './Patient/editprofile/editprofile.component';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import { EditpasswordComponent } from './Patient/editpassword/editpassword.component';
 import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
 import { AgePipePipe } from './age-pipe.pipe';
 
@@ -83,6 +84,8 @@ import { AgePipePipe } from './age-pipe.pipe';
     AddAvailabilityComponent,
     ViewprofileComponent,
     EditprofileComponent,
+    EditpasswordComponent,
+
     HealthHistoryNurseComponent,
     AgePipePipe,
     

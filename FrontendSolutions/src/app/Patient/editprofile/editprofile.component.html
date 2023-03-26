@@ -11,8 +11,8 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
                     <input type="password" matInput [type]="showPassword ? 'text' : 'password'" placeholder="Enter Password" name="password"
-                        [(ngModel)]="editdata.password">
-                        <mat-icon class="icon-pwd" matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
+                        [(ngModel)]="editdata.password" disabled>
+                        <!-- <mat-icon class="icon-pwd" matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon> -->
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                     <mat-label>First Name</mat-label>

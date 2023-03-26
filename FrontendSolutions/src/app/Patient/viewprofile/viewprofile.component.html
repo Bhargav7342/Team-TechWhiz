@@ -15,9 +15,15 @@
         <mat-grid-tile>Blood Group : {{signupobj.bloodGroup}}</mat-grid-tile>
       </mat-grid-list>
       <p class="address">Address : {{signupobj.city}} , {{signupobj.state}} - {{signupobj.zipcode}}</p>
-        <button mat-fab extended color="accent" class="btn-color" (click)="editprofile()">
+      <mat-grid-list class="first-2-rows" cols="2" rowHeight="6:1">
+        <mat-grid-tile><button mat-fab extended color="accent" class="btn-color" (click)="editpassword()">
+          Change Password
+        </button></mat-grid-tile>
+        <mat-grid-tile><button mat-fab extended color="accent" class="btn-color" (click)="editprofile()">
           Edit Profile
-        </button>
+        </button></mat-grid-tile>
+      </mat-grid-list>
+      
 
      
     <!-- </mat-card-content> -->
