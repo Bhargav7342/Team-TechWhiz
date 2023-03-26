@@ -14,7 +14,7 @@ namespace Services.Controllers
         {
             logic   = _logic;
         }
-        [HttpGet]
+        [HttpGet("GetAllAllergy")]
         public  IActionResult GetAllAllergy([FromHeader] Guid appointmentid)
         {
             try
@@ -27,7 +27,7 @@ namespace Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost]
+        [HttpPost("AddAllergies")]
         public IActionResult PostAllergy(Allergy allergy)
         {
             try
