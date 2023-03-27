@@ -16,7 +16,7 @@ export class AllergyService {
 
   AddAllergydetails(addallergies:Allergy):Observable<Allergy>
   {
-    return this.http.post<Allergy>(this.baseApiUrl+'/Allergy',addallergies);
+    return this.http.post<Allergy>(this.baseApiUrl+'/Allergy/AddAllergies',addallergies);
   }
 
   getAllAllergy(appid:string):Observable<Allergy[]>{
