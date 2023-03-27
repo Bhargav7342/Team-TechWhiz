@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { PatientIntialCheckup } from 'src/app/Models/database.models';
+import { Allergy, PatientIntialCheckup } from 'src/app/Models/database.models';
+import { AllergyService } from 'src/app/Service/allergy.service';
 import { NurseService } from 'src/app/Service/nurse.service';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
 
@@ -12,6 +13,8 @@ import { PatientServicesService } from 'src/app/Service/patient-services.service
 
 
 export class ViewCheckUpComponent implements OnInit{
+
+  allergy:Allergy[]=[];
   checkupdata:PatientIntialCheckup={
     picId :'',
     appointmentId :'',
@@ -26,7 +29,7 @@ export class ViewCheckUpComponent implements OnInit{
   }
   dummydata:any;
   appointmentId:string|any='';
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private checkupservice:NurseService){
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private checkupservice:NurseService,private allergyService:AllergyService){
     this.appointmentId=this.data.dataKey
     console.log(this.appointmentId)
   }
@@ -38,6 +41,16 @@ export class ViewCheckUpComponent implements OnInit{
         console.log(response);
         this.checkupdata=response;
         console.log(this.checkupdata)
+
+      }
+    })
+    this.allergyService.getAllAllergy(this.appointmentId).subscribe({
+      next:(response)=>{
+        console.log(response);
+        if(response!=null)
+        {
+          this.allergy=response;
+        }
       }
     })
   }

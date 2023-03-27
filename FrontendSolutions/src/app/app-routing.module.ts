@@ -20,6 +20,7 @@ import { HealthhistoryComponent } from './Patient/healthhistory/healthhistory.co
 import { AddAvailabilityComponent } from './Adminpage/add-availability/add-availability.component';
 import { AvailabilityComponent } from './Adminpage/availability/availability.component';
 import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
+import { ViewHealthHistoryDocComponent } from './DoctorPage/view-health-history-doc/view-health-history-doc.component';
 
 const routes: Routes = [
   {
@@ -97,6 +98,10 @@ const routes: Routes = [
   {
     path:"NurseHomePage",
     component:NurseComponent
+  },
+  {
+    path:"healthHistoryDoctor",
+    component:ViewHealthHistoryDocComponent
   }
 ];
 

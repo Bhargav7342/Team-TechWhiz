@@ -54,6 +54,7 @@ import { EditpasswordComponent } from './Patient/editpassword/editpassword.compo
 import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
 import { AgePipePipe } from './age-pipe.pipe';
 import { ViewPrescriptionDocComponent } from './DoctorPage/view-prescription-doc/view-prescription-doc.component';
+import { ViewHealthHistoryDocComponent } from './DoctorPage/view-health-history-doc/view-health-history-doc.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { ViewPrescriptionDocComponent } from './DoctorPage/view-prescription-doc
     ViewPrescriptionDocComponent,
     HealthHistoryNurseComponent,
     AgePipePipe,
+    ViewHealthHistoryDocComponent,
     
     
   ],

@@ -11,6 +11,7 @@ import { DoctorService } from 'src/app/Service/doctor.service';
 import { NurseService } from 'src/app/Service/nurse.service';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
 import { PrescriptionComponent } from '../add-prescription/prescription.component';
+import { ViewHealthHistoryDocComponent } from '../view-health-history-doc/view-health-history-doc.component';
 import { ViewPrescriptionDocComponent } from '../view-prescription-doc/view-prescription-doc.component';
 
 @Component({
@@ -54,7 +55,7 @@ export class AddDiagnosisComponent implements OnInit {
   }
 
   
-  constructor(private dailog:MatDialog,private router:Router,private patientService:PatientServicesService,private appointmentService:NurseService,private allergyService:AllergyService,private docService:DoctorService){
+  constructor(private dialogbox: MatDialog,private dailog:MatDialog,private router:Router,private patientService:PatientServicesService,private appointmentService:NurseService,private allergyService:AllergyService,private docService:DoctorService){
     const nav=this.router.getCurrentNavigation()?.extras.state as{appointmentId:string,patientId:string,docname:string,docemail:string}
     this.appointmentId=nav.appointmentId;
     this.patientId=nav.patientId;
@@ -160,7 +161,16 @@ export class AddDiagnosisComponent implements OnInit {
 
   viewHealthHistory(){
 
-    this.router.navigate(['/healthhistory'],{state:{pId:this.patientId,fromOut:true}});
+    // this.router.navigate(['/healthHistoryDoctor'],{state:{pId:this.patientId,fromOut:true}});
+    this.dialogbox.open(ViewHealthHistoryDocComponent,{
+      height:'700px',
+      width:'1000px',
+      data:{
+        dataKey:{
+          pId:this.patientId,fromOut:true
+        }
+      }
+    })
 
   }
 }
