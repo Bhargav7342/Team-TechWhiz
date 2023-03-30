@@ -21,7 +21,9 @@ export class AppointmentsfortodayComponent implements OnInit{
   constructor(private router:Router,private doctorservice:DoctorService,private patientservice:PatientServicesService){}
   
  
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const sleep=(ms:number |undefined)=>new Promise(r=>setTimeout(r,ms));
+    await sleep(3000);
     this.docid=sessionStorage.getItem('docId')
     console.log(this.docid+"ds")
     this.doctorservice.GetAppointmentsAfterCheckup(this.dateString,this.docid).subscribe({
