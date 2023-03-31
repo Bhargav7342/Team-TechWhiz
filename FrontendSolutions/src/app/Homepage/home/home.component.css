@@ -1,4 +1,6 @@
-.example-spacer {
+
+
+/* .example-spacer {
     flex: 1 1 auto;
   }
 
@@ -24,7 +26,7 @@
     padding: 10px;
 }
 #t{
-    background-color: rgb(161,29,183);
+    background-color: rgb(55, 57, 201);
     color: white;
 }
 #B1{
@@ -32,22 +34,24 @@
 }
 
 .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+    
+  } */
 .features{
-    padding: 3%;
+    
+    padding: 4%;
     text-align: center;
-    width: 80%;
+    width: 70%;
 }
 .features img{
-    max-width: 300px; 
-    height: 300px;
+   
+    max-width: 280px; 
+    height: 280px;
 }
 
 .body{
     background-image:url("../../../assets/background.jpg");
     background-size: cover;
+    opacity: 95%;
   }
 
   .footer{
@@ -55,4 +59,30 @@
     text-align: center;
     color: white;
     bottom: 0;
+  }
+  #heading{
+    padding-left: auto;
+    padding: 4%;
+    font-size: 4vw;
+    color: rgba(0, 0, 0, 0.881); 
+    font-weight:400;
+    text-shadow: 1px 1px 10px rgb(245, 245, 245);
+   
+  }
+  #subheading{
+    margin-left:3%;
+    padding: 4%;
+    font-size: 3vw;
+    position: relative;
+    color: rgba(0, 0, 0, 0.881); 
+    font-weight:400;
+    text-shadow: 1px 1px 10px rgb(245, 245, 245);
+    margin-bottom: -5%;
+  }
+  .logoback{
+    padding: 23%;
+    background-image:url("../../../assets/bacground2.png");
+    background-size:contain ;
+    background-repeat: no-repeat;
+   
   }
