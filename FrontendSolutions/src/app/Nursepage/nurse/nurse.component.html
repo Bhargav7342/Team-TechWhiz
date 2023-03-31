@@ -4,17 +4,17 @@
 
         <mat-card class="cards">
             <mat-card-header>
-              <mat-card-title>PatientName:{{patients[i].firstName}}</mat-card-title>
+              <mat-card-title>Patient name : {{patients[i].firstName}}</mat-card-title>
 
             </mat-card-header>
             <mat-card-content>
-                <p>doctorName:{{ a.doctorName}}</p>
+                <p>Doctor name : {{ a.doctorName}}</p>
               </mat-card-content>
             <mat-card-content>
-              <p>Concern:{{a.concerns}}</p>
+              <p>Concerns : {{a.concerns}}</p>
             </mat-card-content>
             <mat-card-actions class="card-buttons">
-              <button mat-raised-button color="primary" id="adddetailsbutton" (click)="healthHistory(a.patientId)"  [disabled]="added">View Health Histroy</button>
+              <button mat-raised-button color="primary" id="adddetailsbutton" (click)="healthHistory(a.patientId)"  [disabled]="added">View Health History</button>
               <button mat-raised-button color="primary" id="adddetailsbutton" (click)="goto(a.appointmentId)"  [disabled]="added">Add Details</button>
             </mat-card-actions>
         </mat-card>
