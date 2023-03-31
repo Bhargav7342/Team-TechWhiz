@@ -1,10 +1,10 @@
 import { Component,Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
-import { Output,EventEmitter } from '@angular/core';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
-import { Patient } from 'src/app/Models/database.models';
-import { Dialog } from '@angular/cdk/dialog';
+import { SuccessfullloginsnackComponent } from 'src/app/Snackbars/successfullloginsnack/successfullloginsnack.component';
+
+
 
 @Component({
   selector: 'app-patient-login',
@@ -12,7 +12,7 @@ import { Dialog } from '@angular/cdk/dialog';
   styleUrls: ['./patient-login.component.css']
 })
 export class PatientLoginComponent {
-  constructor(private router:Router,private patientService:PatientServicesService){}
+  constructor(private router:Router,private patientService:PatientServicesService,private _snackBar: MatSnackBar){}
 
 
   signinFunc(event: any){
@@ -23,9 +23,9 @@ export class PatientLoginComponent {
         
         sessionStorage.setItem('pid',response.patientId);
         sessionStorage.setItem('pemail',response.email);
-        
-        window.alert("Sign In Successfull");
-        
+        this._snackBar.openFromComponent(SuccessfullloginsnackComponent, {
+          duration: 2 * 1000,
+        });
         this.router.navigate(['/patientdashboard']);
       },
       error:(e)=>{

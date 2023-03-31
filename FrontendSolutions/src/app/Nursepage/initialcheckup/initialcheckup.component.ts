@@ -91,9 +91,7 @@ export class InitialcheckupComponent implements OnInit{
             }
                 
               });              
-              
               window.alert("Details Added successfully");
-           
           }
         })
       

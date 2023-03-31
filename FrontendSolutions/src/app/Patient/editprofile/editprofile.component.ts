@@ -63,6 +63,7 @@ export class EditprofileComponent {
     this.newobj = item;
     this.newobj.patientId = this.data.patientId;
     this.newobj.email = this.data.email;
+    this.newobj.password = this.data.password;
 
     console.log(this.newobj);
 

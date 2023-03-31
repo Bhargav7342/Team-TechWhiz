@@ -62,7 +62,6 @@ export class BookappointmentsComponent implements   OnInit {
       next:(response)=>
       {
         console.log(response);
-        if(confirm("Are you sure? Continue... "))
         {
           this.appointmentService1.sendEmail(this.pemailId,maildate,"Sent").subscribe({
             next:(response)=>{
@@ -70,7 +69,6 @@ export class BookappointmentsComponent implements   OnInit {
               }
             });
         }
-        window.alert("Appointment book successfully");
         this.router.navigate(['/patientdashboard']);
       }
     });
@@ -91,8 +89,6 @@ export class BookappointmentsComponent implements   OnInit {
     next:(response)=>{
       console.log(response);
       this.availableDoctors=response;
-      
-      
     }
   })
 

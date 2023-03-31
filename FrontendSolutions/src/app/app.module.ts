@@ -53,8 +53,10 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import { EditpasswordComponent } from './Patient/editpassword/editpassword.component';
 import { HealthHistoryNurseComponent } from './Nursepage/health-history-nurse/health-history-nurse.component';
 import { AgePipePipe } from './age-pipe.pipe';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { ViewPrescriptionDocComponent } from './DoctorPage/view-prescription-doc/view-prescription-doc.component';
 import { ViewHealthHistoryDocComponent } from './DoctorPage/view-health-history-doc/view-health-history-doc.component';
+import { SuccessfullloginsnackComponent } from './Snackbars/successfullloginsnack/successfullloginsnack.component';
 
 
 @NgModule({
@@ -91,6 +93,8 @@ import { ViewHealthHistoryDocComponent } from './DoctorPage/view-health-history-
     HealthHistoryNurseComponent,
     AgePipePipe,
     ViewHealthHistoryDocComponent,
+
+    SuccessfullloginsnackComponent,
     
     
   ],
@@ -124,7 +128,8 @@ import { ViewHealthHistoryDocComponent } from './DoctorPage/view-health-history-
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatSnackBarModule
 
   ],
   
