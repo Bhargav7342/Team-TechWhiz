@@ -94,15 +94,12 @@ export class InitialcheckupComponent implements OnInit{
                 
               });              
               this._snackBar.openFromComponent(AddedsnackComponent, {
-                duration: 2 * 1000,
+                duration: 3 * 1000,
               });
           }
         })
-      
-  
     this.router.navigate(['/nurse']);
   }
   allergies = new FormControl('');
-
   allergyList: string[] = ['None', 'Eggs', 'Fish', 'Cow-Milk', 'Shellfish', 'Peanuts', 'Soy', 'Wheat', 'Sesame', 'Sulphites', 'Mustard'];
 }

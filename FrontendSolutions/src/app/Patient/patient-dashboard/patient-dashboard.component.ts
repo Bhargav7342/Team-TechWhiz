@@ -11,10 +11,12 @@ export class PatientDashboardComponent implements OnInit{
 
   patientId:string|any='';
   patientEmail:string|any='';
+  patientName:string|any='';
   constructor(private patientService:PatientServicesService,private router:Router,private route:ActivatedRoute){}
   ngOnInit(): void {
     this.patientId=sessionStorage.getItem('pid');
     this.patientEmail=sessionStorage.getItem('pemail');
+    this.patientName=sessionStorage.getItem('pname');
   }
  
   
