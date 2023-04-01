@@ -4,6 +4,8 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
 import { Patient } from 'src/app/Models/database.models';
+import { AddedsnackComponent } from 'src/app/Snackbars/addedsnack/addedsnack.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -33,7 +35,7 @@ export class EditprofileComponent {
   }
   editdata:any;
   date:Date=new Date();
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog,private patientService: PatientServicesService) {
+  constructor(private _snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog,private patientService: PatientServicesService) {
   }
   
   ngOnInit(): void {
@@ -72,7 +74,9 @@ export class EditprofileComponent {
           console.log("Response : "+response);
         }
     })
-    window.alert("Details Saved Successfully");
+    this._snackBar.openFromComponent(AddedsnackComponent, {
+      duration: 2 * 1000,
+    });
     this.dialog.closeAll();
   }
  

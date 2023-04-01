@@ -57,6 +57,9 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { ViewPrescriptionDocComponent } from './DoctorPage/view-prescription-doc/view-prescription-doc.component';
 import { ViewHealthHistoryDocComponent } from './DoctorPage/view-health-history-doc/view-health-history-doc.component';
 import { SuccessfullloginsnackComponent } from './Snackbars/successfullloginsnack/successfullloginsnack.component';
+import { AddedsnackComponent } from './Snackbars/addedsnack/addedsnack.component';
+import { AppointmentacceptedComponent } from './Snackbars/appointmentaccepted/appointmentaccepted.component';
+import { AppointmentrejectedComponent } from './Snackbars/appointmentrejected/appointmentrejected.component';
 
 
 @NgModule({
@@ -95,6 +98,9 @@ import { SuccessfullloginsnackComponent } from './Snackbars/successfullloginsnac
     ViewHealthHistoryDocComponent,
 
     SuccessfullloginsnackComponent,
+      AddedsnackComponent,
+      AppointmentacceptedComponent,
+      AppointmentrejectedComponent,
     
     
   ],
