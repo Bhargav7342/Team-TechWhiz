@@ -4,7 +4,6 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { AvailabilityService } from 'src/app/Service/availability.service';
 import { Doctor } from 'src/app/Models/database.models';
 import { AppointmentService } from 'src/app/Service/appointment.service';
-import { EmailNotificationService } from 'src/app/Service/email-notification.service';
 import { CustomdatePipe } from 'src/app/customdate.pipe';
 
 export const MY_DATE_FORMATS = {

@@ -70,7 +70,9 @@ export class EditpasswordComponent {
     zipcode:'',
     bloodGroup:''
   };
-
+  newpassword:string='';
+  renewpassword:string='';
+  passwordsDoNotMatch: boolean = false;
   ngOnInit(): void {
     this.editdata=this.data;
 
@@ -82,6 +84,14 @@ export class EditpasswordComponent {
   }
 
   formdata:any;
+  onChange(event:any)
+  {
+    if (this.newpassword !== this.renewpassword) {
+      this.passwordsDoNotMatch = true;
+    } else {
+      this.passwordsDoNotMatch = false;
+    }
+  }
   Save(value: any) {
     this.formdata=value
     // this.newobj = item;
