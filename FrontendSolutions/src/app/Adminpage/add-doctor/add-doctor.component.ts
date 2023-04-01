@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Doctor } from 'src/app/Models/database.models';
 import { AvailabilityService } from 'src/app/Service/availability.service';
 import { AddAvailabilityComponent } from '../add-availability/add-availability.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-doctor',
   templateUrl: './add-doctor.component.html',
@@ -29,7 +30,7 @@ export class AddDoctorComponent {
         console.log(response)
         this.doctor = response;
         console.log(this.doctor.doctorId);
-        window.alert("added")
+        window.alert("Failed");
 
         this.dialogbox.open(AddAvailabilityComponent, {
           height: '400px',

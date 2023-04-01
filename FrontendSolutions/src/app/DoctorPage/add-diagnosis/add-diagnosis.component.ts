@@ -13,6 +13,8 @@ import { PatientServicesService } from 'src/app/Service/patient-services.service
 import { PrescriptionComponent } from '../add-prescription/prescription.component';
 import { ViewHealthHistoryDocComponent } from '../view-health-history-doc/view-health-history-doc.component';
 import { ViewPrescriptionDocComponent } from '../view-prescription-doc/view-prescription-doc.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddedsnackComponent } from 'src/app/Snackbars/addedsnack/addedsnack.component';
 
 @Component({
   selector: 'app-add-diagnosis',
@@ -55,7 +57,7 @@ export class AddDiagnosisComponent implements OnInit {
   }
 
   
-  constructor(private dialogbox: MatDialog,private dailog:MatDialog,private router:Router,private patientService:PatientServicesService,private appointmentService:NurseService,private allergyService:AllergyService,private docService:DoctorService){
+  constructor(private _snackBar: MatSnackBar,private dialogbox: MatDialog,private dailog:MatDialog,private router:Router,private patientService:PatientServicesService,private appointmentService:NurseService,private allergyService:AllergyService,private docService:DoctorService){
     const nav=this.router.getCurrentNavigation()?.extras.state as{appointmentId:string,patientId:string,docname:string,docemail:string}
     this.appointmentId=nav.appointmentId;
     this.patientId=nav.patientId;
@@ -144,7 +146,9 @@ export class AddDiagnosisComponent implements OnInit {
             })
           })
         }
-        window.alert("Added Succesfully")
+        this._snackBar.openFromComponent(AddedsnackComponent, {
+          duration: 2 * 1000,
+        });
       },
       error:(response)=>{
         console.log(response);

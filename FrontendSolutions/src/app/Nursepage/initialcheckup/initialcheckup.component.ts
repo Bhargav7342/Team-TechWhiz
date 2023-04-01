@@ -1,10 +1,12 @@
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Allergy, PatientIntialCheckup } from 'src/app/Models/database.models';
 import { AllergyService } from 'src/app/Service/allergy.service';
 import { NurseService } from 'src/app/Service/nurse.service';
+import { AddedsnackComponent } from 'src/app/Snackbars/addedsnack/addedsnack.component';
 
 @Component({
   selector: 'app-initialcheckup',
@@ -33,7 +35,7 @@ export class InitialcheckupComponent implements OnInit{
   }
   
   appointId:string|any='';
-  constructor(private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService){
+  constructor(private _snackBar: MatSnackBar,private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService){
     const nav=this.router.getCurrentNavigation()?.extras.state as {appId:string}
     this.appointId=nav.appId
     console.log(this.appointId);
@@ -91,7 +93,9 @@ export class InitialcheckupComponent implements OnInit{
             }
                 
               });              
-              window.alert("Details Added successfully");
+              this._snackBar.openFromComponent(AddedsnackComponent, {
+                duration: 2 * 1000,
+              });
           }
         })
       
