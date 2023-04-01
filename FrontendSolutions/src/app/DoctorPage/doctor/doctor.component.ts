@@ -11,6 +11,7 @@ export class DoctorComponent  {
   docemail:string='';
   dname:string='';
   docid:string='';
+  currDate:string=new Date().toISOString();
   constructor(private router:Router,private docserve:DoctorService) {
     const nav=this.router.getCurrentNavigation()?.extras.state as {email:string,dname:string}
     this.docemail=nav.email;
@@ -27,7 +28,7 @@ export class DoctorComponent  {
 
   PendingAppointments()
   {
-    this.router.navigate(["/pendingAppointments"],{state:{doctorId:this.docid}});
+    this.router.navigate(["/pendingAppointments"],{state:{doctorId:this.docid,dname:this.dname,demail:this.docemail}});
   }
   }
 

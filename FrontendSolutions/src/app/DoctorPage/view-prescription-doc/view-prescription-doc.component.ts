@@ -1,5 +1,6 @@
-import { Component,Inject, OnInit } from '@angular/core';
+import { Component,Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { Prescription } from 'src/app/Models/database.models';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
 @Component({
@@ -16,7 +17,15 @@ export class ViewPrescriptionDocComponent implements OnInit {
     console.log(this.prescription)
     this.dataSource=this.prescription
   }
-  displayedColumns: string[] = ['Medication', 'Dosage', 'Note'];
+  @ViewChild(MatTable) table: MatTable<Prescription> | undefined;
+  displayedColumns: string[] = ['Medication', 'Dosage', 'Note','delete'];
   dataSource=this.prescription;
   
+  removep(item:any)
+  {
+      console.log(item)
+      this.prescription.splice(this.prescription.indexOf(item),1);
+      console.log(this.dataSource);
+      this.table?.renderRows();
+  }
 }

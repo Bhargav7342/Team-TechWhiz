@@ -1,3 +1,5 @@
+<h1 *ngIf="appointments.length==0;else elsepart" style="margin-left: 5%;">Currently there are no Appointments!!</h1>
+<ng-template #elsepart >
 
 <div class="card-container"*ngFor='let p of patient;let i=index'>
 
@@ -13,3 +15,4 @@
         </mat-card-actions>
       </mat-card>
     </div>
+  </ng-template>
