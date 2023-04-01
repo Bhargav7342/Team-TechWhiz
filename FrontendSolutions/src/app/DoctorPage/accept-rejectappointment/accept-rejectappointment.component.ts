@@ -16,7 +16,7 @@ import { AppointmentrejectedComponent } from 'src/app/Snackbars/appointmentrejec
   styleUrls: ['./accept-rejectappointment.component.css'],
   providers: [CustomdatePipe]
 })
-export class AcceptRejectappointmentComponent implements OnInit{
+export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
   
  status:string=''
  docId:string=''
@@ -32,6 +32,23 @@ export class AcceptRejectappointmentComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.doctorservice.getAllAppointmetsBydoctorandstatus(this.docId,"Sent").subscribe({
+      next:(response)=>{
+        this.appointments=response;
+        console.log(response);
+        response.forEach(element => {
+          this.patientservice.getPatientById(element.patientId).subscribe({
+            next:(res)=>{
+              this.patients.push(res); 
+              console.log(res); 
+            }
+          })
+            
+          });
+      }
+    })
+  }
+  ngOnChanges(): void {
  
     this.doctorservice.getAllAppointmetsBydoctorandstatus(this.docId,"Sent").subscribe({
       next:(response)=>{
@@ -69,7 +86,7 @@ export class AcceptRejectappointmentComponent implements OnInit{
         this._snackBar.openFromComponent(AppointmentacceptedComponent, {
           duration: 2 * 1000,
         });
-        this.router.navigate(['/pendingAppointments'])
+        this.router.navigate(['/pendingAppointments'],{state:{doctorId:this.docId}})
       }
     });
   }
@@ -90,7 +107,9 @@ export class AcceptRejectappointmentComponent implements OnInit{
             duration: 2 * 1000,
           });
         console.log(response);
-        this.router.navigate(['/pendingAppointments'])
+        this.router.navigateByUrl('',{skipLocationChange:false}).then(()=>{
+          this.router.navigate(['/pendingAppointments'],{state:{doctorId:this.docId}})
+        })
       }
     })
   }
