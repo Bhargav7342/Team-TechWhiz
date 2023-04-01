@@ -4,6 +4,8 @@ import { CustomdatePipe } from 'src/app/customdate.pipe';
 import { Patient } from 'src/app/Models/database.models';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SuccessComponent } from 'src/app/Snackbars/success/success.component';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -28,7 +30,7 @@ export const MY_DATE_FORMATS = {
 })
 export class PatientSignupComponent {
 
-  constructor(private router:Router,private patientService:PatientServicesService){}
+  constructor(private router:Router,private patientService:PatientServicesService,private _snackBar: MatSnackBar){}
   addPatient:Patient={
     patientId:'',
     firstName:'',
@@ -52,10 +54,11 @@ export class PatientSignupComponent {
     this.patientService.patientRegister(item).subscribe({
       next:(response)=>{
         this.addPatient=item;
-        
         console.log(response);
         console.log(item.DateOfBirth);
-        window.alert("Sign Up Successfull....Welcome...!")
+        this._snackBar.openFromComponent(SuccessComponent, {
+          duration: 3 * 1000,
+        });
         this.router.navigate(['/plogin']);
       }
     })

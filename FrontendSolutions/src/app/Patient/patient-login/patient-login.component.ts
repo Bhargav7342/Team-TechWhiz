@@ -23,6 +23,7 @@ export class PatientLoginComponent {
         
         sessionStorage.setItem('pid',response.patientId);
         sessionStorage.setItem('pemail',response.email);
+        sessionStorage.setItem('pname',response.firstName);
         this._snackBar.openFromComponent(SuccessfullloginsnackComponent, {
           duration: 2 * 1000,
         });

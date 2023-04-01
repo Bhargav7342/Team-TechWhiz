@@ -147,7 +147,7 @@ export class AddDiagnosisComponent implements OnInit {
           })
         }
         this._snackBar.openFromComponent(AddedsnackComponent, {
-          duration: 2 * 1000,
+          duration: 3 * 1000,
         });
       },
       error:(response)=>{
