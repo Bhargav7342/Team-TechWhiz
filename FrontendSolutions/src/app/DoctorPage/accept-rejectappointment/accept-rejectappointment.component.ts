@@ -20,6 +20,8 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
   
  status:string=''
  docId:string=''
+ docname:string=''
+ docemail:string=''
  pemail:string=''
  date:string=''
  patients:Patient[]=[];
@@ -27,8 +29,10 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
 
   
   constructor(private _snackBar: MatSnackBar,private emailservice:AppointmentService,private router:Router,private doctorservice:DoctorService,private patientservice:PatientServicesService,private appointmentservice:AppointmentService,private custdate:CustomdatePipe){
-    const nav=this.router.getCurrentNavigation()?.extras.state as{doctorId:string}
+    const nav=this.router.getCurrentNavigation()?.extras.state as{doctorId:string,dname:string,demail:string}
     this.docId=nav.doctorId
+    this.docemail=nav.demail
+    this.docname=nav.dname
   }
 
   ngOnInit(): void {
@@ -112,5 +116,10 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
         })
       }
     })
+  }
+  goBack()
+  {
+    this.router.navigate(['/doctor'],{state:{email:this.docemail,dname:this.docname}})
+
   }
 }
