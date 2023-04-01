@@ -4,8 +4,8 @@
 }
 
 .btn button{
-    margin-left: 5%;
-    width: 180px;
+   
+    width: 150%;
 }
 .size{
     margin: 2% 5%;
@@ -15,4 +15,7 @@
   #buttons{
     background-color: rgb(161,29,183);
     color:white;
+  }
+  #hhcontent{
+    padding: 5% 5% 0% 5%;
   }
