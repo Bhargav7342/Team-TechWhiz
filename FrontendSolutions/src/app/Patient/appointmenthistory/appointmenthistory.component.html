@@ -6,18 +6,20 @@
   <div class="card-container"   *ngFor='let t of appointments'>
   
       <mat-card class="cards">
-        <mat-grid-list cols="2" rowHeight="4:1" >
+        <!-- <mat-grid-list cols="2" rowHeight="4:1" >
           <mat-grid-tile>
   
-          <mat-card-content>
-            <p><strong>Date : </strong>{{t.date | customdate}}</p>
+          <mat-card-content> -->
+            <div class="appdata">
+            <strong>Date : </strong>{{t.date | customdate}}<br>
               <strong>DoctorName : </strong>{{t.doctorName}} &nbsp;<br>
               <strong>Concern :</strong>{{t.concerns}}
+            </div>
   
-          </mat-card-content>
+          <!-- </mat-card-content>
         </mat-grid-tile>
-      <mat-grid-tile>
-  
+      <mat-grid-tile> -->
+        <div>
           <mat-card-actions class="card-buttons">
             <div [ngSwitch]= t.status #switch>
               <button  mat-raised-button *ngSwitchCase="'Sent'" style="background-color:rgb(244, 209, 11); color:white"(click)="handleClick()">{{t.status}}</button>
@@ -26,8 +28,9 @@
   
           </div>
           </mat-card-actions>
-        </mat-grid-tile>
-        </mat-grid-list>
+        </div>
+        <!-- </mat-grid-tile>
+        </mat-grid-list> -->
         </mat-card>
   
       </div>

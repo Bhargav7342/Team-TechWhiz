@@ -1,7 +1,15 @@
 .card-buttons {
+  
     justify-content: flex-end;
-    gap: 10px;
+    margin: 1% 1% .5% 0%;
+   
     
+  }
+  .appdata{
+    position:absolute;
+   float: left;
+    padding: 1%;
+    width: 60%;
   }
   .size{
     margin: 2% 5%;
@@ -9,9 +17,13 @@
   }
 
   .cards{
-    width: 80%;
+    width: 60%;
     margin: 2% 5%;
+    padding: 1.5%;
     background-color: rgb(236, 236, 236);
 
   }
-
+  mat-grid-tile{
+    text-align: left;
+    border: 2px solid black;
+  }
