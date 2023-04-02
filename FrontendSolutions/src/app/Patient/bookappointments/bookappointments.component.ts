@@ -5,6 +5,8 @@ import { AvailabilityService } from 'src/app/Service/availability.service';
 import { Doctor } from 'src/app/Models/database.models';
 import { AppointmentService } from 'src/app/Service/appointment.service';
 import { CustomdatePipe } from 'src/app/customdate.pipe';
+import { BookedComponent } from 'src/app/Snackbars/booked/booked.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -30,7 +32,7 @@ export class BookappointmentsComponent implements   OnInit {
   pid:string='';
   appdate:string='';
   pemailId:string='';
-  constructor(private custdate:CustomdatePipe,private router:Router,private availabilityService:AvailabilityService,private appointmentService:AppointmentService,private appointmentService1:AppointmentService){
+  constructor(private _snackBar: MatSnackBar,private custdate:CustomdatePipe,private router:Router,private availabilityService:AvailabilityService,private appointmentService:AppointmentService,private appointmentService1:AppointmentService){
     const nav=this.router.getCurrentNavigation()?.extras.state as {patientId:string,pemail:string};
     this.pid=nav.patientId;
     this.pemailId=nav.pemail;
@@ -66,6 +68,9 @@ export class BookappointmentsComponent implements   OnInit {
             next:(response)=>{
                 console.log(response);  
               }
+            });
+            this._snackBar.openFromComponent(BookedComponent, {
+              duration: 2 * 1000,
             });
         }
         this.router.navigate(['/patientdashboard']);

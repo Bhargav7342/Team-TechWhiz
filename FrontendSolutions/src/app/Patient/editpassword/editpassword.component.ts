@@ -3,8 +3,12 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Patient } from 'src/app/Models/database.models';
 import { PatientServicesService } from 'src/app/Service/patient-services.service';
+import { AddedsnackComponent } from 'src/app/Snackbars/addedsnack/addedsnack.component';
+import { PasswordchangeComponent } from 'src/app/Snackbars/passwordchange/passwordchange.component';
+import { WrongpasswordComponent } from 'src/app/Snackbars/wrongpassword/wrongpassword.component';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -51,7 +55,7 @@ export class EditpasswordComponent {
   editdata:any;
   date:Date=new Date();
 
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog,private patientService: PatientServicesService) 
+  constructor(private _snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog,private patientService: PatientServicesService) 
   {
 
   }
@@ -100,7 +104,9 @@ export class EditpasswordComponent {
     {
       if(this.formdata.newpassword===this.formdata.renewpassword)
       {
-        window.alert("Password Successfully Changed");
+        this._snackBar.openFromComponent(PasswordchangeComponent, {
+          duration: 2 * 1000,
+        });
             this.newobj=this.data;
             this.newobj.patientId = this.data.patientId;
             this.newobj.email = this.data.email;
@@ -112,15 +118,13 @@ export class EditpasswordComponent {
                 this.dialog.closeAll();
               }
           })
-      }
-      else
-      {
-        window.alert("Password Missmatch");
-      }
+      }      
     }
     else
     {
-      window.alert("Wrong Old Password");
+      this._snackBar.openFromComponent(WrongpasswordComponent, {
+        duration: 2 * 1000,
+      });
     }
     console.log(value);
     console.log(this.newobj);

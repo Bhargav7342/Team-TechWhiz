@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Allergy, PatientIntialCheckup } from 'src/app/Models/database.models';
 import { AllergyService } from 'src/app/Service/allergy.service';
+import { AppointmentService } from 'src/app/Service/appointment.service';
 import { NurseService } from 'src/app/Service/nurse.service';
 import { AddedsnackComponent } from 'src/app/Snackbars/addedsnack/addedsnack.component';
 
@@ -35,7 +36,7 @@ export class InitialcheckupComponent implements OnInit{
   }
   
   appointId:string|any='';
-  constructor(private _snackBar: MatSnackBar,private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService){
+  constructor(private _snackBar: MatSnackBar,private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService,private appointmentservice:AppointmentService){
     const nav=this.router.getCurrentNavigation()?.extras.state as {appId:string}
     this.appointId=nav.appId
     console.log(this.appointId);
@@ -56,7 +57,7 @@ export class InitialcheckupComponent implements OnInit{
     this.AddCheckUpDetail.bloodPressure=item.bloodPressure
     this.AddCheckUpDetail.sugarLevel=item.sugarLevel
     this.AddCheckUpDetail.additionalDetails=item.additionalDetails
-    this.AddCheckUpDetail.chechupStatus=true
+  
     console.log(this.AddCheckUpDetail);
 
     console.log(this.allarr);
@@ -91,6 +92,10 @@ export class InitialcheckupComponent implements OnInit{
                })
 
             }
+
+            this.appointmentservice.updateCheckUpStatus(this.AddCheckUpDetail.appointmentId,true).subscribe({
+              next:(res)=>console.log(res)
+            })
                 
               });              
               this._snackBar.openFromComponent(AddedsnackComponent, {
