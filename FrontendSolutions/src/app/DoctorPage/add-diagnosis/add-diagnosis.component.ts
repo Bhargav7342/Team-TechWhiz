@@ -53,11 +53,11 @@ export class AddDiagnosisComponent implements OnInit {
     bloodPressure :'',
     sugarLevel :0,
     additionalDetails :'',
-    chechupStatus :false
+    
   }
 
   
-  constructor(private _snackBar: MatSnackBar,private dialogbox: MatDialog,private dailog:MatDialog,private router:Router,private patientService:PatientServicesService,private appointmentService:NurseService,private allergyService:AllergyService,private docService:DoctorService){
+  constructor(private _snackBar: MatSnackBar,private dialogbox: MatDialog,private dailog:MatDialog,private router:Router,private patientService:PatientServicesService,private nurseService:NurseService,private allergyService:AllergyService,private docService:DoctorService,private appointmentService:AppointmentService){
     const nav=this.router.getCurrentNavigation()?.extras.state as{appointmentId:string,patientId:string,docname:string,docemail:string}
     this.appointmentId=nav.appointmentId;
     this.patientId=nav.patientId;
@@ -72,7 +72,7 @@ export class AddDiagnosisComponent implements OnInit {
         this.patientDet = response;
       }
     });
-    this.appointmentService.getCheckupInfo(this.appointmentId).subscribe({
+    this.nurseService.getCheckupInfo(this.appointmentId).subscribe({
       next:(response)=>{
         console.log(response);
         this.patientInitialDet=response;
@@ -146,6 +146,11 @@ export class AddDiagnosisComponent implements OnInit {
             })
           })
         }
+        this.appointmentService.updateAppointmentStatus(this.appointmentId,"Completed").subscribe({
+          next:(res)=>{
+            console.log(res);
+          }
+        })
         this._snackBar.openFromComponent(AddedsnackComponent, {
           duration: 3 * 1000,
         });

@@ -90,7 +90,9 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
         this._snackBar.openFromComponent(AppointmentacceptedComponent, {
           duration: 2 * 1000,
         });
-        this.router.navigate(['/pendingAppointments'],{state:{doctorId:this.docId}})
+        this.router.navigateByUrl('',{skipLocationChange:false}).then(()=>{
+          this.router.navigate(['/pendingAppointments'],{state:{doctorId:this.docId}})
+        })
       }
     });
   }
@@ -120,6 +122,5 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
   goBack()
   {
     this.router.navigate(['/doctor'],{state:{email:this.docemail,dname:this.docname}})
-
   }
 }

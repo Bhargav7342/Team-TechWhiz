@@ -61,6 +61,9 @@ import { AddedsnackComponent } from './Snackbars/addedsnack/addedsnack.component
 import { AppointmentacceptedComponent } from './Snackbars/appointmentaccepted/appointmentaccepted.component';
 import { AppointmentrejectedComponent } from './Snackbars/appointmentrejected/appointmentrejected.component';
 import { SuccessComponent } from './Snackbars/success/success.component';
+import { PasswordchangeComponent } from './Snackbars/passwordchange/passwordchange.component';
+import { WrongpasswordComponent } from './Snackbars/wrongpassword/wrongpassword.component';
+import { BookedComponent } from './Snackbars/booked/booked.component';
 
 
 @NgModule({
@@ -103,6 +106,9 @@ import { SuccessComponent } from './Snackbars/success/success.component';
       AppointmentacceptedComponent,
       AppointmentrejectedComponent,
       SuccessComponent,
+      PasswordchangeComponent,
+      WrongpasswordComponent,
+      BookedComponent,
     
     
   ],

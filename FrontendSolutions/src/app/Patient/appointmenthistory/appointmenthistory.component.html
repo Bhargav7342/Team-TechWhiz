@@ -25,7 +25,8 @@
               <button  mat-raised-button *ngSwitchCase="'Sent'" style="background-color:rgb(244, 209, 11); color:white"(click)="handleClick()">{{t.status}}</button>
               <button mat-raised-button *ngSwitchCase="'Accepted'" style="background-color:green;color:white"(click)="handleClick()">{{t.status}}</button>
               <button  mat-raised-button *ngSwitchCase="'Rejected'" style="background-color:red;color:white"(click)="handleClick()">{{t.status}}</button>
-  
+              <button  mat-raised-button *ngSwitchCase="'Completed'" style="background-color:rgb(0, 60, 255);color:white"(click)="handleClick()">{{t.status}}</button>
+              
           </div>
           </mat-card-actions>
         </div>

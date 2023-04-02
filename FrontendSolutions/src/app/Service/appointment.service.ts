@@ -46,6 +46,15 @@ export class AppointmentService {
 
   }
 
+  updateCheckUpStatus(appId:string,status:boolean):Observable<Appointment>
+  {
+    
+    
+    return this.http.put<Appointment>(this.baseApiUrl+'/Appointment/UpdateCheckUp?AppointmentId='+ appId+'&status1='+ status,status);
+
+  }
+
+
  
   
 }
