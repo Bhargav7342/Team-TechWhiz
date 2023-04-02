@@ -25,7 +25,7 @@ export class ViewCheckUpComponent implements OnInit{
     bloodPressure :'',
     sugarLevel :0,
     additionalDetails :'',
-    chechupStatus :false,
+   
   }
   dummydata:any;
   appointmentId:string|any='';

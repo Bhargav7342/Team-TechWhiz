@@ -71,6 +71,7 @@ export interface Appointment{
     doctorName:string;
     concerns:string;
     status:string;
+    checkupStatus :boolean;
 }
 
 //PatientIntialCheckup Table 
@@ -85,7 +86,7 @@ export interface PatientIntialCheckup{
     bloodPressure :string;
     sugarLevel :number;
     additionalDetails :string;
-    chechupStatus :boolean;
+    
 }
 
 //Allergy Table 
