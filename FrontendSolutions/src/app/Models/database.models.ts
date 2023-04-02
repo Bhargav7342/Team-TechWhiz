@@ -95,3 +95,24 @@ export interface Allergy{
     allergyName :string;
     appointmentId :string;
 }
+
+//Audit Table
+
+export interface Audit{
+    
+  patientEmail: string;
+  patientnameFirstName: string;
+  patientnameLastName: string;
+  date: string;
+  doctorName: string;
+  dignosis: string;
+  height: number;
+  weight: number;
+  temperature: number;
+  spo2: number;
+  bloodPressure: string;
+  sugarLevel: number;
+  additioanlDetails: string;
+  allergies: string;
+
+}
