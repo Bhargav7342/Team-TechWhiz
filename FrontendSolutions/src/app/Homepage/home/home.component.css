@@ -60,15 +60,7 @@
     color: white;
     bottom: 0;
   }
-  #heading{
-    padding-left: auto;
-    padding: 4%;
-    font-size: 4vw;
-    color: rgba(0, 0, 0, 0.881); 
-    font-weight:400;
-    text-shadow: 1px 1px 10px rgb(245, 245, 245);
-   
-  }
+ 
   #subheading{
     margin-left:3%;
     padding: 4%;

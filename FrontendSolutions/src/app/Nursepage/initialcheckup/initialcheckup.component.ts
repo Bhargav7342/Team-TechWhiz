@@ -74,24 +74,25 @@ export class InitialcheckupComponent implements OnInit{
                 
               }
               
-              if(this.allarr[0]=="None"){
-             this.allergyservice.AddAllergydetails(item1).subscribe({
-              next:(res1)=>{
-                console.log(res);
-                this.AddAllergydetails=res1
-              }
-             })
-            
-            }
-            else{
-              this.allergyservice.AddAllergydetails(item1).subscribe({
-                next:(res1)=>{
-                  console.log(res);
-                  this.AddAllergydetails=res1
-                }
-               })
+              if (this.allarr[0] == "None") 
+              {
+                this.allergyservice.AddAllergydetails(item1).subscribe({
+                  next: (res1) => {
+                    console.log(res);
+                    this.AddAllergydetails = res1
+                  }
+                })
 
-            }
+              }
+              else {
+                this.allergyservice.AddAllergydetails(item1).subscribe({
+                  next: (res1) => {
+                    console.log(res);
+                    this.AddAllergydetails = res1
+                  }
+                })
+
+              }
 
             this.appointmentservice.updateCheckUpStatus(this.AddCheckUpDetail.appointmentId,true).subscribe({
               next:(res)=>console.log(res)
