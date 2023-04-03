@@ -5,7 +5,7 @@ mat-grid-list {
 mat-card{
     width:80%;
     padding: 10%;
-    font-size: large;
+    font-size: 0.9vw;
     border-radius: 10%;
     box-shadow: 7px 7px rgb(105, 18, 120);
     background-color: rgba(219, 215, 215, 0.753)

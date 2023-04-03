@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .wrapper{
-    margin-top: 200px;
+    margin-top: 2%;
     max-width: 600px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
