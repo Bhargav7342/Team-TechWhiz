@@ -5,13 +5,14 @@ import { Doctor } from 'src/app/Models/database.models';
 import { AvailabilityService } from 'src/app/Service/availability.service';
 import { AddAvailabilityComponent } from '../add-availability/add-availability.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddedsnackComponent } from 'src/app/Snackbars/addedsnack/addedsnack.component';
 @Component({
   selector: 'app-add-doctor',
   templateUrl: './add-doctor.component.html',
   styleUrls: ['./add-doctor.component.css']
 })
 export class AddDoctorComponent {
-  constructor(private dialogbox:MatDialog,private availabilityService:AvailabilityService,private router:Router){}
+  constructor(private dialogbox:MatDialog,private availabilityService:AvailabilityService,private router:Router,private _snackBar: MatSnackBar){}
 
   doctor:Doctor={
     doctorId:'',
@@ -30,7 +31,6 @@ export class AddDoctorComponent {
         console.log(response)
         this.doctor = response;
         console.log(this.doctor.doctorId);
-        window.alert("Failed");
 
         this.dialogbox.open(AddAvailabilityComponent, {
           height: '400px',
