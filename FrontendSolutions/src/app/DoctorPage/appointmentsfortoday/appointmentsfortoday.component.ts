@@ -25,16 +25,13 @@ export class AppointmentsfortodayComponent implements OnInit{
     const sleep=(ms:number |undefined)=>new Promise(r=>setTimeout(r,ms));
     await sleep(3000);
     this.docid=sessionStorage.getItem('docId')
-    console.log(this.docid+"ds")
     this.doctorservice.GetAppointmentsAfterCheckup(this.dateString,this.docid).subscribe({
       next:(response)=>{
         this.appointments=response;
-        console.log(response);
         response.forEach(element => {
           this.patientservice.getPatientById(element.patientId).subscribe({
             next:(res)=>{
               this.patient.push(res); 
-              console.log(res); 
             }
           })
             

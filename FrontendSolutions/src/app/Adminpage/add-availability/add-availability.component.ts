@@ -28,10 +28,8 @@ export class AddAvailabilityComponent {
   addAvailability(item:any){
     this.days=item
     this.days.doctorId=this.data.dataKey
-    console.log(this.data)
     this.availabilityService.addAvailability(this.days).subscribe({
       next:(response)=>{
-      console.log(response)
       this._snackBar.openFromComponent(AddedsnackComponent, {
         duration: 3 * 1000,
       });

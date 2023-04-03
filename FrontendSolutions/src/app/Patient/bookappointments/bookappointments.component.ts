@@ -38,12 +38,10 @@ export class BookappointmentsComponent implements   OnInit {
     this.pemailId=nav.pemail;
   }
   ngOnInit(): void {
-    console.log(this.pemailId)
     throw new Error('Method not implemented.');
   }
-  bookAppointment(item: any) {
-
-    console.log(item);
+  bookAppointment(item: any) 
+  {
     this.appdate=item.date;
     const docinfo:String=(item.doctor.split(",",2));
     const item1:any={
@@ -56,17 +54,13 @@ export class BookappointmentsComponent implements   OnInit {
     }
 
     var maildate=this.custdate.transform(this.appdate);
-    console.log(maildate);
-    console.log(item1);
 
     this.appointmentService.bookAppointment(item1).subscribe({
       next:(response)=>
       {
-        console.log(response);
         {
           this.appointmentService1.sendEmail(this.pemailId,maildate,"Sent").subscribe({
             next:(response)=>{
-                console.log(response);  
               }
             });
             this._snackBar.openFromComponent(BookedComponent, {
@@ -88,15 +82,11 @@ export class BookappointmentsComponent implements   OnInit {
   findDocter(){
   const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
   const date = new Date(this.date1);
-  console.log(weekday[date.getDay()]);
   this.availabilityService.getAllDoctorbyAvailability(weekday[date.getDay()]).subscribe({
     next:(response)=>{
-      console.log(response);
       this.availableDoctors=response;
     }
   })
 
 }
-
-
 }

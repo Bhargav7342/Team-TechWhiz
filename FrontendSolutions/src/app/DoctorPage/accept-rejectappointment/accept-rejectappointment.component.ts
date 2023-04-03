@@ -39,12 +39,10 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
     this.doctorservice.getAllAppointmetsBydoctorandstatus(this.docId,"Sent").subscribe({
       next:(response)=>{
         this.appointments=response;
-        console.log(response);
         response.forEach(element => {
           this.patientservice.getPatientById(element.patientId).subscribe({
             next:(res)=>{
               this.patients.push(res); 
-              console.log(res); 
             }
           })
             
@@ -57,12 +55,10 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
     this.doctorservice.getAllAppointmetsBydoctorandstatus(this.docId,"Sent").subscribe({
       next:(response)=>{
         this.appointments=response;
-        console.log(response);
         response.forEach(element => {
           this.patientservice.getPatientById(element.patientId).subscribe({
             next:(res)=>{
               this.patients.push(res); 
-              console.log(res); 
             }
           })
             
@@ -83,7 +79,6 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
       next:(response)=>{
         this.emailservice.sendEmail(this.pemail,this.date,"Accepted").subscribe({
           next:(response)=>{
-              console.log(response);  
             }
           });
         console.log(response);
@@ -106,13 +101,11 @@ export class AcceptRejectappointmentComponent implements OnChanges, OnInit{
       next:(response)=>{
         this.emailservice.sendEmail(this.pemail,this.date,"Rejected").subscribe({
           next:(response)=>{
-              console.log(response);  
             }
           });
           this._snackBar.openFromComponent(AppointmentrejectedComponent, {
             duration: 2 * 1000,
           });
-        console.log(response);
         this.router.navigateByUrl('',{skipLocationChange:false}).then(()=>{
           this.router.navigate(['/pendingAppointments'],{state:{doctorId:this.docId}})
         })

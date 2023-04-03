@@ -28,7 +28,6 @@ export class HealthhistoryComponent implements OnInit{
       this.hhservices.getHealthHistorybyPatientId(this.patientId).subscribe({
         next:(response)=>{
           this.health=response;
-          console.log(response);
         }
       })
       }

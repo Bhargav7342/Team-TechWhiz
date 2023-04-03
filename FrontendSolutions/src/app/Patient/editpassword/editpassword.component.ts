@@ -80,9 +80,6 @@ export class EditpasswordComponent {
   ngOnInit(): void {
     this.editdata=this.data;
 
-   
-  console.log(this.editdata);
-  console.log(typeof(this.editdata.DOB));
    this.date = new Date(this.editdata.dateOfBirth);
    this.date.setDate(this.date.getDate());
   }
@@ -98,8 +95,6 @@ export class EditpasswordComponent {
   }
   Save(value: any) {
     this.formdata=value
-    // this.newobj = item;
-
     if(this.formdata.currentpassword ===this.data.password)
     {
       if(this.formdata.newpassword===this.formdata.renewpassword)
@@ -111,10 +106,8 @@ export class EditpasswordComponent {
             this.newobj.patientId = this.data.patientId;
             this.newobj.email = this.data.email;
             this.newobj.password=this.formdata.newpassword;
-            console.log(this.newobj);
             this.patientService.updatePatient(this.newobj.email, this.newobj).subscribe({
               next: (response) => {
-                console.log("Response : "+response);
                 this.dialog.closeAll();
               }
           })
@@ -126,8 +119,5 @@ export class EditpasswordComponent {
         duration: 2 * 1000,
       });
     }
-    console.log(value);
-    console.log(this.newobj);
   }
-
 }

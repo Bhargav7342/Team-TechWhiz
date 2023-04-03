@@ -22,8 +22,6 @@ export class HealthHistoryNurseComponent implements OnInit{
     
     const nav=this.router.getCurrentNavigation()?.extras.state as {pId:string}
     this.patientId=nav.pId
-    console.log(this.patientId);
-    
     
   }
   
@@ -33,7 +31,6 @@ export class HealthHistoryNurseComponent implements OnInit{
       this.hhservices.getHealthHistorybyPatientId(this.patientId).subscribe({
         next:(response)=>{
           this.health=response;
-          console.log(response);
         }
       })
       }

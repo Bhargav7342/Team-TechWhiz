@@ -22,8 +22,6 @@ export class AppointmenthistoryComponent implements OnInit {
    this.appointmentService.getAppointmentByPatientId(this.patientId).subscribe({
     next:(response)=>{
       this.appointments=response;
-      console.log(response[0].doctorName);
-      console.log(this.appointments)
     },
     error:(response)=>{
       window.alert("Something is wrong");

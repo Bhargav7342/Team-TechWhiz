@@ -16,10 +16,8 @@ export class PatientLoginComponent {
 
 
   signinFunc(event: any){
-        console.log(event.Email);
     this.patientService.patientLogin(event.Email,event.Password).subscribe({
       next:(response)=>{
-        console.log(response);
         
         sessionStorage.setItem('pid',response.patientId);
         sessionStorage.setItem('pemail',response.email);

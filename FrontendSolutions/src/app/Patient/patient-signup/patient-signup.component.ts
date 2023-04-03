@@ -46,16 +46,11 @@ export class PatientSignupComponent {
     bloodGroup:'',
   }
   signup(item: any){
-    console.log(item.DateOfBirth);
     this.addPatient=item;
-    console.log(item.DateOfBirth)
     this.addPatient.dateOfBirth=item.DateOfBirth
-    console.log(this.addPatient.dateOfBirth)
     this.patientService.patientRegister(item).subscribe({
       next:(response)=>{
         this.addPatient=item;
-        console.log(response);
-        console.log(item.DateOfBirth);
         this._snackBar.openFromComponent(SuccessComponent, {
           duration: 3 * 1000,
         });
