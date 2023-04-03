@@ -67,22 +67,23 @@
                 </mat-grid-tile>
                 <mat-grid-tile>
                   <mat-form-field class="example-full-width">
+                    <mat-label>Zipcode</mat-label>
+                    <input type="Zipcode" matInput placeholder="Enter Zipcode" (change)="findCityState()" value="" name="Zipcode" [(ngModel)]="addPatient.zipcode" pattern="\d{6}" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
                     <mat-label>City</mat-label>
-                    <input type="City" matInput placeholder="Enter City" value="" name="City" ngModel required>
+                    <input type="City" matInput placeholder="Enter City" value="" name="City" [(ngModel)]="addPatient.city" required>
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                   <mat-form-field class="example-full-width">
                     <mat-label>State</mat-label>
-                    <input type="State" matInput placeholder="Enter State" value="" name="State" ngModel required>
+                    <input type="State" matInput placeholder="Enter State" value="" name="State" [(ngModel)]="addPatient.state" required>
                     </mat-form-field>
                 </mat-grid-tile>
-                <mat-grid-tile>
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Zipcode</mat-label>
-                    <input type="Zipcode" matInput placeholder="Enter Zipcode" value="" name="Zipcode" ngModel pattern="\d{6}" required>
-                    </mat-form-field>
-                </mat-grid-tile>
+                
               </mat-grid-list>
               
               <button mat-button color="primary" type="submit" id="bt1" [disabled]="!signupForm.form.valid" >Sign Up</button>
