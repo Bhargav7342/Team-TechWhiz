@@ -1,17 +1,18 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Doctor, PhysicianAvailabilityStatus } from 'src/app/Models/database.models';
+import {PhysicianAvailabilityStatus } from 'src/app/Models/database.models';
 import { AvailabilityService } from 'src/app/Service/availability.service';
-import { AvailabilityComponent } from '../availability/availability.component';
+import { AddedsnackComponent } from 'src/app/Snackbars/addedsnack/addedsnack.component';
 
 @Component({
   selector: 'app-add-availability',
   templateUrl: './add-availability.component.html',
 })
 export class AddAvailabilityComponent {
-  constructor(private _formBuilder: FormBuilder,private router:Router,private availabilityService:AvailabilityService,@Inject(MAT_DIALOG_DATA) public data:any) {}
+  constructor(private _snackBar: MatSnackBar,private _formBuilder: FormBuilder,private router:Router,private availabilityService:AvailabilityService,@Inject(MAT_DIALOG_DATA) public data:any) {}
   
   days:PhysicianAvailabilityStatus=({
     availabilityId :'',
@@ -31,7 +32,9 @@ export class AddAvailabilityComponent {
     this.availabilityService.addAvailability(this.days).subscribe({
       next:(response)=>{
       console.log(response)
-      window.alert("Availability added for the Doctor")
+      this._snackBar.openFromComponent(AddedsnackComponent, {
+        duration: 3 * 1000,
+      });
       }
     })
     
