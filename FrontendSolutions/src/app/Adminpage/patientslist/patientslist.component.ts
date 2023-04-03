@@ -14,7 +14,6 @@ export class PatientslistComponent implements OnInit  {
     this.patientService.getAllPatient().subscribe({
       next:(response)=>{
         this.patients=response
-        console.log(response)
         this.dataSource = this.patients;
       },
       error:(e)=>

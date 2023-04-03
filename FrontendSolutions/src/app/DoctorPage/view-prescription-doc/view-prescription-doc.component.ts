@@ -12,9 +12,7 @@ export class ViewPrescriptionDocComponent implements OnInit {
   prescription:any[]=[];
   constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
   ngOnInit(): void {
-    console.log(this.data);
     this.prescription=this.data.datakey;
-    console.log(this.prescription)
     this.dataSource=this.prescription
   }
   @ViewChild(MatTable) table: MatTable<Prescription> | undefined;
@@ -23,9 +21,7 @@ export class ViewPrescriptionDocComponent implements OnInit {
   
   removep(item:any)
   {
-      console.log(item)
       this.prescription.splice(this.prescription.indexOf(item),1);
-      console.log(this.dataSource);
       this.table?.renderRows();
   }
 }

@@ -27,16 +27,13 @@ export class NurseComponent  implements OnInit{
     
   }
   ngOnInit(): void {
-   console.log(this.dateString);
    this.appointmentService.getAllAppointmets(this.dateString).subscribe({
     next:(response)=>{
       this.appointments=response;
-      console.log(response);
     response.forEach(element => {
       this.patientService.getPatientById(element.patientId).subscribe({
         next:(res)=>{
           this.patients.push(res); 
-          console.log(res); 
         }
       })
         
@@ -57,12 +54,7 @@ export class NurseComponent  implements OnInit{
     this.router.navigate(['/healthHistoryNurse'],{state:{pId:patientId}})
 
   }
-
- 
-
      added:boolean=false;
 
-       
-      
       }
 

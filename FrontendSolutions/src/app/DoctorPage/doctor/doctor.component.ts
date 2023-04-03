@@ -20,8 +20,6 @@ export class DoctorComponent  {
         this.docid=response.doctorId;
         this.dname=response.doctorName
         sessionStorage.setItem('docId',this.docid);
-        console.log(response);
-        console.log(this.docid);
       }
     })
   }

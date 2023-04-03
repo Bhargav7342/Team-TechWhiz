@@ -31,22 +31,17 @@ export class ViewCheckUpComponent implements OnInit{
   appointmentId:string|any='';
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private checkupservice:NurseService,private allergyService:AllergyService){
     this.appointmentId=this.data.dataKey
-    console.log(this.appointmentId)
   }
   status:string='';
   ngOnInit(): void {
 
     this.checkupservice.getCheckupInfo(this.appointmentId).subscribe({
       next:(response)=>{
-        console.log(response);
         this.checkupdata=response;
-        console.log(this.checkupdata)
-
       }
     })
     this.allergyService.getAllAllergy(this.appointmentId).subscribe({
       next:(response)=>{
-        console.log(response);
         if(response!=null)
         {
           this.allergy=response;

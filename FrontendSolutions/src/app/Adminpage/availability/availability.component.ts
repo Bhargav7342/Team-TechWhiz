@@ -31,29 +31,24 @@ export class AvailabilityComponent implements OnInit{
   dname:string='';
   constructor(private _snackBar: MatSnackBar,private route:ActivatedRoute,private _formBuilder: FormBuilder,private router:Router,private availabilityservice:AvailabilityService) {
     const nav=this.router.getCurrentNavigation()?.extras.state as {email:string,name:string}
-    console.log(nav.email);
     this.email=nav.email;
     this.dname=nav.name;
   }
   ngOnInit(): void {
     this.availabilityservice.getDoctorIdbyEmail(this.email).subscribe({
       next:(response)=>{
-        console.log(response);
         this.availabilityservice.getStatusByDoctorId(response.doctorId).subscribe({
           next:(response1)=>{
-            console.log(response1);
             this.days=response1
           }
         })
       }
     })
-    console.log(this.docid);
     
   }
   saveAvailability() {
     this.availabilityservice.updateDoctorAvailablity(this.days).subscribe({
       next:(resonse)=>{
-        console.log(resonse);
         
         this._snackBar.openFromComponent(AddedsnackComponent, {
           duration: 3 * 1000,

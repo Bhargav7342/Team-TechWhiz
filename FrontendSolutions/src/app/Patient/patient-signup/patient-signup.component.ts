@@ -61,8 +61,6 @@ export class PatientSignupComponent {
     this.patientService.patientRegister(item).subscribe({
       next:(response)=>{
         this.addPatient=item;
-        console.log(response);
-        console.log(item.DateOfBirth);
         this._snackBar.openFromComponent(SuccessComponent, {
           duration: 3 * 1000,
         });

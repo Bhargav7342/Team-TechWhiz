@@ -12,7 +12,6 @@ export class PrescriptionComponent {
   
   
   addPre(item:any){
-    console.log(item);
     this.dailog.close({data:item});
   }
 }

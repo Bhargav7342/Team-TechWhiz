@@ -18,6 +18,4 @@ export class PatientDashboardComponent implements OnInit{
     this.patientEmail=sessionStorage.getItem('pemail');
     this.patientName=sessionStorage.getItem('pname');
   }
- 
-  
 }

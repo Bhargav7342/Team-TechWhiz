@@ -140,9 +140,7 @@ export class AddDiagnosisComponent implements OnInit {
   Clicked(){
     let dialogref=this.dailog.open(PrescriptionComponent);
     dialogref.afterClosed().subscribe(res=>{
-      console.log(res);
       this.prescriptions.push(res.data);
-      console.log(this.prescriptions);
     })
   }
 
@@ -171,13 +169,10 @@ export class AddDiagnosisComponent implements OnInit {
     this.auditdata.dignosis=this.diagnosis;
     this.docService.AddHealthHistory(diagData).subscribe({
       next:(response)=>{
-        console.log(this.auditdata);
         this.auditservice.AddAudits(this.auditdata).subscribe({
           next:(res)=>{
-            console.log(res);
           }
         })
-        console.log(response);
         hhId=response.hhId
         if(hhId!='')
         {
@@ -190,17 +185,14 @@ export class AddDiagnosisComponent implements OnInit {
             }
             this.docService.AddPrescription(item1).subscribe({
               next:(response)=>{
-                console.log(response);
               },
               error:(response)=>{
-                console.log(response);
               }
             })
           })
         }
         this.appointmentService.updateAppointmentStatus(this.appointmentId,"Completed").subscribe({
           next:(res)=>{
-            console.log(res);
           }
         })
         this._snackBar.openFromComponent(AddedsnackComponent, {
@@ -208,12 +200,10 @@ export class AddDiagnosisComponent implements OnInit {
         });
       },
       error:(response)=>{
-        console.log(response);
+
       }
    
     })
-    
-    console.log(this.prescriptions);
 
     
     this.router.navigate(['/doctor'],{state:{email:this.docemail,dname:this.doctorName}});
@@ -221,8 +211,6 @@ export class AddDiagnosisComponent implements OnInit {
 
 
   viewHealthHistory(){
-
-    // this.router.navigate(['/healthHistoryDoctor'],{state:{pId:this.patientId,fromOut:true}});
     this.dialogbox.open(ViewHealthHistoryDocComponent,{
       height:'700px',
       width:'1000px',

@@ -39,7 +39,6 @@ export class InitialcheckupComponent implements OnInit{
   constructor(private _snackBar: MatSnackBar,private router:Router,private initialcheckupservice:NurseService,private route:ActivatedRoute,private allergyservice:AllergyService,private appointmentservice:AppointmentService){
     const nav=this.router.getCurrentNavigation()?.extras.state as {appId:string}
     this.appointId=nav.appId
-    console.log(this.appointId);
     
   }
 
@@ -58,13 +57,9 @@ export class InitialcheckupComponent implements OnInit{
     this.AddCheckUpDetail.sugarLevel=item.sugarLevel
     this.AddCheckUpDetail.additionalDetails=item.additionalDetails
   
-    console.log(this.AddCheckUpDetail);
-
-    console.log(this.allarr);
   
           this.initialcheckupservice.AddCheckUpDetails(this.AddCheckUpDetail).subscribe({
               next:(res)=>{
-                console.log(res);
                 this.AddCheckUpDetail=res;
                 
             this.allarr.forEach(element => {
@@ -78,7 +73,6 @@ export class InitialcheckupComponent implements OnInit{
               {
                 this.allergyservice.AddAllergydetails(item1).subscribe({
                   next: (res1) => {
-                    console.log(res);
                     this.AddAllergydetails = res1
                   }
                 })
@@ -87,7 +81,6 @@ export class InitialcheckupComponent implements OnInit{
               else {
                 this.allergyservice.AddAllergydetails(item1).subscribe({
                   next: (res1) => {
-                    console.log(res);
                     this.AddAllergydetails = res1
                   }
                 })
@@ -95,7 +88,9 @@ export class InitialcheckupComponent implements OnInit{
               }
 
             this.appointmentservice.updateCheckUpStatus(this.AddCheckUpDetail.appointmentId,true).subscribe({
-              next:(res)=>console.log(res)
+              next:(res)=>{
+
+              }
             })
                 
               });              

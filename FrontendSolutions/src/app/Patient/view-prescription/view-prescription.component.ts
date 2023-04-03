@@ -15,12 +15,10 @@ export class ViewPrescriptionComponent implements OnInit{
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private preservices:PatientServicesService){}
   ngOnInit(): void {
     this.hhid=this.data.dataKey
-    console.log(this.hhid);
     this.preservices.getPrescriptionByHHID(this.hhid).subscribe({
       next:(response)=>{
         this.prescription=response
         this.dataSource=this.prescription
-        console.log(response);
       }
     })
   }

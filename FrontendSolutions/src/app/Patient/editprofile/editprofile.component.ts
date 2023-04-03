@@ -40,10 +40,6 @@ export class EditprofileComponent {
   
   ngOnInit(): void {
     this.editdata=this.data;
-
-   
-  console.log(this.editdata);
-  console.log(typeof(this.editdata.DOB));
    this.date = new Date(this.editdata.dateOfBirth);
    this.date.setDate(this.date.getDate());
   }
@@ -71,7 +67,6 @@ export class EditprofileComponent {
 
     this.patientService.updatePatient(this.newobj.email, this.newobj).subscribe({
         next: (response) => {
-          console.log("Response : "+response);
         }
     })
     this._snackBar.openFromComponent(AddedsnackComponent, {

@@ -27,7 +27,6 @@ export class ViewHealthHistoryDocComponent implements OnInit{
       this.hhservices.getHealthHistorybyPatientId(this.patientId).subscribe({
         next:(response)=>{
           this.health=response;
-          console.log(response);
         }
       })
       }
@@ -53,6 +52,6 @@ openDialog2(value:string){
 }
 goBack()
 {
-  // this.router.navigate(['/doctor']);
+  
 }
 }

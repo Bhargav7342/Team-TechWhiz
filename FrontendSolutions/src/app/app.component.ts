@@ -20,37 +20,28 @@ export class AppComponent {
   constructor(public auth: AuthService,private router: Router) {}
   ngOnInit(): void {
     this.auth.user$.subscribe((profile)=> {
-    console.log(profile);
       this.email=profile?.email;
       this.name=profile?.name;
       this.docmail=profile?.email;
       this.docname=profile?.name;
-      console.log(this.email);
-      console.log(this.name);
       
       if(this.email.includes(this.name1))
       {
-        console.log("Doctor Page");
         this.router.navigate(['/doctor'],{state:{email:this.docmail,dname:this.docname}})
       }
       if(this.email.includes(this.name2))
       {
-        console.log("Nurse Page");
         this.router.navigate(['/nurse'],{replaceUrl:true})
       }
       if(this.email.includes(this.name3))
       {
-        console.log("Admin Page");
-        this.router.navigate(['/admin'],{replaceUrl:true})
-        
+        this.router.navigate(['/admin'],{replaceUrl:true}) 
       }
   })
 };
 
   loginWithRedirect(){
     this.auth.loginWithRedirect();
- 
-    console.log(this.email);
   }
 
   logout(){

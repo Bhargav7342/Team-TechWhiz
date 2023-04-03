@@ -24,13 +24,10 @@ export class AddDoctorComponent {
   docid:string="";
 
   AddDoctor(item:any) {
-    console.log(item);
     this.availabilityService.addDoctor(item).subscribe({
       next: (response) => {
         sessionStorage.setItem('addDocId', response.doctorId);
-        console.log(response)
         this.doctor = response;
-        console.log(this.doctor.doctorId);
 
         this.dialogbox.open(AddAvailabilityComponent, {
           height: '400px',

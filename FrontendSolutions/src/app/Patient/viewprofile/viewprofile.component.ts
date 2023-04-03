@@ -34,17 +34,14 @@ export class ViewprofileComponent implements OnInit {
 
   ngOnInit(): void {
     this.pid=this.patientId;
-    console.log(this.pid);
     this.patientService.getPatientById(this.pid).subscribe({
       next:(response)=>{
-        console.log(response);
         this.signupobj = response;
       }
     })
 
   }
   
-    //address: string = this.signupobj.city + ', ' + this.signupobj.state + ', ' + this.signupobj.zipcode; 
 
   editprofile(){
     this.dialog.open(EditprofileComponent, {
