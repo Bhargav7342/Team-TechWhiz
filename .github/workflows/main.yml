@@ -1,0 +1,50 @@
+name: Build
+on:
+ push:
+   branches:
+     - master
+ pull_request:
+   types: [opened, synchronize, reopened]
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'FrontendSolutions'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: npm run build --prod
+
+      - name: Run tests and generate coverage report
+        run: npm run test:coverage
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: ./FrontendSolutions
+          args: >
+            -Dsonar.projectKey=221219-dotnet-fs-chennai_Team-TechWhiz
+            -Dsonar.organization=221219-dotnet-fs-chennai
+            -Dsonar.host.url=https://sonarcloud.io
+
+      - name: Upload test coverage report to SonarCloud
+        run: curl -X POST -H \
+          -H 'Content-Type:application/json' \
+          -H 'Authorization:Basic [SONAR_TOKEN]' \
+          -d @./coverage/lcov.info \ 
+          https://sonarcloud.io/api/test-coverage
