@@ -6,6 +6,7 @@ import { PatientServicesService } from 'src/app/Service/patient-services.service
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SuccessComponent } from 'src/app/Snackbars/success/success.component';
+import { CityStateService } from 'src/app/Service/city-state.service';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -30,7 +31,7 @@ export const MY_DATE_FORMATS = {
 })
 export class PatientSignupComponent {
 
-  constructor(private router:Router,private patientService:PatientServicesService,private _snackBar: MatSnackBar){}
+  constructor(private router:Router,private patientService:PatientServicesService,private _snackBar: MatSnackBar,private citystateService:CityStateService){}
   addPatient:Patient={
     patientId:'',
     firstName:'',
@@ -45,12 +46,18 @@ export class PatientSignupComponent {
     zipcode:'',
     bloodGroup:'',
   }
+  findCityState(){
+    this.citystateService.getlocation(this.addPatient.zipcode).subscribe({
+      next:(res)=>{
+        console.log(res[0]);
+        this.addPatient.state=res[0].PostOffice[0].State;
+        this.addPatient.city=res[0].PostOffice[0].District
+      }
+    })
+  }
   signup(item: any){
-    console.log(item.DateOfBirth);
     this.addPatient=item;
-    console.log(item.DateOfBirth)
     this.addPatient.dateOfBirth=item.DateOfBirth
-    console.log(this.addPatient.dateOfBirth)
     this.patientService.patientRegister(item).subscribe({
       next:(response)=>{
         this.addPatient=item;
