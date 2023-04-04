@@ -64,6 +64,7 @@ import { SuccessComponent } from './Snackbars/success/success.component';
 import { PasswordchangeComponent } from './Snackbars/passwordchange/passwordchange.component';
 import { WrongpasswordComponent } from './Snackbars/wrongpassword/wrongpassword.component';
 import { BookedComponent } from './Snackbars/booked/booked.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -143,7 +144,8 @@ import { BookedComponent } from './Snackbars/booked/booked.component';
     MatNativeDateModule,
     HttpClientModule,
     MatMomentDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBadgeModule
 
   ],
   
