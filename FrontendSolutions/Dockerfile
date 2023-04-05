@@ -1,10 +1,12 @@
-FROM node:alpine AS builder
+FROM node:14.20-alpine as build-step
+RUN mkdir -p /app
 WORKDIR /app
-COPY . .
+COPY package.json /app
 RUN npm install
-RUN npm run build
+COPY . /app
 
-FROM nginx
+RUN npm i && npm run build
 
-COPY --from=builder /app/dist/hmsauth /usr/share/nginx/html/
-EXPOSE 80
+# Stage 2
+FROM nginx:1.17.1-alpine
+COPY --from=build-step /app/dist/hmsauth /usr/share/nginx/html
