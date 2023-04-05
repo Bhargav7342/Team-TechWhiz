@@ -86,7 +86,6 @@ export class AddDiagnosisComponent implements OnInit {
   ngOnInit(): void {
     this.patientService.getPatientById(this.patientId).subscribe({
       next: (response) => {
-        console.log(response);
         this.patientDet = response;
         this.auditdata.patientEmail = this.patientDet.email;
         this.auditdata.patientnameFirstName = this.patientDet.firstName;
@@ -95,7 +94,6 @@ export class AddDiagnosisComponent implements OnInit {
     });
     this.nurseService.getCheckupInfo(this.appointmentId).subscribe({
       next:(response)=>{
-        console.log(response);
         this.patientInitialDet=response;
         this.auditdata.height=this.patientInitialDet.height;
         this.auditdata.weight=this.patientInitialDet.weight;
@@ -108,14 +106,11 @@ export class AddDiagnosisComponent implements OnInit {
     });
     this.allergyService.getAllAllergy(this.appointmentId).subscribe({
       next:(response)=>{
-        console.log(response);
         if(response!=null)
         {
           this.allergy=response;
-          console.log(this.allergy);
           let a='';
           response.forEach(Element=>{
-            console.log(Element.allergyName)
             
             a+=Element.allergyName+', ';
             this.auditdata.allergies=a;
@@ -129,9 +124,7 @@ export class AddDiagnosisComponent implements OnInit {
     
     this.auditdata.date=new Date().toISOString().slice(0, 10);
     this.auditdata.doctorName=this.doctorName;
-   
-    
-    console.log(this.auditdata);
+
   }
 
   
