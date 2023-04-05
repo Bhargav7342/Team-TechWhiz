@@ -26,6 +26,7 @@
     "@auth0/auth0-angular": "^2.0.2",
     "crypto-hash": "^2.0.1",
     "js-sha256": "^0.9.0",
+    "moment": "^2.29.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
