@@ -1,7 +1,7 @@
 FROM node:alpine AS builder
 WORKDIR /app
 COPY . .
-RUN npm install
+RUN npm ci
 RUN npm run build
 
 FROM nginx
