@@ -26,4 +26,4 @@ jobs:
           context: .
           file: FrontendSolutions/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ui:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/HMS-UI:latest
