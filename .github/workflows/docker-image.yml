@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-            docker build -t bhargavbhat2000/hmsui .
+            docker build -t bhargavbhat2000/hmsui -f FrontendSolutions/Dockerfile .
             docker login bhargavbhat2000 -u bhargavbhat2000 -p $DOCKER_PASSWORD
             docker push bhargavbhat/hmsui
