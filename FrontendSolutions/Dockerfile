@@ -3,7 +3,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY FrontendSolutions/package.json /app
 RUN npm install
-COPY . /app
+COPY FrontendSolutions /app
 RUN npm i && npm run build
 
 # Stage 2
