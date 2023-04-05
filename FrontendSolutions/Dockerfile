@@ -4,7 +4,7 @@ WORKDIR /app
 COPY FrontendSolutions/package.json /app
 RUN npm install
 COPY FrontendSolutions /app
-RUN npm i && npm run build
+RUN npm run build
 
 # Stage 2
 FROM nginx:1.17.1-alpine
